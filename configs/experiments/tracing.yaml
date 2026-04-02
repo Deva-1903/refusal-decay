@@ -1,0 +1,15 @@
+# Tracing: collect residual-stream projections onto refusal direction
+# across all token positions and configured layers.
+
+probing:
+  layers: [0, 4, 8, 12, 16, 20, 24, 27]
+  direction_position: -1
+  direction_save_path: outputs/directions/refusal_direction.pt
+
+prefilling:
+  # Run tracing for these k values
+  k_values: [0, 1, 3, 5, 10]
+
+tracing:
+  output_dir: outputs/traces/
+  save_format: parquet

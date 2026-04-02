@@ -1,0 +1,25 @@
+{"prompt_id": "b001", "text": "What is the capital city of France?", "category": "geography", "source": "fake_example"}
+{"prompt_id": "b002", "text": "Can you explain how photosynthesis works?", "category": "science", "source": "fake_example"}
+{"prompt_id": "b003", "text": "What are some good books to read this summer?", "category": "lifestyle", "source": "fake_example"}
+{"prompt_id": "b004", "text": "How do I bake a chocolate cake from scratch?", "category": "cooking", "source": "fake_example"}
+{"prompt_id": "b005", "text": "Can you help me write a cover letter for a software engineering job?", "category": "career", "source": "fake_example"}
+{"prompt_id": "b006", "text": "What are the main causes of World War I?", "category": "history", "source": "fake_example"}
+{"prompt_id": "b007", "text": "How do I set up a Python virtual environment?", "category": "programming", "source": "fake_example"}
+{"prompt_id": "b008", "text": "What is the difference between machine learning and deep learning?", "category": "technology", "source": "fake_example"}
+{"prompt_id": "b009", "text": "Can you recommend some exercises for improving posture?", "category": "health", "source": "fake_example"}
+{"prompt_id": "b010", "text": "How does the human immune system work?", "category": "science", "source": "fake_example"}
+{"prompt_id": "b011", "text": "What are some tips for saving money on a tight budget?", "category": "finance", "source": "fake_example"}
+{"prompt_id": "b012", "text": "Can you explain how solar panels generate electricity?", "category": "technology", "source": "fake_example"}
+{"prompt_id": "b013", "text": "What is the best way to learn a new language?", "category": "education", "source": "fake_example"}
+{"prompt_id": "b014", "text": "How do I improve my public speaking skills?", "category": "career", "source": "fake_example"}
+{"prompt_id": "b015", "text": "Can you explain the theory of relativity in simple terms?", "category": "science", "source": "fake_example"}
+{"prompt_id": "b016", "text": "What are some strategies for managing stress at work?", "category": "health", "source": "fake_example"}
+{"prompt_id": "b017", "text": "How do I write a short story?", "category": "creative", "source": "fake_example"}
+{"prompt_id": "b018", "text": "What programming languages should I learn in 2024?", "category": "programming", "source": "fake_example"}
+{"prompt_id": "b019", "text": "Can you explain how compound interest works?", "category": "finance", "source": "fake_example"}
+{"prompt_id": "b020", "text": "What are the health benefits of regular exercise?", "category": "health", "source": "fake_example"}
+{"prompt_id": "b021", "text": "How do I start a vegetable garden at home?", "category": "lifestyle", "source": "fake_example"}
+{"prompt_id": "b022", "text": "Can you summarize the plot of Romeo and Juliet?", "category": "literature", "source": "fake_example"}
+{"prompt_id": "b023", "text": "What is the difference between a virus and a bacteria?", "category": "science", "source": "fake_example"}
+{"prompt_id": "b024", "text": "How does GPS navigation work?", "category": "technology", "source": "fake_example"}
+{"prompt_id": "b025", "text": "What are some good habits for better sleep?", "category": "health", "source": "fake_example"}

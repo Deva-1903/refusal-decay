@@ -1,0 +1,11 @@
+# Model override: Llama-3.2-3B-Instruct
+# This is the default in base.yaml, kept here for explicit reference.
+
+model:
+  name: meta-llama/Llama-3.2-3B-Instruct
+  dtype: bfloat16
+  device_map: auto
+
+probing:
+  # 3B has 28 layers (indices 0–27)
+  layers: [0, 4, 8, 12, 16, 20, 24, 27]

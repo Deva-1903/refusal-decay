@@ -1,0 +1,8 @@
+# Baseline: no prefilling, normal generation on all harmful prompts.
+# Inherit from base.yaml.
+
+prefilling:
+  k_values: [0]
+
+output:
+  generations_dir: outputs/generations/baseline/
