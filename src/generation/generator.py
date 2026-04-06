@@ -112,8 +112,8 @@ def generate_one(
         prefix_text=prefix_text,
         k=k,
     )
-    input_ids = input_ids.to(model.device)
     input_length = input_ids.shape[1]
+    logger.debug("generate_one: prompt=%s k=%d input_length=%d", prompt.prompt_id, k, input_length)
 
     with torch.no_grad():
         output_ids = model.generate(
@@ -125,6 +125,7 @@ def generate_one(
 
     # Decode only the newly generated tokens (exclude the input)
     generated_ids = output_ids[0, input_length:]
+    logger.debug("generate_one: prompt=%s generated %d tokens", prompt.prompt_id, len(generated_ids))
     generated_text = tokenizer.decode(generated_ids, skip_special_tokens=True)
 
     return {
@@ -195,11 +196,11 @@ def generate_responses(
                 result = generate_one(model, tokenizer, prompt, k, cfg)
                 k_results.append(result)
             except Exception as e:
-                logger.error("Error on prompt %s (k=%d): %s", prompt.prompt_id, k, e)
+                logger.exception("Error on prompt %s (k=%d)", prompt.prompt_id, k)
                 k_results.append({
                     "prompt_id": prompt.prompt_id,
                     "prefix_k": k,
-                    "error": str(e),
+                    "error": f"{type(e).__name__}: {e!r}",
                 })
 
             if (i + 1) % 10 == 0:

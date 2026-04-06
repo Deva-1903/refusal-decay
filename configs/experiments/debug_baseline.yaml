@@ -1,0 +1,12 @@
+# Debug config for a 1-prompt baseline smoke test.
+# Overrides only what is necessary for fast iteration.
+# Inherits everything else from configs/base.yaml.
+
+data:
+  max_prompts: 1
+
+generation:
+  max_new_tokens: 32
+
+logging:
+  level: DEBUG
