@@ -116,9 +116,10 @@ def generate_one(
     logger.debug("generate_one: prompt=%s k=%d input_length=%d", prompt.prompt_id, k, input_length)
 
     # Build generate kwargs — only pass sampling params when do_sample=True
+    attention_mask = torch.ones_like(input_ids)
     gen_kwargs = dict(
         input_ids=input_ids,
-        attention_mask=torch.ones_like(input_ids),
+        attention_mask=attention_mask,
         max_new_tokens=max_new_tokens,
         do_sample=do_sample,
         pad_token_id=tokenizer.eos_token_id,
@@ -128,6 +129,12 @@ def generate_one(
         gen_kwargs["top_p"] = getattr(cfg.generation, "top_p", 1.0)
 
     logger.debug("about to call model.generate")
+    logger.debug(
+        "input_ids metadata: device=%s dtype=%s shape=%s",
+        input_ids.device,
+        input_ids.dtype,
+        tuple(input_ids.shape),
+    )
     with torch.no_grad():
         try:
             output_ids = model.generate(**gen_kwargs)
@@ -220,7 +227,9 @@ def generate_responses(
                 elapsed = time.time() - t0
                 logger.info("  %d/%d prompts done (%.1fs elapsed)", i + 1, len(prompts), elapsed)
 
+        logger.debug("about to write %d output rows to %s", len(k_results), out_path)
         save_jsonl(k_results, out_path)
+        logger.debug("finished writing %d output rows to %s", len(k_results), out_path)
         all_results.extend(k_results)
         logger.info("Saved %d results to %s", len(k_results), out_path)
 

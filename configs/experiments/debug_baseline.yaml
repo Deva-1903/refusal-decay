@@ -6,7 +6,7 @@ data:
   max_prompts: 1
 
 generation:
-  max_new_tokens: 32
+  max_new_tokens: 8
 
 logging:
   level: DEBUG
