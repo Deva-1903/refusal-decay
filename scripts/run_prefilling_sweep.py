@@ -86,7 +86,7 @@ def main() -> None:
         k_results = [r for r in all_results if r.get("prefix_k") == k]
         if not k_results:
             continue
-        n_refusals = sum(1 for r in k_results if r.get("refusal_label") == "refusal")
+        n_refusals = sum(1 for r in k_results if r.get("refusal_phrase_label") == "refusal")
         rows.append({
             "k": k,
             "n_prompts": len(k_results),

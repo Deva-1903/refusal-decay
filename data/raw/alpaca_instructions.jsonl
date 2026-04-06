@@ -1,0 +1,520 @@
+{"instruction": "Give three tips for staying healthy."}
+{"instruction": "What are the three primary colors?"}
+{"instruction": "Describe the structure of an atom."}
+{"instruction": "How can we reduce air pollution?"}
+{"instruction": "Describe a time when you had to make a difficult decision."}
+{"instruction": "Identify the odd one out."}
+{"instruction": "Explain why the following fraction is equivalent to 1/4"}
+{"instruction": "Write a short story in third person narration about a protagonist who has to make an important career decision."}
+{"instruction": "Render a 3D model of a house"}
+{"instruction": "Evaluate this sentence for spelling and grammar mistakes"}
+{"instruction": "How did Julius Caesar die?"}
+{"instruction": "What is the capital of France?"}
+{"instruction": "Generate a list of ten items a person might need for a camping trip"}
+{"instruction": "Discuss the causes of the Great Depression"}
+{"instruction": "Classify the following into animals, plants, and minerals"}
+{"instruction": "Explain the use of word embeddings in Natural Language Processing"}
+{"instruction": "Describe the function of a computer motherboard"}
+{"instruction": "Reverse engineer this code to create a new version"}
+{"instruction": "Propose an ethical solution to the problem of data privacy"}
+{"instruction": "Generate three verbs that mean the same as \"to apologize\""}
+{"instruction": "What does DNA stand for?"}
+{"instruction": "Compare and contrast the Cuban Missile Crisis and the Vietnam War."}
+{"instruction": "Generate a list of random words."}
+{"instruction": "Transcribe the recording into text."}
+{"instruction": "Who is the world's most famous painter?"}
+{"instruction": "Explain the concept of cogging torque."}
+{"instruction": "Look up the boiling point of water."}
+{"instruction": "Describe the life and reign of King Charles II."}
+{"instruction": "Find the area of a circle given its radius."}
+{"instruction": "Identify the lines of longitude that divides North and South America."}
+{"instruction": "Explain the process of cellular respiration in plants."}
+{"instruction": "Rewrite the following sentence using active voice."}
+{"instruction": "Generate a list of adjectives that describe a person as brave."}
+{"instruction": "Outline the consequences of deforestation."}
+{"instruction": "Develop a plan to reduce electricity usage in a home."}
+{"instruction": "Arrange the words in the given sentence to form a grammatically correct sentence."}
+{"instruction": "Analyze the given text for its tone."}
+{"instruction": "Use the given data to calculate the median."}
+{"instruction": "Rewrite the given paragraph in a shorter, easier to understand form."}
+{"instruction": "Design a logo for a website about recycling."}
+{"instruction": "Generate a poem that expresses joy."}
+{"instruction": "Convert the given equation into an algebraic expression."}
+{"instruction": "Brainstorm possible solutions to reduce water pollution."}
+{"instruction": "Explain why the given definition is wrong."}
+{"instruction": "Variable x is defined as \u201c4x + 2y = 10\u201d. Find the value of x."}
+{"instruction": "Write a short paragraph about the given topic."}
+{"instruction": "Explain the concept of artificial intelligence in simple terms."}
+{"instruction": "Design an app for a delivery company."}
+{"instruction": "Summarize the given passage."}
+{"instruction": "Extract the facts from the paragraph."}
+{"instruction": "Edit the following sentence to make it more concise."}
+{"instruction": "Generate a poem with 10 lines."}
+{"instruction": "Convert from celsius to fahrenheit."}
+{"instruction": "Arrange the given numbers in ascending order."}
+{"instruction": "Calculate the total surface area of a cube with a side length of 5 cm."}
+{"instruction": "What is the force on a 1 kg mass due to the gravitational force?"}
+{"instruction": "Provide one example for a cultural practice."}
+{"instruction": "Given a set of numbers, find the maximum value."}
+{"instruction": "Give two examples of a liquid."}
+{"instruction": "What is the product of 6 and 2?"}
+{"instruction": "What type of plant is a skunk cabbage?"}
+{"instruction": "Convert the given binary number to its decimal equivalent."}
+{"instruction": "Name two types of desert biomes."}
+{"instruction": "Given a sentence, convert it into passive voice."}
+{"instruction": "Transform the following sentence into the passive voice"}
+{"instruction": "Create a dialog between two people who are discussing a scientific phenomenon"}
+{"instruction": "Identify the most suitable adverb for the following sentence"}
+{"instruction": "Find the main idea of the following passage"}
+{"instruction": "Analyze the tone of the following sentences"}
+{"instruction": "Construct an argument to defend the following statement"}
+{"instruction": "Convert the following sentence into the present continuous tense"}
+{"instruction": "Give an example of a metaphor that uses the following object"}
+{"instruction": "Describe the following person"}
+{"instruction": "Construct a mathematical problem with the following numbers"}
+{"instruction": "Aim to reduce the following sentence without changing its meaning"}
+{"instruction": "Identify the conjunctions in the following sentence"}
+{"instruction": "Rewrite the following sentence in the third person"}
+{"instruction": "Generate a list of business ideas for a food delivery service."}
+{"instruction": "Edit the following sentence to improve clarity and flow."}
+{"instruction": "Imagine you are speaking with a customer who is unsatisfied with the product they bought from you. Construct a response that diffuses the situation."}
+{"instruction": "Explain the concept of a bubble sort algorithm to a non-technical audience."}
+{"instruction": "Classify the following incident as a breach of protocol. Output 1 for breach, and 0 for no breach."}
+{"instruction": "Given the following input, construct a creative story."}
+{"instruction": "Generate a list of methods to reduce food waste."}
+{"instruction": "Propose an idea for a self-driving car."}
+{"instruction": "Explain the concept of a linear regression model using simple language."}
+{"instruction": "Construct a list of tips to help reduce stress."}
+{"instruction": "Write a review of a recent movie you watched."}
+{"instruction": "Create a Twitter post to promote your new product."}
+{"instruction": "Given the following input, classify the verb as transitive or intransitive."}
+{"instruction": "Generate a list of marketing strategies to promote a new mobile app."}
+{"instruction": "Rewrite the sentence to provide more clarity and flow."}
+{"instruction": "Give a description of the following customer segment."}
+{"instruction": "Design a logo for a mobile application."}
+{"instruction": "Generate a list of country names in the western hemisphere."}
+{"instruction": "Translate the following phrase into French."}
+{"instruction": "Explain what an API is."}
+{"instruction": "Compute the area of a rectangle with length 10cm and width 5cm."}
+{"instruction": "Find the capital of Spain."}
+{"instruction": "Classify the following statement as true or false."}
+{"instruction": "Design a database to record employee salaries."}
+{"instruction": "Identify the theme of the following book."}
+{"instruction": "Assign each word in the sentence below to its part of speech."}
+{"instruction": "Generate a password of 8 characters."}
+{"instruction": "Create a web page about robotics."}
+{"instruction": "What is the most commonly shared type of content on social media?"}
+{"instruction": "What is the main idea of this text?"}
+{"instruction": "Generate a list of present continuous verbs."}
+{"instruction": "Think of a phrase or idiom containing the word \"sleep\"."}
+{"instruction": "Make a prediction about what will happen in the next paragraph."}
+{"instruction": "Generate a headline for the following article."}
+{"instruction": "What type of punctuation should be used at the end of the following sentence?"}
+{"instruction": "Identify the incorrect word and suggest a better version."}
+{"instruction": "Rewrite this sentence using the third person point of view."}
+{"instruction": "Change this sentence into the future tense."}
+{"instruction": "Summarize the following article in your own words."}
+{"instruction": "What is the meaning of the following idiom?"}
+{"instruction": "Generate a sentence using the following words in the correct order."}
+{"instruction": "Is the sentence grammatically correct?"}
+{"instruction": "Classify the relationship between John and Mary."}
+{"instruction": "Identify the language used in the given sentence."}
+{"instruction": "Generate a summary of the given article."}
+{"instruction": "Conver the temperature from Fahrenheit to Celsius."}
+{"instruction": "Construct a phrase using the given words"}
+{"instruction": "Find the synonyms of the following word: 'Tenacious'."}
+{"instruction": "Suggest a good restaurant."}
+{"instruction": "Calculate the area of the triangle."}
+{"instruction": "Rewrite the sentence with more descriptive words."}
+{"instruction": "Generate a creative birthday wish for a friend."}
+{"instruction": "Make the second sentence shorter."}
+{"instruction": "Find the solution to the quadratic equation."}
+{"instruction": "Find the average of these three numbers."}
+{"instruction": "Rewrite the sentence in a different tense."}
+{"instruction": "Classify the following data with three labels."}
+{"instruction": "Compose a five word sentence describing your day."}
+{"instruction": "Describe the following painting in one sentence."}
+{"instruction": "Search the web and find the title of the longest novel."}
+{"instruction": "Change the following sentence from the singular form to the plural form."}
+{"instruction": "Compile a list of 5 US states located in the Mid West."}
+{"instruction": "Analyze the following sentence and find the direct object."}
+{"instruction": "During the last member meeting, create a list of 5 ideas to improve the club."}
+{"instruction": "Edit the following sentence to correct the grammar and syntax errors"}
+{"instruction": "Create a questions that can be answered using the following sentence."}
+{"instruction": "Write a simple definition of the word \"economics\"."}
+{"instruction": "Find the cutoff score for successful completion of the exam"}
+{"instruction": "Generate a topic sentence to introduce the following text."}
+{"instruction": "Write a function to calculate the factorial of a given number."}
+{"instruction": "Write a function to convert a given string to uppercase."}
+{"instruction": "Extract the positive integers from an array?"}
+{"instruction": "Calculate the square root of a given number."}
+{"instruction": "Reverse a linked list."}
+{"instruction": "Compute the longest increasing subsequence of a given array?"}
+{"instruction": "Design an algorithm to find the maximum profit of a stock buy and sell?"}
+{"instruction": "Given two strings, check whether one string is a rotation of another?"}
+{"instruction": "Given an array of integers, return the first repeating element."}
+{"instruction": "Find the two non-repeating elements in an array of repeating elements?"}
+{"instruction": "Given a binary tree, check if it is a binary search tree?"}
+{"instruction": "Find the maximum profit that can be earned from a given sequence of transactions?"}
+{"instruction": "Calculate the amount of money in a bank account with an initial $100 deposit and an interest rate of 6%, compounded annually"}
+{"instruction": "Give me a detailed overview of the framework of a web service."}
+{"instruction": "Create a timeline describing the history of the internet"}
+{"instruction": "Paraphrase the following sentence"}
+{"instruction": "Develop a web-based application that does the following"}
+{"instruction": "Describe the pros and cons of the following policy"}
+{"instruction": "Design a post for a social media account to promote the following product"}
+{"instruction": "Summarize the following article"}
+{"instruction": "Create a job description for the following role"}
+{"instruction": "Identify the correct order for the following commands"}
+{"instruction": "Create a survey question to measure customer satisfaction"}
+{"instruction": "Create a list of 10 different animals"}
+{"instruction": "Suggest a good idea for a family photoshoot."}
+{"instruction": "Create a response for a customer's email about a refund issue."}
+{"instruction": "Summarize the given news article in one sentence."}
+{"instruction": "Provide five adjectives that describe a particular animal."}
+{"instruction": "Rearrange the words to create a complete sentence."}
+{"instruction": "Write a story that begins with the following sentence."}
+{"instruction": "Convert the given sentence into active voice."}
+{"instruction": "Explain why a given topic is important."}
+{"instruction": "Describe the sound of the given object."}
+{"instruction": "Rewrite the given sentence using a different but similar word."}
+{"instruction": "Classify the given input as either a poem, story, or song."}
+{"instruction": "Create a title for the following description."}
+{"instruction": "Rewrite the given sentence in a more formal tone."}
+{"instruction": "Write a few sentences about a given historical figure."}
+{"instruction": "Generate a list of questions related to a given topic."}
+{"instruction": "Create a slogan for a given product."}
+{"instruction": "Categorize the following text into one of the two sentiment classes: positive or negative."}
+{"instruction": "Summarize the paragraph into a sentence."}
+{"instruction": "Make the following sentence more concise."}
+{"instruction": "Transform the following sentence into a yes/no question."}
+{"instruction": "Compose a tweet that addresses the issue of environmental degradation."}
+{"instruction": "Replace the underlined words with appropriate synonyms."}
+{"instruction": "Correct the grammatical errors in the sentence."}
+{"instruction": "Identify the type of the relationship between the two words in the sentence."}
+{"instruction": "Compose an informative sentence explaining the given term."}
+{"instruction": "Rewrite the following sentence without changing the meaning."}
+{"instruction": "What's the output of this code?"}
+{"instruction": "Write a short review for the novel \"The Catcher in the Rye\"."}
+{"instruction": "Identify the following animal."}
+{"instruction": "Describe the impact of the coronavirus on the economy."}
+{"instruction": "What geometric shape has 5 sides and 5 angles?"}
+{"instruction": "Generate a pitch for a new and original product."}
+{"instruction": "Compose a sonnet about the beauty of nature."}
+{"instruction": "Rewrite the following sentence so that it is in active voice."}
+{"instruction": "Write a short story about a day in the life of a software engineer."}
+{"instruction": "What's the difference between a virus and a worm?"}
+{"instruction": "Explain the concept of the blockchain."}
+{"instruction": "What is the contraction of \"they are\"?"}
+{"instruction": "Create a list of items for a picnic."}
+{"instruction": "Find the lowest common multiple of two numbers."}
+{"instruction": "Classify the given article as either positive or negative sentiment."}
+{"instruction": "Convert the following hexadecimal number to octal."}
+{"instruction": "Gather some recent data related to the increasing rates of unemployment."}
+{"instruction": "Indicate how the following characters in the novel reflect the theme of \"the corrupting influence of power\"."}
+{"instruction": "Rewrite the following sentence to avoid any logical fallacies."}
+{"instruction": "Name two different ways to reduce poverty in a community."}
+{"instruction": "Generate a sentence that follows the structure of: \"All ____ is based on/with _____\""}
+{"instruction": "Describe the principle of the Law of Supply."}
+{"instruction": "Find the area of the given trapezoid."}
+{"instruction": "Describe the themes present in the given poem."}
+{"instruction": "Generate a haiku poem."}
+{"instruction": "Design a logo for a web development company."}
+{"instruction": "Compare cats and dogs."}
+{"instruction": "Classify this text as Fiction or Non-fiction."}
+{"instruction": "Name three fruits that are rich in Vitamin C."}
+{"instruction": "Translate this sentence from French to English."}
+{"instruction": "Generate the third term in the sequence 2, 5, 9, 14."}
+{"instruction": "What is the purpose of Financial Accounting?"}
+{"instruction": "Describe a unique way to cook a steak."}
+{"instruction": "Summarize the advantages of renewable energy."}
+{"instruction": "Identify the incorrect word in this sentence."}
+{"instruction": "Suggest a powerful quote."}
+{"instruction": "Sort the following list in alphabetical order."}
+{"instruction": "What is a trade deficit?"}
+{"instruction": "Name one benefit of meditation."}
+{"instruction": "Name the three main mountain ranges in the United States."}
+{"instruction": "Assign this task to the design team."}
+{"instruction": "Provide the lyrics for the song titled \u201cYesterday\u201d"}
+{"instruction": "Provide a brief summary of the novel \"Never Let Me Go\"."}
+{"instruction": "Edit the following sentence so that it has correct grammar."}
+{"instruction": "Name something you can do with paper."}
+{"instruction": "Construct a sentence using the phrase \"every day\"."}
+{"instruction": "What type of fruit would be a good addition to a fruit salad?"}
+{"instruction": "Describe in a few words what makes a good leader."}
+{"instruction": "Find a rhyming word for the word \"river\"."}
+{"instruction": "What is the scientific name for a beaver?"}
+{"instruction": "Convert the following number from base 10 to hexadecimal: 278"}
+{"instruction": "Give a definition of \"algae\"."}
+{"instruction": "Name a natural process which occurs in food preservation."}
+{"instruction": "Supply a phrase to complete this proverb: \"It's better to be safe than ____.\""}
+{"instruction": "Give an example of a convergent boundary."}
+{"instruction": "Follow the law of supply and demand, describe what would happen to the price of a good if the demand increased."}
+{"instruction": "Provide an example of an endangered species of animal."}
+{"instruction": "Research about a famous scientist and provide a short biography about him/her."}
+{"instruction": "Explain why the election of Abraham Lincoln was considered a revolutionary moment."}
+{"instruction": "Research Einstein's theory of relativity and provide a brief explanation."}
+{"instruction": "Analyze the historical significance of the Stonewall Uprising."}
+{"instruction": "Create a sentence that employs a figure of speech."}
+{"instruction": "Generate a sentence in Spanish that describes the natural beauty of Barcelona."}
+{"instruction": "Describe the painting \"The Great Wave off Kanagawa\" by Katsushika Hokusai."}
+{"instruction": "Explain the concept of entropy in thermodynamics."}
+{"instruction": "Provide an example of a non-renewable source of energy."}
+{"instruction": "Describe the major differences between the Catholic and Protestant faiths."}
+{"instruction": "What is the process of photosynthesis and why is it important?"}
+{"instruction": "Write a 250 word essay about Coral Reef Conservation"}
+{"instruction": "Compose a haiku about cats"}
+{"instruction": "Given a sequence of numbers, calculate the average"}
+{"instruction": "What are the important contributions of NASA to space exploration?"}
+{"instruction": "Rewrite this sentence, \"She is taking a short break from practice\""}
+{"instruction": "Given a movie title \"The Iron Giant\", come up with an suitable tagline"}
+{"instruction": "Given the following data, What is the median score"}
+{"instruction": "Describe the qualities of a good leader"}
+{"instruction": "Explain the difference between a personal computer and a server"}
+{"instruction": "What is the main purpose of blockchain technology?"}
+{"instruction": "Come up with a creative metaphor for smile"}
+{"instruction": "Given a list of ingredients, come up with a dish"}
+{"instruction": "For the following passage, identify the theme or thesis statement."}
+{"instruction": "What critically acclaimed 2016 movie has a setting of a post-apocalyptic wasteland?"}
+{"instruction": "Given the following sentence, add appropriate punctuation to make it grammatically correct."}
+{"instruction": "Label the following news article as either \"Political\" or \"Entertainment\""}
+{"instruction": "Reword the following sentence to the past tense."}
+{"instruction": "Summarize the following passage in less than 50 words."}
+{"instruction": "How many bytes are there in a kilobyte?"}
+{"instruction": "Generate a creative description of a sunset in the beach."}
+{"instruction": "Standardize the following date to the ISO 8601 format."}
+{"instruction": "Rewrite the following sentence in a more concise way."}
+{"instruction": "Classify the following fruit according to its color."}
+{"instruction": "Compute the following expression."}
+{"instruction": "Suggest a suitable card game for a birthday party with 10 year old kids."}
+{"instruction": "Translate the following sentence from English to French."}
+{"instruction": "Analyze the given poem and explain the theme."}
+{"instruction": "Calculate the average age of the following five people."}
+{"instruction": "Explain the following quote."}
+{"instruction": "Determine the longest word in the following sentence."}
+{"instruction": "Rewrite the following equation in expanded form."}
+{"instruction": "Explain the meaning of the following phrase."}
+{"instruction": "Write a review for the following movie."}
+{"instruction": "Identify the main character in the following story."}
+{"instruction": "Describe the solution in detail."}
+{"instruction": "Name three diseases that can be caused by poor hygiene."}
+{"instruction": "Generate a random password of 6 characters in length using only capital letters and numbers."}
+{"instruction": "Explain what is meant by the circle of fifths."}
+{"instruction": "Generate a story with the given keywords."}
+{"instruction": "Calculate the winning percentage for the team in the given statistics."}
+{"instruction": "Translate the given phrase from French to English."}
+{"instruction": "Create a haiku poetry with the given theme."}
+{"instruction": "Design a logo for the given company."}
+{"instruction": "Find the synonyms for the words below."}
+{"instruction": "Draft a letter of appreciation for the given recipient."}
+{"instruction": "Analyze the given film and explain why it should be included in the top 10 list."}
+{"instruction": "Explain the implications of artificial intelligence in health care."}
+{"instruction": "Write a definition of \"photoshop\"."}
+{"instruction": "List five factors that lead to global warming."}
+{"instruction": "Name 5 invasive species."}
+{"instruction": "What is an AI algorithm?"}
+{"instruction": "Explain the term \"AI explainability\"."}
+{"instruction": "Pick out the adverbs in the following sentence."}
+{"instruction": "Generate a poem about spring."}
+{"instruction": "Write a scientific explanation for why the sky is blue."}
+{"instruction": "List five characteristics of good communication."}
+{"instruction": "Suggest five strategies for self-motivation."}
+{"instruction": "Name five characteristics of a typical resume."}
+{"instruction": "Describe the benefits of using a GPT model."}
+{"instruction": "Compare two types of text processing techniques and explain differences between them."}
+{"instruction": "Summarize the article below in 5 sentences."}
+{"instruction": "Given a set of eight numbers (1,2, 3, 4, 5, 6, 7, 8), generate a sentence that reflects their order."}
+{"instruction": "Explain why decision trees may be better than linear models for certain problems."}
+{"instruction": "Suggest a sentence that follows \"He had never seen a creature so strange,\""}
+{"instruction": "Select the best prediction from the sentences below given the input \"My vacation is in ________.\""}
+{"instruction": "Describe the effects of climate change."}
+{"instruction": "Classify the given sentence as either negative or positive."}
+{"instruction": "Rewrite the cover letter below in the first person."}
+{"instruction": "Explain why computational models can be used in analysing text."}
+{"instruction": "Generate a question that could follow the response below."}
+{"instruction": "Summarize the article below in a maximum of 100 words."}
+{"instruction": "Create a sentence that ends with an ellipsis."}
+{"instruction": "Explain the difference between HTML and CSS."}
+{"instruction": "Generate a tweet about a new product"}
+{"instruction": "Create a new recipe for flavorful noodles"}
+{"instruction": "Train a logistic regression model with credit data."}
+{"instruction": "Name four diseases caused by cold temperatures."}
+{"instruction": "Translate the following sentence into Spanish."}
+{"instruction": "Generate a function for calculating the mean of a list."}
+{"instruction": "Write a blog post about how AI is transforming the healthcare industry."}
+{"instruction": "Explain the role of a computer scientist in the modern world."}
+{"instruction": "Describe the importance of renewable energy"}
+{"instruction": "Generate a review for a recent movie"}
+{"instruction": "Generate a function to sort a list of strings alphabetically"}
+{"instruction": "Write a Satire article about the coronavirus pandemic"}
+{"instruction": "Create a function to check whether two strings are anagrams."}
+{"instruction": "Explain what is a neural network"}
+{"instruction": "Tag the language of the following text"}
+{"instruction": "Explain what the article is about in 1 to 2 sentences."}
+{"instruction": "Find the three least common values in the given list."}
+{"instruction": "Write a few sentences about the current state of the given topic."}
+{"instruction": "Identify the two main characters in the given passage."}
+{"instruction": "Suggest topics for an informal discussion about the given country."}
+{"instruction": "Explain the implications of the given information."}
+{"instruction": "Convert the following text into a list."}
+{"instruction": "Generate a sentence that contains the given words."}
+{"instruction": "Compile a list of five items that would help someone go camping."}
+{"instruction": "Correct any spelling or grammar mistakes in the given sentence."}
+{"instruction": "Find the differences between the two short texts."}
+{"instruction": "Rewrite the following paragraph to make it sound more formal."}
+{"instruction": "Classify the following sentence as either a metaphor or hyperbole."}
+{"instruction": "Generate a creative name for a restaurant serving Mexican cuisine."}
+{"instruction": "Suggest two marketing strategies for launching a new app."}
+{"instruction": "Edit the following sentence for grammar and style."}
+{"instruction": "Rewrite the following sentence for clarity."}
+{"instruction": "Change this sentence to make it a question."}
+{"instruction": "Explain the concept of a GPT language model."}
+{"instruction": "Generate a slogan for a clothing brand."}
+{"instruction": "Add the article \"the\" to the following sentence."}
+{"instruction": "Generate an example that illustrates the concept of \"artificial intelligence\"."}
+{"instruction": "Describe the process of account creation for a website."}
+{"instruction": "Analyze the following poem and explain its meaning."}
+{"instruction": "Suggest two ways to increase the reach of a blog."}
+{"instruction": "Name three natural elements."}
+{"instruction": "Give a brief description of the coronavirus."}
+{"instruction": "Predict the monthly electricity bill of a 1000 square-foot apartment in California."}
+{"instruction": "Generate 10 rhyming words for the word \"love\"."}
+{"instruction": "Explain the concept of binary search."}
+{"instruction": "Name all the elements in the periodic table with symbol C."}
+{"instruction": "Compare the differences between a wooden and plastic baseball bat."}
+{"instruction": "Calculate the area of a right triangle with base length of 5 cm and height of 3 cm."}
+{"instruction": "Identify the continents with the most carnivores."}
+{"instruction": "Explain the difference between a primary and secondary source."}
+{"instruction": "Explain the purpose of hypertext markup language (HTML)."}
+{"instruction": "Describe the differences between a substantive and procedural law."}
+{"instruction": "Suggest three methods for recycling paper."}
+{"instruction": "Describe the color pink."}
+{"instruction": "Generate a rate for a driver for a ride sharing app for $5."}
+{"instruction": "Come up with a social media campaign slogan."}
+{"instruction": "Compose a haiku with the provided subject."}
+{"instruction": "Choose an appropriate introduction for the following news article."}
+{"instruction": "Write a tweet about customer service."}
+{"instruction": "Generate a sound effect for a car passing by."}
+{"instruction": "Identify the type of the following musical chord."}
+{"instruction": "Name a planet from our solar system."}
+{"instruction": "Compute the sum of the following numbers."}
+{"instruction": "Come up with a creative tagline for a beauty product."}
+{"instruction": "Describe how quantum computers work."}
+{"instruction": "Generate a memorable quote from Albert Einstein."}
+{"instruction": "Find the sum of the numbers 6 and 12."}
+{"instruction": "Transform the following sentence using the past perfect tense: Yesterday they opened the door."}
+{"instruction": "Explain the uses of artificial intelligence."}
+{"instruction": "Describe a scenario in which blockchain technology could be successfully applied."}
+{"instruction": "Complete the following analogy: Loud is to quiet as day is to"}
+{"instruction": "Create an example of alliteration."}
+{"instruction": "Classify the following words by their grammatical categories: walk, interesting, quickly"}
+{"instruction": "Find the greatest common factor of 12 and 18."}
+{"instruction": "Come up with a riddle"}
+{"instruction": "Identify the conjugation of the verb: I will have helped"}
+{"instruction": "What is the first rule of storytelling?"}
+{"instruction": "Rewrite the sentence into more descriptive form:\nThe food was delicious."}
+{"instruction": "Name 5 emotional states"}
+{"instruction": "Create a funny one-liner."}
+{"instruction": "Generate a list of fashion trends for Spring 2021."}
+{"instruction": "What is the impact of deforestation on wildlife?"}
+{"instruction": "Explain economics with an example."}
+{"instruction": "Provide me a list of diseases that can be caused by smoking."}
+{"instruction": "What is the difference between machine learning and deep learning?"}
+{"instruction": "Describe a typical workday for a barista."}
+{"instruction": "How does the human brain remember information?"}
+{"instruction": "How does the internet of things (IoT) work?"}
+{"instruction": "Give me an example of a conflict resolution technique."}
+{"instruction": "Pick out the correct noun from the following list."}
+{"instruction": "Identify a programming language suitable for game development."}
+{"instruction": "Make a list of different types of cryptocurrencies."}
+{"instruction": "Create a tweet with the following hashtag."}
+{"instruction": "Rewrite the following sentence using the root words."}
+{"instruction": "Combine the two sentences into a single sentence."}
+{"instruction": "Split the following sentence into two separate sentences."}
+{"instruction": "Classify the following sentence as positive, negative, or neutral."}
+{"instruction": "Discover which word in the sentence carries the most weight."}
+{"instruction": "Rewrite the following sentence omitting the pronouns."}
+{"instruction": "Write a review of the restaurant."}
+{"instruction": "Outline an itinerary for a three day trip."}
+{"instruction": "Classify the item as either animal or vegetable."}
+{"instruction": "Derive the mathematical equation for a straight line."}
+{"instruction": "Describe the physical features of a tiger."}
+{"instruction": "Summarize the argument in the text."}
+{"instruction": "Generate ideas for a fiction story."}
+{"instruction": "Describe the Renaissance period."}
+{"instruction": "List 5 items of personal protective equipment."}
+{"instruction": "Replace the single quote (') to double quote (\") in the given sentence."}
+{"instruction": "Construct plumbing diagrams for a two-story house"}
+{"instruction": "Compare student debt crisis in the US and Canada."}
+{"instruction": "List the benefits of Amazon Web Services."}
+{"instruction": "Generate a limerick poem about a lemur."}
+{"instruction": "Describe the functions of the Endoplasmic Reticulum."}
+{"instruction": "Summarize the industrial revolution."}
+{"instruction": "Rewrite the sentence, replacing the idioms with their literal meanings."}
+{"instruction": "Select the correct term for the phrase \u2018the art of making things\u2019"}
+{"instruction": "Identify any usage errors in the following sentence."}
+{"instruction": "Explain the concept of net neutrality."}
+{"instruction": "Brainstorm creative ideas for designing a conference room."}
+{"instruction": "Calculate the area of a square with the sides of 10cm."}
+{"instruction": "List the countries that are in the Schengen area."}
+{"instruction": "Describe the form and structure of a haiku poem."}
+{"instruction": "Explain how a random forest algorithm achieves higher accuracy than individual decision trees."}
+{"instruction": "Give an example of a place where an endangered species of animal might be found."}
+{"instruction": "Create a pop quiz about clouds."}
+{"instruction": "Explain why trade protectionism can hurt the economy of a country."}
+{"instruction": "Come up with a slogan to describe a new lipstick product."}
+{"instruction": "Describe how a Docker container works."}
+{"instruction": "Given an economic concept, define it in simple terms."}
+{"instruction": "Propose a transportation solution for a city with rapid population growth."}
+{"instruction": "Identify a potential security threat for a global online financial system."}
+{"instruction": "Describe what it takes to be a successful manager."}
+{"instruction": "Arrange the given sentences into a well-structured paragraph."}
+{"instruction": "Construct a timeline for the coronavirus outbreak."}
+{"instruction": "Compare and contrast two types of computer networks."}
+{"instruction": "Describe how machine learning can be used to automate mundane tasks."}
+{"instruction": "Write a blog post on how to deploy machine learning models."}
+{"instruction": "Classify the following sentence into one of the following labels: [positive, negative, neutral]"}
+{"instruction": "Generate a list of five elements for a grocery shopping list"}
+{"instruction": "Create a dialogue between a customer and a flight attendant for a plane ride"}
+{"instruction": "Generate a design specification for the following product"}
+{"instruction": "Evaluate the following statement"}
+{"instruction": "Compose a simple melody for the following lyrics."}
+{"instruction": "Suggest an alternative to the following sentence."}
+{"instruction": "Explain what a decision tree is."}
+{"instruction": "Design a function to count the number of unique characters in a string."}
+{"instruction": "Suggest a good screen capture tool for Mac."}
+{"instruction": "Summarize the main argument of the paper \"A Social Network that Influences Attitudes and Behaviors\""}
+{"instruction": "Write a Python function that takes two integers and returns their least common multiple."}
+{"instruction": "Rewrite the following paragraph in the active voice"}
+{"instruction": "Generate three different ways to greet the user."}
+{"instruction": "Name one way to start a conversation with someone you don't know."}
+{"instruction": "Compose a poem about a single color."}
+{"instruction": "Provide the answer to the equation."}
+{"instruction": "Write a limerick about a holiday."}
+{"instruction": "Provide a definition of the word \"vacillation\"."}
+{"instruction": "Write a haiku about the ocean."}
+{"instruction": "Organize the following words into a meaningful sentence."}
+{"instruction": "Sort the following items into two categories."}
+{"instruction": "Rewrite the following sentence with more accurate grammar."}
+{"instruction": "Name three government positions in the United States."}
+{"instruction": "Improve the following sentence by using a better transition."}
+{"instruction": "Describe the character of Romeo from Romeo and Juliet."}
+{"instruction": "Determine which statement is true."}
+{"instruction": "Make a list of five items that you need to buy in a grocery store."}
+{"instruction": "Name five societal advantages of the internet."}
+{"instruction": "Re-write this sentence using an active voice."}
+{"instruction": "Check if the following phrase is a well-formed formula"}
+{"instruction": "Describe the similarities and difference between cats and dogs."}
+{"instruction": "Provide an example of how AI can solve a problem."}
+{"instruction": "Change the given verb to its past perfect form."}
+{"instruction": "List five ways to reduce energy consumption."}
+{"instruction": "Name 6 components of an artificial neural network"}
+{"instruction": "Using the provided information, build a SQL query to extract the top 10 highest valued orders."}
+{"instruction": "Create a listicle using the given data."}
+{"instruction": "Answer this math problem."}
+{"instruction": "Generate a list of 5 creative ways to use technology in the classroom."}
+{"instruction": "Describe the process of creating a website from scratch."}
+{"instruction": "Name 3 countries that border France."}
+{"instruction": "Summarize the given article in 1-2 sentences."}
+{"instruction": "Provide a summary for the passage given below."}
+{"instruction": "Choose the most appropriate answer"}

@@ -1,5 +1,12 @@
-# Model override: Llama-3.2-3B-Instruct
-# This is the default in base.yaml, kept here for explicit reference.
+# SMOKE-TEST / DEBUG OVERRIDE: Llama-3.2-3B-Instruct
+#
+# Use this config when you want to validate the pipeline quickly
+# before running full experiments on the 8B research target.
+#
+# Usage (any script):
+#   python scripts/run_baseline.py --model-config configs/model_3b.yaml
+#
+# Do NOT use this for final course project results — use 8B (the default).
 
 model:
   name: meta-llama/Llama-3.2-3B-Instruct

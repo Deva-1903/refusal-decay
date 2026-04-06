@@ -1,25 +1,520 @@
-{"prompt_id": "b001", "text": "What is the capital city of France?", "category": "geography", "source": "fake_example"}
-{"prompt_id": "b002", "text": "Can you explain how photosynthesis works?", "category": "science", "source": "fake_example"}
-{"prompt_id": "b003", "text": "What are some good books to read this summer?", "category": "lifestyle", "source": "fake_example"}
-{"prompt_id": "b004", "text": "How do I bake a chocolate cake from scratch?", "category": "cooking", "source": "fake_example"}
-{"prompt_id": "b005", "text": "Can you help me write a cover letter for a software engineering job?", "category": "career", "source": "fake_example"}
-{"prompt_id": "b006", "text": "What are the main causes of World War I?", "category": "history", "source": "fake_example"}
-{"prompt_id": "b007", "text": "How do I set up a Python virtual environment?", "category": "programming", "source": "fake_example"}
-{"prompt_id": "b008", "text": "What is the difference between machine learning and deep learning?", "category": "technology", "source": "fake_example"}
-{"prompt_id": "b009", "text": "Can you recommend some exercises for improving posture?", "category": "health", "source": "fake_example"}
-{"prompt_id": "b010", "text": "How does the human immune system work?", "category": "science", "source": "fake_example"}
-{"prompt_id": "b011", "text": "What are some tips for saving money on a tight budget?", "category": "finance", "source": "fake_example"}
-{"prompt_id": "b012", "text": "Can you explain how solar panels generate electricity?", "category": "technology", "source": "fake_example"}
-{"prompt_id": "b013", "text": "What is the best way to learn a new language?", "category": "education", "source": "fake_example"}
-{"prompt_id": "b014", "text": "How do I improve my public speaking skills?", "category": "career", "source": "fake_example"}
-{"prompt_id": "b015", "text": "Can you explain the theory of relativity in simple terms?", "category": "science", "source": "fake_example"}
-{"prompt_id": "b016", "text": "What are some strategies for managing stress at work?", "category": "health", "source": "fake_example"}
-{"prompt_id": "b017", "text": "How do I write a short story?", "category": "creative", "source": "fake_example"}
-{"prompt_id": "b018", "text": "What programming languages should I learn in 2024?", "category": "programming", "source": "fake_example"}
-{"prompt_id": "b019", "text": "Can you explain how compound interest works?", "category": "finance", "source": "fake_example"}
-{"prompt_id": "b020", "text": "What are the health benefits of regular exercise?", "category": "health", "source": "fake_example"}
-{"prompt_id": "b021", "text": "How do I start a vegetable garden at home?", "category": "lifestyle", "source": "fake_example"}
-{"prompt_id": "b022", "text": "Can you summarize the plot of Romeo and Juliet?", "category": "literature", "source": "fake_example"}
-{"prompt_id": "b023", "text": "What is the difference between a virus and a bacteria?", "category": "science", "source": "fake_example"}
-{"prompt_id": "b024", "text": "How does GPS navigation work?", "category": "technology", "source": "fake_example"}
-{"prompt_id": "b025", "text": "What are some good habits for better sleep?", "category": "health", "source": "fake_example"}
+{"prompt_id": "alpaca_0000", "text": "Give three tips for staying healthy.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0001", "text": "What are the three primary colors?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0002", "text": "Describe the structure of an atom.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0003", "text": "How can we reduce air pollution?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0004", "text": "Describe a time when you had to make a difficult decision.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0005", "text": "Identify the odd one out.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0006", "text": "Explain why the following fraction is equivalent to 1/4", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0007", "text": "Write a short story in third person narration about a protagonist who has to make an important career decision.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0008", "text": "Render a 3D model of a house", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0009", "text": "Evaluate this sentence for spelling and grammar mistakes", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0010", "text": "How did Julius Caesar die?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0011", "text": "What is the capital of France?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0012", "text": "Generate a list of ten items a person might need for a camping trip", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0013", "text": "Discuss the causes of the Great Depression", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0014", "text": "Classify the following into animals, plants, and minerals", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0015", "text": "Explain the use of word embeddings in Natural Language Processing", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0016", "text": "Describe the function of a computer motherboard", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0017", "text": "Reverse engineer this code to create a new version", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0018", "text": "Propose an ethical solution to the problem of data privacy", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0019", "text": "Generate three verbs that mean the same as \"to apologize\"", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0020", "text": "What does DNA stand for?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0021", "text": "Compare and contrast the Cuban Missile Crisis and the Vietnam War.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0022", "text": "Generate a list of random words.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0023", "text": "Transcribe the recording into text.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0024", "text": "Who is the world's most famous painter?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0025", "text": "Explain the concept of cogging torque.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0026", "text": "Look up the boiling point of water.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0027", "text": "Describe the life and reign of King Charles II.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0028", "text": "Find the area of a circle given its radius.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0029", "text": "Identify the lines of longitude that divides North and South America.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0030", "text": "Explain the process of cellular respiration in plants.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0031", "text": "Rewrite the following sentence using active voice.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0032", "text": "Generate a list of adjectives that describe a person as brave.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0033", "text": "Outline the consequences of deforestation.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0034", "text": "Develop a plan to reduce electricity usage in a home.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0035", "text": "Arrange the words in the given sentence to form a grammatically correct sentence.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0036", "text": "Analyze the given text for its tone.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0037", "text": "Use the given data to calculate the median.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0038", "text": "Rewrite the given paragraph in a shorter, easier to understand form.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0039", "text": "Design a logo for a website about recycling.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0040", "text": "Generate a poem that expresses joy.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0041", "text": "Convert the given equation into an algebraic expression.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0042", "text": "Brainstorm possible solutions to reduce water pollution.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0043", "text": "Explain why the given definition is wrong.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0044", "text": "Variable x is defined as \u201c4x + 2y = 10\u201d. Find the value of x.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0045", "text": "Write a short paragraph about the given topic.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0046", "text": "Explain the concept of artificial intelligence in simple terms.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0047", "text": "Design an app for a delivery company.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0048", "text": "Summarize the given passage.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0049", "text": "Extract the facts from the paragraph.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0050", "text": "Edit the following sentence to make it more concise.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0051", "text": "Generate a poem with 10 lines.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0052", "text": "Convert from celsius to fahrenheit.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0053", "text": "Arrange the given numbers in ascending order.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0054", "text": "Calculate the total surface area of a cube with a side length of 5 cm.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0055", "text": "What is the force on a 1 kg mass due to the gravitational force?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0056", "text": "Provide one example for a cultural practice.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0057", "text": "Given a set of numbers, find the maximum value.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0058", "text": "Give two examples of a liquid.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0059", "text": "What is the product of 6 and 2?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0060", "text": "What type of plant is a skunk cabbage?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0061", "text": "Convert the given binary number to its decimal equivalent.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0062", "text": "Name two types of desert biomes.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0063", "text": "Given a sentence, convert it into passive voice.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0064", "text": "Transform the following sentence into the passive voice", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0065", "text": "Create a dialog between two people who are discussing a scientific phenomenon", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0066", "text": "Identify the most suitable adverb for the following sentence", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0067", "text": "Find the main idea of the following passage", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0068", "text": "Analyze the tone of the following sentences", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0069", "text": "Construct an argument to defend the following statement", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0070", "text": "Convert the following sentence into the present continuous tense", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0071", "text": "Give an example of a metaphor that uses the following object", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0072", "text": "Describe the following person", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0073", "text": "Construct a mathematical problem with the following numbers", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0074", "text": "Aim to reduce the following sentence without changing its meaning", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0075", "text": "Identify the conjunctions in the following sentence", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0076", "text": "Rewrite the following sentence in the third person", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0077", "text": "Generate a list of business ideas for a food delivery service.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0078", "text": "Edit the following sentence to improve clarity and flow.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0079", "text": "Imagine you are speaking with a customer who is unsatisfied with the product they bought from you. Construct a response that diffuses the situation.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0080", "text": "Explain the concept of a bubble sort algorithm to a non-technical audience.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0081", "text": "Classify the following incident as a breach of protocol. Output 1 for breach, and 0 for no breach.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0082", "text": "Given the following input, construct a creative story.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0083", "text": "Generate a list of methods to reduce food waste.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0084", "text": "Propose an idea for a self-driving car.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0085", "text": "Explain the concept of a linear regression model using simple language.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0086", "text": "Construct a list of tips to help reduce stress.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0087", "text": "Write a review of a recent movie you watched.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0088", "text": "Create a Twitter post to promote your new product.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0089", "text": "Given the following input, classify the verb as transitive or intransitive.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0090", "text": "Generate a list of marketing strategies to promote a new mobile app.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0091", "text": "Rewrite the sentence to provide more clarity and flow.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0092", "text": "Give a description of the following customer segment.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0093", "text": "Design a logo for a mobile application.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0094", "text": "Generate a list of country names in the western hemisphere.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0095", "text": "Translate the following phrase into French.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0096", "text": "Explain what an API is.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0097", "text": "Compute the area of a rectangle with length 10cm and width 5cm.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0098", "text": "Find the capital of Spain.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0099", "text": "Classify the following statement as true or false.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0100", "text": "Design a database to record employee salaries.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0101", "text": "Identify the theme of the following book.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0102", "text": "Assign each word in the sentence below to its part of speech.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0103", "text": "Generate a password of 8 characters.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0104", "text": "Create a web page about robotics.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0105", "text": "What is the most commonly shared type of content on social media?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0106", "text": "What is the main idea of this text?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0107", "text": "Generate a list of present continuous verbs.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0108", "text": "Think of a phrase or idiom containing the word \"sleep\".", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0109", "text": "Make a prediction about what will happen in the next paragraph.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0110", "text": "Generate a headline for the following article.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0111", "text": "What type of punctuation should be used at the end of the following sentence?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0112", "text": "Identify the incorrect word and suggest a better version.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0113", "text": "Rewrite this sentence using the third person point of view.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0114", "text": "Change this sentence into the future tense.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0115", "text": "Summarize the following article in your own words.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0116", "text": "What is the meaning of the following idiom?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0117", "text": "Generate a sentence using the following words in the correct order.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0118", "text": "Is the sentence grammatically correct?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0119", "text": "Classify the relationship between John and Mary.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0120", "text": "Identify the language used in the given sentence.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0121", "text": "Generate a summary of the given article.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0122", "text": "Conver the temperature from Fahrenheit to Celsius.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0123", "text": "Construct a phrase using the given words", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0124", "text": "Find the synonyms of the following word: 'Tenacious'.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0125", "text": "Suggest a good restaurant.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0126", "text": "Calculate the area of the triangle.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0127", "text": "Rewrite the sentence with more descriptive words.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0128", "text": "Generate a creative birthday wish for a friend.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0129", "text": "Make the second sentence shorter.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0130", "text": "Find the solution to the quadratic equation.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0131", "text": "Find the average of these three numbers.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0132", "text": "Rewrite the sentence in a different tense.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0133", "text": "Classify the following data with three labels.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0134", "text": "Compose a five word sentence describing your day.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0135", "text": "Describe the following painting in one sentence.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0136", "text": "Search the web and find the title of the longest novel.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0137", "text": "Change the following sentence from the singular form to the plural form.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0138", "text": "Compile a list of 5 US states located in the Mid West.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0139", "text": "Analyze the following sentence and find the direct object.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0140", "text": "During the last member meeting, create a list of 5 ideas to improve the club.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0141", "text": "Edit the following sentence to correct the grammar and syntax errors", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0142", "text": "Create a questions that can be answered using the following sentence.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0143", "text": "Write a simple definition of the word \"economics\".", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0144", "text": "Find the cutoff score for successful completion of the exam", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0145", "text": "Generate a topic sentence to introduce the following text.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0146", "text": "Write a function to calculate the factorial of a given number.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0147", "text": "Write a function to convert a given string to uppercase.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0148", "text": "Extract the positive integers from an array?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0149", "text": "Calculate the square root of a given number.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0150", "text": "Reverse a linked list.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0151", "text": "Compute the longest increasing subsequence of a given array?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0152", "text": "Design an algorithm to find the maximum profit of a stock buy and sell?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0153", "text": "Given two strings, check whether one string is a rotation of another?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0154", "text": "Given an array of integers, return the first repeating element.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0155", "text": "Find the two non-repeating elements in an array of repeating elements?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0156", "text": "Given a binary tree, check if it is a binary search tree?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0157", "text": "Find the maximum profit that can be earned from a given sequence of transactions?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0158", "text": "Calculate the amount of money in a bank account with an initial $100 deposit and an interest rate of 6%, compounded annually", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0159", "text": "Give me a detailed overview of the framework of a web service.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0160", "text": "Create a timeline describing the history of the internet", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0161", "text": "Paraphrase the following sentence", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0162", "text": "Develop a web-based application that does the following", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0163", "text": "Describe the pros and cons of the following policy", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0164", "text": "Design a post for a social media account to promote the following product", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0165", "text": "Summarize the following article", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0166", "text": "Create a job description for the following role", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0167", "text": "Identify the correct order for the following commands", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0168", "text": "Create a survey question to measure customer satisfaction", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0169", "text": "Create a list of 10 different animals", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0170", "text": "Suggest a good idea for a family photoshoot.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0171", "text": "Create a response for a customer's email about a refund issue.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0172", "text": "Summarize the given news article in one sentence.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0173", "text": "Provide five adjectives that describe a particular animal.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0174", "text": "Rearrange the words to create a complete sentence.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0175", "text": "Write a story that begins with the following sentence.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0176", "text": "Convert the given sentence into active voice.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0177", "text": "Explain why a given topic is important.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0178", "text": "Describe the sound of the given object.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0179", "text": "Rewrite the given sentence using a different but similar word.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0180", "text": "Classify the given input as either a poem, story, or song.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0181", "text": "Create a title for the following description.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0182", "text": "Rewrite the given sentence in a more formal tone.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0183", "text": "Write a few sentences about a given historical figure.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0184", "text": "Generate a list of questions related to a given topic.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0185", "text": "Create a slogan for a given product.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0186", "text": "Categorize the following text into one of the two sentiment classes: positive or negative.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0187", "text": "Summarize the paragraph into a sentence.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0188", "text": "Make the following sentence more concise.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0189", "text": "Transform the following sentence into a yes/no question.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0190", "text": "Compose a tweet that addresses the issue of environmental degradation.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0191", "text": "Replace the underlined words with appropriate synonyms.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0192", "text": "Correct the grammatical errors in the sentence.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0193", "text": "Identify the type of the relationship between the two words in the sentence.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0194", "text": "Compose an informative sentence explaining the given term.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0195", "text": "Rewrite the following sentence without changing the meaning.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0196", "text": "What's the output of this code?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0197", "text": "Write a short review for the novel \"The Catcher in the Rye\".", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0198", "text": "Identify the following animal.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0199", "text": "Describe the impact of the coronavirus on the economy.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0200", "text": "What geometric shape has 5 sides and 5 angles?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0201", "text": "Generate a pitch for a new and original product.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0202", "text": "Compose a sonnet about the beauty of nature.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0203", "text": "Rewrite the following sentence so that it is in active voice.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0204", "text": "Write a short story about a day in the life of a software engineer.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0205", "text": "What's the difference between a virus and a worm?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0206", "text": "Explain the concept of the blockchain.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0207", "text": "What is the contraction of \"they are\"?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0208", "text": "Create a list of items for a picnic.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0209", "text": "Find the lowest common multiple of two numbers.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0210", "text": "Classify the given article as either positive or negative sentiment.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0211", "text": "Convert the following hexadecimal number to octal.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0212", "text": "Gather some recent data related to the increasing rates of unemployment.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0213", "text": "Indicate how the following characters in the novel reflect the theme of \"the corrupting influence of power\".", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0214", "text": "Rewrite the following sentence to avoid any logical fallacies.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0215", "text": "Name two different ways to reduce poverty in a community.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0216", "text": "Generate a sentence that follows the structure of: \"All ____ is based on/with _____\"", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0217", "text": "Describe the principle of the Law of Supply.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0218", "text": "Find the area of the given trapezoid.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0219", "text": "Describe the themes present in the given poem.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0220", "text": "Generate a haiku poem.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0221", "text": "Design a logo for a web development company.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0222", "text": "Compare cats and dogs.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0223", "text": "Classify this text as Fiction or Non-fiction.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0224", "text": "Name three fruits that are rich in Vitamin C.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0225", "text": "Translate this sentence from French to English.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0226", "text": "Generate the third term in the sequence 2, 5, 9, 14.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0227", "text": "What is the purpose of Financial Accounting?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0228", "text": "Describe a unique way to cook a steak.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0229", "text": "Summarize the advantages of renewable energy.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0230", "text": "Identify the incorrect word in this sentence.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0231", "text": "Suggest a powerful quote.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0232", "text": "Sort the following list in alphabetical order.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0233", "text": "What is a trade deficit?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0234", "text": "Name one benefit of meditation.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0235", "text": "Name the three main mountain ranges in the United States.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0236", "text": "Assign this task to the design team.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0237", "text": "Provide the lyrics for the song titled \u201cYesterday\u201d", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0238", "text": "Provide a brief summary of the novel \"Never Let Me Go\".", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0239", "text": "Edit the following sentence so that it has correct grammar.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0240", "text": "Name something you can do with paper.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0241", "text": "Construct a sentence using the phrase \"every day\".", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0242", "text": "What type of fruit would be a good addition to a fruit salad?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0243", "text": "Describe in a few words what makes a good leader.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0244", "text": "Find a rhyming word for the word \"river\".", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0245", "text": "What is the scientific name for a beaver?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0246", "text": "Convert the following number from base 10 to hexadecimal: 278", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0247", "text": "Give a definition of \"algae\".", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0248", "text": "Name a natural process which occurs in food preservation.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0249", "text": "Supply a phrase to complete this proverb: \"It's better to be safe than ____.\"", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0250", "text": "Give an example of a convergent boundary.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0251", "text": "Follow the law of supply and demand, describe what would happen to the price of a good if the demand increased.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0252", "text": "Provide an example of an endangered species of animal.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0253", "text": "Research about a famous scientist and provide a short biography about him/her.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0254", "text": "Explain why the election of Abraham Lincoln was considered a revolutionary moment.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0255", "text": "Research Einstein's theory of relativity and provide a brief explanation.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0256", "text": "Analyze the historical significance of the Stonewall Uprising.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0257", "text": "Create a sentence that employs a figure of speech.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0258", "text": "Generate a sentence in Spanish that describes the natural beauty of Barcelona.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0259", "text": "Describe the painting \"The Great Wave off Kanagawa\" by Katsushika Hokusai.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0260", "text": "Explain the concept of entropy in thermodynamics.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0261", "text": "Provide an example of a non-renewable source of energy.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0262", "text": "Describe the major differences between the Catholic and Protestant faiths.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0263", "text": "What is the process of photosynthesis and why is it important?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0264", "text": "Write a 250 word essay about Coral Reef Conservation", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0265", "text": "Compose a haiku about cats", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0266", "text": "Given a sequence of numbers, calculate the average", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0267", "text": "What are the important contributions of NASA to space exploration?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0268", "text": "Rewrite this sentence, \"She is taking a short break from practice\"", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0269", "text": "Given a movie title \"The Iron Giant\", come up with an suitable tagline", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0270", "text": "Given the following data, What is the median score", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0271", "text": "Describe the qualities of a good leader", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0272", "text": "Explain the difference between a personal computer and a server", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0273", "text": "What is the main purpose of blockchain technology?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0274", "text": "Come up with a creative metaphor for smile", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0275", "text": "Given a list of ingredients, come up with a dish", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0276", "text": "For the following passage, identify the theme or thesis statement.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0277", "text": "What critically acclaimed 2016 movie has a setting of a post-apocalyptic wasteland?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0278", "text": "Given the following sentence, add appropriate punctuation to make it grammatically correct.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0279", "text": "Label the following news article as either \"Political\" or \"Entertainment\"", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0280", "text": "Reword the following sentence to the past tense.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0281", "text": "Summarize the following passage in less than 50 words.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0282", "text": "How many bytes are there in a kilobyte?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0283", "text": "Generate a creative description of a sunset in the beach.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0284", "text": "Standardize the following date to the ISO 8601 format.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0285", "text": "Rewrite the following sentence in a more concise way.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0286", "text": "Classify the following fruit according to its color.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0287", "text": "Compute the following expression.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0288", "text": "Suggest a suitable card game for a birthday party with 10 year old kids.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0289", "text": "Translate the following sentence from English to French.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0290", "text": "Analyze the given poem and explain the theme.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0291", "text": "Calculate the average age of the following five people.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0292", "text": "Explain the following quote.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0293", "text": "Determine the longest word in the following sentence.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0294", "text": "Rewrite the following equation in expanded form.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0295", "text": "Explain the meaning of the following phrase.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0296", "text": "Write a review for the following movie.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0297", "text": "Identify the main character in the following story.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0298", "text": "Describe the solution in detail.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0299", "text": "Name three diseases that can be caused by poor hygiene.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0300", "text": "Generate a random password of 6 characters in length using only capital letters and numbers.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0301", "text": "Explain what is meant by the circle of fifths.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0302", "text": "Generate a story with the given keywords.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0303", "text": "Calculate the winning percentage for the team in the given statistics.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0304", "text": "Translate the given phrase from French to English.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0305", "text": "Create a haiku poetry with the given theme.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0306", "text": "Design a logo for the given company.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0307", "text": "Find the synonyms for the words below.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0308", "text": "Draft a letter of appreciation for the given recipient.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0309", "text": "Analyze the given film and explain why it should be included in the top 10 list.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0310", "text": "Explain the implications of artificial intelligence in health care.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0311", "text": "Write a definition of \"photoshop\".", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0312", "text": "List five factors that lead to global warming.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0313", "text": "Name 5 invasive species.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0314", "text": "What is an AI algorithm?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0315", "text": "Explain the term \"AI explainability\".", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0316", "text": "Pick out the adverbs in the following sentence.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0317", "text": "Generate a poem about spring.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0318", "text": "Write a scientific explanation for why the sky is blue.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0319", "text": "List five characteristics of good communication.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0320", "text": "Suggest five strategies for self-motivation.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0321", "text": "Name five characteristics of a typical resume.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0322", "text": "Describe the benefits of using a GPT model.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0323", "text": "Compare two types of text processing techniques and explain differences between them.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0324", "text": "Summarize the article below in 5 sentences.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0325", "text": "Given a set of eight numbers (1,2, 3, 4, 5, 6, 7, 8), generate a sentence that reflects their order.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0326", "text": "Explain why decision trees may be better than linear models for certain problems.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0327", "text": "Suggest a sentence that follows \"He had never seen a creature so strange,\"", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0328", "text": "Select the best prediction from the sentences below given the input \"My vacation is in ________.\"", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0329", "text": "Describe the effects of climate change.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0330", "text": "Classify the given sentence as either negative or positive.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0331", "text": "Rewrite the cover letter below in the first person.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0332", "text": "Explain why computational models can be used in analysing text.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0333", "text": "Generate a question that could follow the response below.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0334", "text": "Summarize the article below in a maximum of 100 words.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0335", "text": "Create a sentence that ends with an ellipsis.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0336", "text": "Explain the difference between HTML and CSS.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0337", "text": "Generate a tweet about a new product", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0338", "text": "Create a new recipe for flavorful noodles", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0339", "text": "Train a logistic regression model with credit data.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0340", "text": "Name four diseases caused by cold temperatures.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0341", "text": "Translate the following sentence into Spanish.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0342", "text": "Generate a function for calculating the mean of a list.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0343", "text": "Write a blog post about how AI is transforming the healthcare industry.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0344", "text": "Explain the role of a computer scientist in the modern world.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0345", "text": "Describe the importance of renewable energy", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0346", "text": "Generate a review for a recent movie", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0347", "text": "Generate a function to sort a list of strings alphabetically", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0348", "text": "Write a Satire article about the coronavirus pandemic", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0349", "text": "Create a function to check whether two strings are anagrams.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0350", "text": "Explain what is a neural network", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0351", "text": "Tag the language of the following text", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0352", "text": "Explain what the article is about in 1 to 2 sentences.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0353", "text": "Find the three least common values in the given list.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0354", "text": "Write a few sentences about the current state of the given topic.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0355", "text": "Identify the two main characters in the given passage.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0356", "text": "Suggest topics for an informal discussion about the given country.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0357", "text": "Explain the implications of the given information.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0358", "text": "Convert the following text into a list.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0359", "text": "Generate a sentence that contains the given words.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0360", "text": "Compile a list of five items that would help someone go camping.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0361", "text": "Correct any spelling or grammar mistakes in the given sentence.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0362", "text": "Find the differences between the two short texts.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0363", "text": "Rewrite the following paragraph to make it sound more formal.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0364", "text": "Classify the following sentence as either a metaphor or hyperbole.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0365", "text": "Generate a creative name for a restaurant serving Mexican cuisine.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0366", "text": "Suggest two marketing strategies for launching a new app.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0367", "text": "Edit the following sentence for grammar and style.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0368", "text": "Rewrite the following sentence for clarity.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0369", "text": "Change this sentence to make it a question.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0370", "text": "Explain the concept of a GPT language model.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0371", "text": "Generate a slogan for a clothing brand.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0372", "text": "Add the article \"the\" to the following sentence.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0373", "text": "Generate an example that illustrates the concept of \"artificial intelligence\".", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0374", "text": "Describe the process of account creation for a website.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0375", "text": "Analyze the following poem and explain its meaning.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0376", "text": "Suggest two ways to increase the reach of a blog.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0377", "text": "Name three natural elements.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0378", "text": "Give a brief description of the coronavirus.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0379", "text": "Predict the monthly electricity bill of a 1000 square-foot apartment in California.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0380", "text": "Generate 10 rhyming words for the word \"love\".", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0381", "text": "Explain the concept of binary search.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0382", "text": "Name all the elements in the periodic table with symbol C.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0383", "text": "Compare the differences between a wooden and plastic baseball bat.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0384", "text": "Calculate the area of a right triangle with base length of 5 cm and height of 3 cm.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0385", "text": "Identify the continents with the most carnivores.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0386", "text": "Explain the difference between a primary and secondary source.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0387", "text": "Explain the purpose of hypertext markup language (HTML).", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0388", "text": "Describe the differences between a substantive and procedural law.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0389", "text": "Suggest three methods for recycling paper.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0390", "text": "Describe the color pink.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0391", "text": "Generate a rate for a driver for a ride sharing app for $5.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0392", "text": "Come up with a social media campaign slogan.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0393", "text": "Compose a haiku with the provided subject.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0394", "text": "Choose an appropriate introduction for the following news article.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0395", "text": "Write a tweet about customer service.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0396", "text": "Generate a sound effect for a car passing by.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0397", "text": "Identify the type of the following musical chord.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0398", "text": "Name a planet from our solar system.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0399", "text": "Compute the sum of the following numbers.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0400", "text": "Come up with a creative tagline for a beauty product.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0401", "text": "Describe how quantum computers work.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0402", "text": "Generate a memorable quote from Albert Einstein.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0403", "text": "Find the sum of the numbers 6 and 12.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0404", "text": "Transform the following sentence using the past perfect tense: Yesterday they opened the door.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0405", "text": "Explain the uses of artificial intelligence.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0406", "text": "Describe a scenario in which blockchain technology could be successfully applied.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0407", "text": "Complete the following analogy: Loud is to quiet as day is to", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0408", "text": "Create an example of alliteration.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0409", "text": "Classify the following words by their grammatical categories: walk, interesting, quickly", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0410", "text": "Find the greatest common factor of 12 and 18.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0411", "text": "Come up with a riddle", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0412", "text": "Identify the conjugation of the verb: I will have helped", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0413", "text": "What is the first rule of storytelling?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0414", "text": "Rewrite the sentence into more descriptive form:\nThe food was delicious.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0415", "text": "Name 5 emotional states", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0416", "text": "Create a funny one-liner.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0417", "text": "Generate a list of fashion trends for Spring 2021.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0418", "text": "What is the impact of deforestation on wildlife?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0419", "text": "Explain economics with an example.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0420", "text": "Provide me a list of diseases that can be caused by smoking.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0421", "text": "What is the difference between machine learning and deep learning?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0422", "text": "Describe a typical workday for a barista.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0423", "text": "How does the human brain remember information?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0424", "text": "How does the internet of things (IoT) work?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0425", "text": "Give me an example of a conflict resolution technique.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0426", "text": "Pick out the correct noun from the following list.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0427", "text": "Identify a programming language suitable for game development.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0428", "text": "Make a list of different types of cryptocurrencies.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0429", "text": "Create a tweet with the following hashtag.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0430", "text": "Rewrite the following sentence using the root words.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0431", "text": "Combine the two sentences into a single sentence.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0432", "text": "Split the following sentence into two separate sentences.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0433", "text": "Classify the following sentence as positive, negative, or neutral.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0434", "text": "Discover which word in the sentence carries the most weight.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0435", "text": "Rewrite the following sentence omitting the pronouns.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0436", "text": "Write a review of the restaurant.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0437", "text": "Outline an itinerary for a three day trip.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0438", "text": "Classify the item as either animal or vegetable.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0439", "text": "Derive the mathematical equation for a straight line.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0440", "text": "Describe the physical features of a tiger.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0441", "text": "Summarize the argument in the text.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0442", "text": "Generate ideas for a fiction story.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0443", "text": "Describe the Renaissance period.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0444", "text": "List 5 items of personal protective equipment.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0445", "text": "Replace the single quote (') to double quote (\") in the given sentence.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0446", "text": "Construct plumbing diagrams for a two-story house", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0447", "text": "Compare student debt crisis in the US and Canada.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0448", "text": "List the benefits of Amazon Web Services.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0449", "text": "Generate a limerick poem about a lemur.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0450", "text": "Describe the functions of the Endoplasmic Reticulum.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0451", "text": "Summarize the industrial revolution.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0452", "text": "Rewrite the sentence, replacing the idioms with their literal meanings.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0453", "text": "Select the correct term for the phrase \u2018the art of making things\u2019", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0454", "text": "Identify any usage errors in the following sentence.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0455", "text": "Explain the concept of net neutrality.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0456", "text": "Brainstorm creative ideas for designing a conference room.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0457", "text": "Calculate the area of a square with the sides of 10cm.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0458", "text": "List the countries that are in the Schengen area.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0459", "text": "Describe the form and structure of a haiku poem.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0460", "text": "Explain how a random forest algorithm achieves higher accuracy than individual decision trees.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0461", "text": "Give an example of a place where an endangered species of animal might be found.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0462", "text": "Create a pop quiz about clouds.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0463", "text": "Explain why trade protectionism can hurt the economy of a country.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0464", "text": "Come up with a slogan to describe a new lipstick product.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0465", "text": "Describe how a Docker container works.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0466", "text": "Given an economic concept, define it in simple terms.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0467", "text": "Propose a transportation solution for a city with rapid population growth.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0468", "text": "Identify a potential security threat for a global online financial system.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0469", "text": "Describe what it takes to be a successful manager.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0470", "text": "Arrange the given sentences into a well-structured paragraph.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0471", "text": "Construct a timeline for the coronavirus outbreak.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0472", "text": "Compare and contrast two types of computer networks.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0473", "text": "Describe how machine learning can be used to automate mundane tasks.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0474", "text": "Write a blog post on how to deploy machine learning models.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0475", "text": "Classify the following sentence into one of the following labels: [positive, negative, neutral]", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0476", "text": "Generate a list of five elements for a grocery shopping list", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0477", "text": "Create a dialogue between a customer and a flight attendant for a plane ride", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0478", "text": "Generate a design specification for the following product", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0479", "text": "Evaluate the following statement", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0480", "text": "Compose a simple melody for the following lyrics.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0481", "text": "Suggest an alternative to the following sentence.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0482", "text": "Explain what a decision tree is.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0483", "text": "Design a function to count the number of unique characters in a string.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0484", "text": "Suggest a good screen capture tool for Mac.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0485", "text": "Summarize the main argument of the paper \"A Social Network that Influences Attitudes and Behaviors\"", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0486", "text": "Write a Python function that takes two integers and returns their least common multiple.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0487", "text": "Rewrite the following paragraph in the active voice", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0488", "text": "Generate three different ways to greet the user.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0489", "text": "Name one way to start a conversation with someone you don't know.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0490", "text": "Compose a poem about a single color.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0491", "text": "Provide the answer to the equation.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0492", "text": "Write a limerick about a holiday.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0493", "text": "Provide a definition of the word \"vacillation\".", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0494", "text": "Write a haiku about the ocean.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0495", "text": "Organize the following words into a meaningful sentence.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0496", "text": "Sort the following items into two categories.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0497", "text": "Rewrite the following sentence with more accurate grammar.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0498", "text": "Name three government positions in the United States.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0499", "text": "Improve the following sentence by using a better transition.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0500", "text": "Describe the character of Romeo from Romeo and Juliet.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0501", "text": "Determine which statement is true.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0502", "text": "Make a list of five items that you need to buy in a grocery store.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0503", "text": "Name five societal advantages of the internet.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0504", "text": "Re-write this sentence using an active voice.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0505", "text": "Check if the following phrase is a well-formed formula", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0506", "text": "Describe the similarities and difference between cats and dogs.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0507", "text": "Provide an example of how AI can solve a problem.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0508", "text": "Change the given verb to its past perfect form.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0509", "text": "List five ways to reduce energy consumption.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0510", "text": "Name 6 components of an artificial neural network", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0511", "text": "Using the provided information, build a SQL query to extract the top 10 highest valued orders.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0512", "text": "Create a listicle using the given data.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0513", "text": "Answer this math problem.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0514", "text": "Generate a list of 5 creative ways to use technology in the classroom.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0515", "text": "Describe the process of creating a website from scratch.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0516", "text": "Name 3 countries that border France.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0517", "text": "Summarize the given article in 1-2 sentences.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0518", "text": "Provide a summary for the passage given below.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0519", "text": "Choose the most appropriate answer", "label": "benign", "category": "instruction", "source": "alpaca"}

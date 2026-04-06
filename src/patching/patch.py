@@ -1,8 +1,22 @@
 """
 Pilot patching experiment.
 
-Goal: understand how the refusal-direction component at an early token position
-(source position ts) influences generation at later positions (target position tt).
+Research hypothesis:
+  Under a prefilling attack, the refusal-direction projection declines at later
+  token positions (tracing experiment). The patching experiment tests whether
+  this decline is *causally* relevant: if we restore the early-token refusal-
+  direction component at a later position, does the model become more likely
+  to refuse?
+
+  Expected direction of effect:
+    BASELINE (no patch): compliance (because prefilling suppressed refusal)
+    PATCHED: refusal rate increases, or projection increases
+
+  A result where patching INCREASES refusal (compliance → refusal) would
+  support the hypothesis that the positional decay of the refusal direction
+  causally mediates compliance under attack.
+  Absence of effect would suggest the refusal decision is already committed
+  by the time the patched position is processed.
 
 Method:
   For a given layer L and source token position ts:
@@ -14,11 +28,11 @@ Method:
      the refusal-direction component in the residual stream with the source value.
   4. Record the generated text before and after patching.
 
-This is a causal intervention: if changing the refusal component at position tt
-changes the output, then that position's refusal signal has causal relevance.
+This is a causal intervention: if restoring the refusal component at position tt
+increases refusal behavior, that position's refusal signal has causal relevance.
 
-Note: "source" and "target" here are token positions, not different prompts.
-We patch within the same prompt's generation to isolate positional effects.
+Note: "source" and "target" here are token positions within the same prompt.
+We patch within a single prompt's generation to isolate positional effects.
 
 TODO: Extend to cross-prompt patching (source prompt → target prompt) in
 future experiments.

@@ -1,5 +1,10 @@
-# Model override: Llama-3.1-8B-Instruct
-# Swap in by passing --config configs/model_8b.yaml to any script.
+# RESEARCH TARGET: Llama-3.1-8B-Instruct
+#
+# This is the primary model for all course project experiments.
+# It is also the default in configs/base.yaml.
+# This file exists as an explicit reference and for documentation.
+#
+# Requirements: ~20GB VRAM (A100-40GB or equivalent recommended).
 
 model:
   name: meta-llama/Llama-3.1-8B-Instruct

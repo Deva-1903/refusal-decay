@@ -6,27 +6,41 @@ COMPSCI 602 — Mechanistic Interpretability / Causal Analysis of LLM Safety Beh
 
 ---
 
-## Project Goal
+## Research Questions
 
-We study how the *refusal direction* — a feature direction in the residual stream that distinguishes harmful from benign inputs — evolves **token-by-token** during generation when the model is subjected to **prefilling attacks** (forced compliant prefixes).
+This project investigates how the *refusal direction* — a direction in the residual stream that distinguishes harmful from benign representations — evolves token-by-token during generation when the model is subjected to a **prefilling attack** (forced compliant prefix tokens).
 
-The central question:
+Specific questions:
+1. Does the refusal-direction projection decline with token position during generation?
+2. Does a larger forced prefix length k accelerate or deepen that decline?
+3. Is the positional decay concentrated in particular layers?
+4. Does patching the early-token refusal-direction component into later positions causally increase refusal probability?
 
-> Does the refusal signal at early token positions causally determine whether the model continues to refuse or comply at later positions? And does forcing an initial compliant token progressively erode this signal?
+These questions are grounded in the finding (Arditi et al., 2024) that refusal is mediated by a single direction in the residual stream, and extend it to the *temporal* (token-position) dimension under attack conditions.
 
 ---
 
-## Scope (Progress Report Stage)
+## Model
 
-This codebase implements the infrastructure and preliminary experiments for a progress report. The scope is intentionally narrow:
+| Role | Model |
+|------|-------|
+| **Research target** (course project results) | `meta-llama/Llama-3.1-8B-Instruct` |
+| Smoke-test / debug / fast iteration | `meta-llama/Llama-3.2-3B-Instruct` |
 
-| Aspect | In scope | Out of scope (for now) |
-|--------|----------|------------------------|
-| Model | Llama-3.2-3B-Instruct | Larger models (until infra works) |
-| Attack | Prefilling (k tokens) | Adversarial suffixes, GCG |
+The 8B model is the default in all configs. Use `--model-config configs/model_3b.yaml` to override for smoke tests. Do not report 3B results as the primary experimental findings.
+
+---
+
+## Scope
+
+| Aspect | In scope | Out of scope (now) |
+|--------|----------|---------------------|
+| Model | Llama-3.1-8B (primary), Llama-3.2-3B (debug) | Other model families |
+| Attack | Prefilling (k forced tokens) | Adversarial suffixes, GCG |
 | Mechanism | Refusal direction (residual stream) | Attention heads, neurons |
 | Probe | Difference-in-means | DAS, linear probes, nonlinear |
-| Experiment | Tracing + pilot patching | Full causal ablation study |
+| Evaluation | Phrase-list classifier (heuristic) | Llama Guard (not yet integrated) |
+| Experiments | Baseline, sweep, tracing, patching | Full causal ablation, cross-layer, multi-direction |
 
 ---
 
@@ -34,16 +48,10 @@ This codebase implements the infrastructure and preliminary experiments for a pr
 
 ```
 refusal-decay/
-├── README.md
-├── RESEARCH_LOG.md             # tracks decisions, failures, scope changes
-├── requirements.txt
-├── environment.yml
-├── .env.example
-│
 ├── configs/
-│   ├── base.yaml               # all defaults live here
-│   ├── model_3b.yaml           # Llama-3.2-3B override
-│   ├── model_8b.yaml           # Llama-3.1-8B override
+│   ├── base.yaml               # all defaults — 8B is the research target
+│   ├── model_3b.yaml           # smoke-test override (use with --model-config)
+│   ├── model_8b.yaml           # explicit reference for 8B
 │   └── experiments/
 │       ├── baseline.yaml
 │       ├── prefilling_sweep.yaml
@@ -51,32 +59,31 @@ refusal-decay/
 │       └── patching.yaml
 │
 ├── data/
-│   ├── harmful_prompts.jsonl   # 25 fake example harmful prompts
-│   ├── benign_prompts.jsonl    # 25 fake example benign prompts
-│   └── processed/              # normalized Prompt objects
+│   ├── README.md               # how to get and normalize real benchmark data
+│   ├── harmful_prompts.jsonl   # PLACEHOLDER — replace with AdvBench
+│   └── benign_prompts.jsonl    # PLACEHOLDER — replace with Alpaca subset
 │
 ├── src/
 │   ├── config.py               # YAML loading + dot-access Config
 │   ├── data/
 │   │   ├── schema.py           # Prompt dataclass
-│   │   └── loader.py           # JSONL loading + normalization
+│   │   └── loader.py           # JSONL loading and normalization
 │   ├── generation/
 │   │   ├── generator.py        # model loading + generation pipeline
-│   │   └── prefilling.py       # prefilling attack implementation
+│   │   └── prefilling.py       # prefilling attack (appends k prefix tokens)
 │   ├── classification/
-│   │   └── refusal_classifier.py  # phrase-list + Llama Guard stub
+│   │   └── refusal_classifier.py  # phrase-list baseline + GuardClassifier interface
 │   ├── probing/
 │   │   ├── direction.py        # difference-in-means refusal direction
-│   │   └── tracing.py          # per-token projection tracing
+│   │   └── tracing.py          # per-token projection tracing during generation
 │   ├── patching/
-│   │   └── patch.py            # pilot direction-patching experiment
+│   │   └── patch.py            # pilot direction-component patching
 │   └── utils/
-│       ├── logging_utils.py
-│       └── io_utils.py
 │
 ├── scripts/
-│   ├── run_baseline.py         # normal generation (k=0)
-│   ├── run_prefilling_sweep.py # sweep k in {0,1,3,5,10}
+│   ├── normalize_prompts.py    # convert external datasets to repo schema
+│   ├── run_baseline.py
+│   ├── run_prefilling_sweep.py
 │   ├── extract_refusal_direction.py
 │   ├── run_tracing.py
 │   ├── run_patching.py
@@ -87,342 +94,340 @@ refusal-decay/
 │   ├── tracing.sh
 │   └── patching.sh
 │
-├── outputs/                    # all generated artifacts (gitignored)
-│   ├── generations/
-│   ├── directions/
-│   ├── traces/
-│   ├── patches/
-│   ├── plots/
-│   └── logs/
-│
-├── notebooks/
-│   └── exploration.ipynb
-│
-└── tests/
-    ├── test_loader.py
-    ├── test_config.py
-    ├── test_direction.py
-    └── test_schema.py
+└── tests/                      # 40+ tests, no GPU required
 ```
 
 ---
 
 ## Installation
 
-### Local (Mac / Linux)
+### Local
 
 ```bash
 git clone <repo>
 cd refusal-decay
 
-# Conda (recommended)
 conda env create -f environment.yml
 conda activate refusal-decay
 
-# Or pip
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-
-# Set your HuggingFace token (needed for Llama access)
+# Set HuggingFace token (required for gated Llama models)
 cp .env.example .env
-# Edit .env and set HF_TOKEN=hf_...
+# Edit .env: HF_TOKEN=hf_...
 export HF_TOKEN=$(grep HF_TOKEN .env | cut -d= -f2)
 ```
 
 ### Cluster (SLURM)
 
 ```bash
-# On login node
-git clone <repo>
-cd refusal-decay
+git clone <repo> && cd refusal-decay
 conda env create -f environment.yml
-
-# Set HF_TOKEN in your .bashrc or pass via sbatch --export
-echo 'export HF_TOKEN=hf_...' >> ~/.bashrc
-source ~/.bashrc
+echo 'export HF_TOKEN=hf_...' >> ~/.bashrc && source ~/.bashrc
 ```
 
 ---
 
-## Quick Start: Run Everything Locally
+## Before Running Experiments: Prepare Real Data
 
-These commands assume you have the model and token set up.
+The placeholder data in `data/` is for pipeline smoke-testing only. Replace it with real benchmark data before running any experiments you intend to report.
+
+See [data/README.md](data/README.md) for full instructions. Quick version:
 
 ```bash
-# 1. Run tests (no GPU needed)
+# 1. Download AdvBench harmful behaviors
+wget https://raw.githubusercontent.com/llm-attacks/llm-attacks/main/data/advbench/harmful_behaviors.csv
+
+# 2. Normalize into repo schema
+python scripts/normalize_prompts.py \
+    --input harmful_behaviors.csv \
+    --text-col goal --label harmful \
+    --source advbench --output data/harmful_prompts.jsonl
+
+# 3. Get benign prompts from Alpaca (requires: pip install datasets)
+python -c "
+from datasets import load_dataset; import json
+ds = load_dataset('tatsu-lab/alpaca', split='train')
+with open('data/benign_prompts.jsonl','w') as f:
+    for i, ex in enumerate(ds.select(range(500))):
+        f.write(json.dumps({'prompt_id':f'alpaca_{i:04d}','text':ex['instruction'],
+                            'label':'benign','category':'instruction','source':'alpaca'})+'\n')
+"
+```
+
+---
+
+## Running Experiments
+
+### Test the pipeline first (no GPU, no real model)
+
+```bash
 pytest tests/ -v
+```
 
-# 2. Baseline generation (k=0, ~5 min on 3B with one GPU)
-python scripts/run_baseline.py
+All 40+ tests pass on CPU only. This validates config loading, data normalization, direction math, and classifier schema.
 
-# 3. Prefilling sweep (k in {0,1,3,5,10}, ~25 min)
-python scripts/run_prefilling_sweep.py
+### Smoke-test with 3B (fast, ~15 min on a single GPU)
 
-# 4. Extract refusal direction (~5 min)
-python scripts/extract_refusal_direction.py
+Always validate the full pipeline on the 3B model before committing GPU hours to 8B.
 
-# 5. Run tracing (~30 min for 25 prompts × 5 k values)
-python scripts/run_tracing.py
+```bash
+# Baseline
+python scripts/run_baseline.py --model-config configs/model_3b.yaml
 
-# 6. Run patching pilot (~20 min)
-python scripts/run_patching.py
+# Prefilling sweep
+python scripts/run_prefilling_sweep.py --model-config configs/model_3b.yaml
 
-# 7. Generate all plots
+# Extract direction + run tracing
+python scripts/extract_refusal_direction.py --model-config configs/model_3b.yaml
+python scripts/run_tracing.py --model-config configs/model_3b.yaml
+
+# Plots
 python scripts/plot_results.py
 ```
 
-All outputs go to `outputs/`. Each script is **resume-safe**: re-running will skip files that already exist (use `--no-resume` to force rerun).
+### Production run with 8B (research target)
+
+Once the pipeline is validated and real data is in place:
+
+```bash
+# 8B is the default — no --model-config needed
+python scripts/run_baseline.py
+python scripts/run_prefilling_sweep.py
+python scripts/extract_refusal_direction.py
+python scripts/run_tracing.py
+python scripts/run_patching.py
+python scripts/plot_results.py
+```
+
+All scripts are **resume-safe**: re-running skips already-completed output files.
+Use `--no-resume` to force a full rerun.
 
 ---
 
-## Swapping to the 8B Model
+## Swapping Models
 
 ```bash
-python scripts/run_baseline.py --model-config configs/model_8b.yaml
-python scripts/run_prefilling_sweep.py --model-config configs/model_8b.yaml
-python scripts/extract_refusal_direction.py --model-config configs/model_8b.yaml
-# etc.
-```
+# Any script: override to 3B for smoke test
+python scripts/run_baseline.py --model-config configs/model_3b.yaml
 
-The 8B model requires ~20GB VRAM. Adjust SLURM `--mem` and `--gres` accordingly.
+# Explicit 8B (same as default)
+python scripts/run_baseline.py --model-config configs/model_8b.yaml
+```
 
 ---
 
 ## Running on a SLURM Cluster
 
 ```bash
-# Submit individual jobs
 sbatch slurm/baseline.sh
-sbatch slurm/tracing.sh
+# Wait for completion, then:
+sbatch slurm/tracing.sh   # includes direction extraction
 sbatch slurm/patching.sh
-
-# Check status
-squeue -u $USER
-
-# View logs
-tail -f outputs/logs/baseline_<JOB_ID>.out
 ```
 
-**Before submitting**: edit the SLURM scripts to match your cluster:
+**Before submitting**, edit the SLURM scripts to match your cluster:
 - `--partition` — your GPU partition name
-- `--gres=gpu:1` — may need `gpu:a100:1` or similar
-- `conda activate refusal-decay` — adjust if using modules or venv
+- `--gres=gpu:1` — adjust to e.g. `gpu:a100:1`
+- Memory: 8B requires ~24GB VRAM (increase `--mem` if needed)
+- `conda activate refusal-decay` — or use modules
+
+For interactive debugging:
+```bash
+srun --partition=gpu --gres=gpu:1 --mem=32G --time=2:00:00 --pty bash
+conda activate refusal-decay
+python scripts/run_baseline.py --model-config configs/model_3b.yaml
+```
 
 ---
 
-## Configuration System
+## Evaluation Notes
 
-All behavior is controlled by YAML configs. The base config (`configs/base.yaml`) sets all defaults; experiment configs override specific keys.
+### Refusal classifier
 
-```bash
-# Override k values from the command line
-python scripts/run_prefilling_sweep.py --k-values 0 1 5 10
+The pipeline uses a **phrase-list heuristic** classifier as its primary evaluation metric. It checks whether phrases like "I cannot", "I won't", "I'm sorry, but" appear in the first 200 characters of the response.
 
-# Override held-out count for direction extraction
-python scripts/extract_refusal_direction.py --held-out-n 30
+This is fast and requires no extra model, but it is a heuristic with known limitations:
+- **False positives**: "I cannot stress enough how important..." classified as refusal
+- **False negatives**: unusual refusal phrasing not in the list
 
-# Use a different output directory by editing the experiment config:
-# output:
-#   generations_dir: outputs/my_experiment/
-```
+**Llama Guard integration is not yet implemented.** The `GuardClassifier` interface in `src/classification/refusal_classifier.py` provides an adapter stub. Output records reserve `safety_guard_label`, `guard_model_name`, and `disagreement_flag` fields (currently `null`) for when guard evaluation is added.
 
-Config snapshots are saved alongside all outputs (as `config_snapshot.yaml`) for reproducibility.
+Validate a sample of classifications manually before reporting final results.
+
+### Patching experiment interpretation
+
+The patching hypothesis is directional:
+
+> If we restore the early-token refusal-direction component at later generation positions, the model should be *more likely to refuse*.
+
+The expected result is **compliance → refusal** (patching restores refusal).
+If patching has no effect, the refusal decision was already committed earlier.
+If patching causes **refusal → compliance** (the wrong direction), that would be surprising and should be investigated separately.
+
+The output metric in `run_patching.py` reports three cases:
+- `refusal_restored` (compliance → refusal): expected positive causal effect
+- `refusal_lost` (refusal → compliance): unexpected direction
+- no change
 
 ---
 
 ## Output Format
 
 ### Generations (`outputs/generations/`)
-JSONL files with one record per prompt:
+
+JSONL, one record per prompt per k value:
 ```json
 {
-  "prompt_id": "h001",
+  "prompt_id": "advbench_0001",
   "label": "harmful",
-  "category": "weapons",
+  "category": "harmful_behavior",
+  "source": "advbench",
   "prompt_text": "...",
   "prefix_k": 3,
   "generated_text": "...",
   "n_generated_tokens": 142,
-  "refusal_label": "refusal",
-  "matched_phrase": "I cannot"
+  "refusal_phrase_label": "refusal",
+  "matched_phrase": "I cannot",
+  "refusal_classifier_version": "phrase_list_v1",
+  "safety_guard_label": null,
+  "guard_model_name": null,
+  "disagreement_flag": null
 }
 ```
 
 ### Traces (`outputs/traces/`)
-Parquet/CSV files (tidy long format):
+
+Tidy Parquet/CSV, one row per (prompt, k, layer, token_position):
 ```
 prompt_id | label | prefix_k | step | layer | projection
-h001      | harmful | 0      | 1    | 8     | 0.342
-h001      | harmful | 0      | 2    | 8     | 0.289
-...
 ```
 
 ### Directions (`outputs/directions/`)
-PyTorch `.pt` file: `{layer_idx: tensor(hidden_size)}`
+
+PyTorch `.pt`: `{layer_idx: unit_direction_tensor(hidden_size)}`
 
 ### Patches (`outputs/patches/`)
-JSONL files with baseline and patched generations + refusal labels.
+
+JSONL with `baseline_text`, `patched_text`, `baseline_phrase_label`, `patched_phrase_label`, `refusal_restored`, `refusal_lost` per record.
 
 ---
 
 ## First 24 Hours Plan
 
-Work in this order — each step validates the previous:
+Work in this exact order — each step validates the previous one.
 
-**Hour 1–2: Environment**
-- [ ] Install deps, confirm `pytest tests/ -v` passes (no GPU needed)
-- [ ] Set `HF_TOKEN` and confirm `python -c "from transformers import AutoTokenizer; AutoTokenizer.from_pretrained('meta-llama/Llama-3.2-3B-Instruct')"`
+**Hours 1–2: Environment + tests**
+- [ ] `conda env create -f environment.yml && conda activate refusal-decay`
+- [ ] `pytest tests/ -v` — all 40+ tests should pass (no GPU needed)
+- [ ] Confirm HF token works: `python -c "from transformers import AutoTokenizer; AutoTokenizer.from_pretrained('meta-llama/Llama-3.2-3B-Instruct')"`
 
-**Hour 3–5: Baseline**
-- [ ] Run `python scripts/run_baseline.py`
-- [ ] Open `outputs/generations/baseline/k00.jsonl`, read 3–5 outputs manually
-- [ ] Check `baseline_classified.jsonl` — does the refusal rate look ~right? (~90%+ expected)
+**Hours 2–3: Get real data**
+- [ ] Download AdvBench (`harmful_behaviors.csv`) and normalize (see above)
+- [ ] Get Alpaca benign prompts and normalize
+- [ ] Verify: `python -c "from src.data.loader import load_harmful_prompts; p=load_harmful_prompts('data/harmful_prompts.jsonl'); print(len(p), p[0])"`
 
-**Hour 5–7: Prefilling sweep**
-- [ ] Run `python scripts/run_prefilling_sweep.py`
-- [ ] Read `outputs/generations/prefilling_sweep/refusal_rate_summary.csv`
-- [ ] Does refusal rate drop as k increases? (Expected: yes, significantly)
+**Hours 3–6: Smoke-test on 3B**
+- [ ] `python scripts/run_baseline.py --model-config configs/model_3b.yaml`
+- [ ] Open `outputs/generations/baseline/k00.jsonl` — read 3–5 outputs manually. Does the 3B model refuse harmful prompts?
+- [ ] `python scripts/run_prefilling_sweep.py --model-config configs/model_3b.yaml`
+- [ ] Does refusal rate drop as k increases? (Expected: yes, significantly by k=5)
 
-**Hour 7–9: Direction extraction**
-- [ ] Run `python scripts/extract_refusal_direction.py`
-- [ ] Check the `.pt` file loads correctly: `python -c "from src.probing.direction import load_direction; d = load_direction('outputs/directions/refusal_direction.pt'); print(d[8].shape)"`
-- [ ] Sanity check: does the direction norm equal 1.0?
+**Hours 6–9: Direction extraction + tracing on 3B**
+- [ ] `python scripts/extract_refusal_direction.py --model-config configs/model_3b.yaml`
+- [ ] Check: direction file loads, norm ≈ 1.0 for each layer
+- [ ] `python scripts/run_tracing.py --model-config configs/model_3b.yaml`
+- [ ] `python scripts/plot_results.py`
+- [ ] Does `projection_vs_position_layer*.png` show declining projection with token position for k=0? Does higher k start lower?
 
-**Hour 9–12: Tracing**
-- [ ] Run `python scripts/run_tracing.py` (can limit to 5 prompts first with `data.max_prompts: 5`)
-- [ ] Run `python scripts/plot_results.py --trace-dir outputs/traces`
-- [ ] Open `outputs/plots/projection_vs_position_layer8.png` — does the projection decay with token position for k=0? Does it start lower for higher k?
+**Hours 9–12: Patching pilot on 3B**
+- [ ] `python scripts/run_patching.py --model-config configs/model_3b.yaml`
+- [ ] Check: does patching increase refusal rate at any (layer, target_position) combination?
 
-**Hour 12–16: Patching**
-- [ ] Run `python scripts/run_patching.py --config configs/experiments/patching.yaml`
-- [ ] Check `outputs/patches/patching_classified.jsonl` — do any cases flip from refusal to compliance?
+**Hours 12–16: Rerun on 8B (if compute is available)**
+- [ ] Repeat the sweep and tracing experiments with 8B (default config, no model-config flag)
+- [ ] Compare 3B vs 8B results — do the patterns hold?
 
-**Hour 16–24: Analysis + Writing**
-- [ ] `python scripts/plot_results.py` — generate all 4 plot types
-- [ ] Draft progress report sections: methods, preliminary results, figures
+**Hours 16–24: Analysis + writing**
+- [ ] Generate all final plots with 8B results
+- [ ] Annotate patterns in `RESEARCH_LOG.md`
+- [ ] Draft progress report: methods, preliminary results, figures, open questions
 
 ---
 
 ## Common Failure Modes
 
-### 1. `HF_TOKEN` not set or invalid
+### 1. HF token not set or lacks model access
 ```
 OSError: You are trying to access a gated repo...
 ```
-Fix: `export HF_TOKEN=hf_...` (get token from huggingface.co/settings/tokens with read access to Llama models).
+Fix: `export HF_TOKEN=hf_...` — get token from huggingface.co/settings/tokens.
+Also: request access to `meta-llama/Llama-3.1-8B-Instruct` on HuggingFace if not already approved.
 
-### 2. CUDA OOM during generation
+### 2. CUDA OOM (especially 8B)
 ```
 torch.cuda.OutOfMemoryError
 ```
-Fixes:
-- Reduce `generation.max_new_tokens` in config (try 64 or 128)
-- Set `generation.batch_size: 1` (already default)
+Fixes (try in order):
+- Reduce `generation.max_new_tokens` to 64 or 128 in the config
 - Use `dtype: float16` instead of `bfloat16`
-- Switch to smaller model if 8B is the issue
+- For tracing: reduce max tokens further — tracing with hooks is memory-heavy
 
-### 3. OOM during tracing (hooks store all activations)
-Fix: Reduce `max_new_tokens` in tracing — tracing with 256 tokens × 8 layers × 25 prompts is expensive. Set `max_new_tokens: 32` in `configs/experiments/tracing.yaml` for initial exploration.
+### 3. OOM during tracing
+Tracing stores activations at every generation step for every configured layer.
+Fix: in `configs/experiments/tracing.yaml`, add `generation.max_new_tokens: 32`.
+This is usually sufficient for observing the early-position dynamics.
 
 ### 4. Direction file not found when running tracing/patching
-```
-FileNotFoundError: Refusal direction file not found
-```
-Fix: Run `python scripts/extract_refusal_direction.py` first.
+Fix: run `extract_refusal_direction.py` first.
 
-### 5. Patching hook fires at wrong step
-The step counter in `patch.py` increments per autoregressive step. If the model uses KV-caching (it does by default), the prefill step has `seq_len > 1` and subsequent steps have `seq_len = 1`. The hook correctly distinguishes these. If you see unexpected behavior, add `--log-level DEBUG` and check the hook fire messages.
+### 5. Projection values all near zero
+This would indicate the direction doesn't separate harmful/benign in activation space.
+Possible causes:
+- Too few held-out prompts (try increasing `held_out_n`)
+- Wrong `direction_position` (try position 0 instead of -1)
+- The last-token activations of the prompt are dominated by formatting tokens
 
-### 6. Tokenizer produces unexpected prefix lengths
-Some prefix strings tokenize differently than expected (e.g., "Sure" may be 2 tokens with a leading space). The `build_prefilled_input` function warns when fewer tokens are available than requested. Check with:
+### 6. Patching has no effect (no refusal_restored cases)
+Possible interpretations:
+- Refusal is committed before the patched position (try earlier target positions)
+- The patched layer doesn't carry the causal signal (try more layers)
+- The direction extraction needs refinement
+
+This is a scientifically interesting null result — document it.
+
+### 7. Tokenizer produces unexpected prefix lengths
+```
+WARNING: Prefix tokenizes to only N tokens, but k=K requested.
+```
+Check with:
 ```python
 from transformers import AutoTokenizer
-tok = AutoTokenizer.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
+tok = AutoTokenizer.from_pretrained("meta-llama/Llama-3.1-8B-Instruct")
 ids = tok.encode("Sure, here is how you can do that:", add_special_tokens=False)
-print(len(ids), ids)
+print(len(ids), tok.convert_ids_to_tokens(ids))
 ```
 
-### 7. Refusal classifier false positives/negatives
-The phrase-list classifier is a heuristic. It may:
-- **False positive**: classify "I cannot stress enough how important..." as refusal
-- **False negative**: miss a refusal that uses unusual phrasing
-
-For final results, validate a sample manually. Consider setting `prefix_chars` higher or lower based on what you observe.
-
-### 8. SLURM job fails immediately
-- Check `outputs/logs/baseline_<JOB_ID>.err`
-- Common causes: wrong partition name, conda not found, `HF_TOKEN` not exported to job env
-- Fix HF_TOKEN: add `--export=ALL` to sbatch, or `export HF_TOKEN=...` in the script
+### 8. Placeholder data in output
+If you see `"source": "synthetic_placeholder"` in outputs, you forgot to replace
+the fake prompts with real benchmark data. See `data/README.md`.
 
 ---
 
-## How to Run: Local vs. Cluster
+## Local vs. Cluster
 
-### Local (development / debugging)
+### Local (dev / smoke-testing)
+Use 3B to keep iteration fast. Limit `data.max_prompts: 10` in config for quick checks.
 
-```bash
-# Limit prompts for fast iteration
-# Edit configs/base.yaml:  data.max_prompts: 5
-
-python scripts/run_baseline.py
-```
-
-Local GPU (single A100 40GB or similar): the 3B model fits comfortably. The 8B model needs ~20GB.
-
-### Cluster (full experiments)
-
-1. SSH to login node, clone repo, create conda env
-2. Edit SLURM scripts to match cluster partition/memory
-3. Submit jobs:
-```bash
-# Run in order (direction must precede tracing/patching)
-sbatch slurm/baseline.sh
-# Wait for completion, then:
-JID=$(sbatch --parsable slurm/tracing.sh)
-# patching can run in parallel with tracing
-sbatch slurm/patching.sh
-```
-4. Outputs are in `outputs/` — copy back with `rsync` or read via mounted filesystem.
-
-**Tip**: For quick iteration on the cluster, use an interactive session:
-```bash
-srun --partition=gpu --gres=gpu:1 --mem=32G --time=2:00:00 --pty bash
-conda activate refusal-decay
-python scripts/run_baseline.py
-```
+### Cluster (8B production runs)
+- Request at least 24GB VRAM (A100-40GB or H100 recommended)
+- Set `HF_HOME` to a shared filesystem path to avoid re-downloading the model
+- Use SLURM array jobs if sweeping multiple configurations
 
 ---
 
-## Adding Real Datasets
+## References
 
-Replace `data/harmful_prompts.jsonl` with a real harmful prompt dataset:
-- **AdvBench**: Zou et al. 2023 — behavioral test set of 500 harmful requests
-- **HarmBench**: Mazeika et al. 2024 — standardized harm evaluation benchmark
-
-Schema: each line must have `{"prompt_id": str, "text": str, "category": str, "source": str}`.
-
-The pipeline will automatically detect and use it.
-
----
-
-## TODO
-
-- [ ] Replace fake example data with real AdvBench / HarmBench datasets
-- [ ] Validate refusal classifier against manual annotations
-- [ ] Add Llama Guard integration in `classification/refusal_classifier.py`
-- [ ] Extend patching to cross-prompt (source prompt → target prompt)
-- [ ] Add attention-head localization as a future module
-- [ ] Confirm correct handling of `device_map="auto"` with multi-GPU hooks
-- [ ] Add experiment tracking (wandb or simple CSV log)
-- [ ] Profile memory usage during tracing for large k sweeps
-
----
-
-## Citation / References
-
-- Zou et al. (2023). "Universal and Transferable Adversarial Attacks on Aligned Language Models." [arXiv:2307.15043]
-- Zou et al. (2023). "Representation Engineering: A Top-Down Approach to AI Transparency." [arXiv:2310.01405]
-- Arditi et al. (2024). "Refusal in Language Models Is Mediated by a Single Direction." [arXiv:2406.11717]
-- Wei et al. (2024). "Jailbroken: How Does LLM Safety Training Fail?" [NeurIPS 2023]
-- Qi et al. (2023). "Fine-tuning Aligned Language Models Compromises Safety." [arXiv:2310.03693]
+- Zou et al. (2023). "Universal and Transferable Adversarial Attacks on Aligned Language Models." arXiv:2307.15043
+- Zou et al. (2023). "Representation Engineering." arXiv:2310.01405
+- Arditi et al. (2024). "Refusal in Language Models Is Mediated by a Single Direction." arXiv:2406.11717
+- Wei et al. (2023). "Jailbroken: How Does LLM Safety Training Fail?" NeurIPS 2023
+- Taori et al. (2023). Alpaca: A Strong Open-Source Instruction-Following Model. Stanford CRFM.

@@ -43,6 +43,71 @@ Format:
 
 ---
 
+---
+
+## [2026-04-02] Corrected model target, patching direction, classifier schema, and data labeling
+
+### Fix 1: 8B is the research target, 3B is the smoke-test model
+
+**What happened**: Initial setup defaulted to Llama-3.2-3B-Instruct throughout all configs and documentation, treating it as the primary model.
+
+**Why this was wrong**: The course project is scoped to Llama-3.1-8B-Instruct. Using 3B as the default would produce results that don't match the project framing. 3B has only 28 layers vs 32 for 8B, and its refusal behavior and representation geometry may differ.
+
+**Decision / Fix**: Changed `configs/base.yaml` to default to 8B (`meta-llama/Llama-3.1-8B-Instruct`). Updated layer list from `[0,4,8,12,16,20,24,27]` to `[0,4,8,12,16,20,24,28,31]`. Added `configs/model_3b.yaml` as an explicit smoke-test override with a clear comment. README first-24-hours plan now says: smoke-test on 3B first, then rerun on 8B for actual results.
+
+**Impact on scope**: No change to experimental design. Only model default and documentation changed.
+
+---
+
+### Fix 2: Patching success criterion was backwards
+
+**What happened**: Initial code and README implied the patching experiment succeeds when cases flip from "refusal" to "compliance" — i.e., patching destroys refusal. The README asked "do any cases flip from refusal to compliance?"
+
+**Why this was wrong**: The research hypothesis is that the refusal direction at early token positions *causally sustains* refusal behavior. Patching the early-token refusal signal INTO later positions should therefore *increase* refusal probability (compliance → refusal), not decrease it. The wrong success criterion would have led to misinterpretation of the results.
+
+**Decision / Fix**:
+- Updated `src/patching/patch.py` docstring to state the correct hypothesis and expected direction of effect.
+- Rewrote the summary logic in `scripts/run_patching.py` to track three cases: `refusal_restored` (compliance→refusal, expected positive effect), `refusal_lost` (refusal→compliance, unexpected), and no change.
+- Renamed output fields to `baseline_phrase_label` / `patched_phrase_label` to avoid confusion with future guard-based labels.
+- Updated `plot_results.py` to annotate that "↑ patched = expected causal effect".
+
+**Impact on scope**: No change to what is computed — only the interpretation and summary reporting is fixed.
+
+---
+
+### Fix 3: Llama Guard was misleadingly implied to be available
+
+**What happened**: The initial classifier code had a commented-out stub described as "TODO", and the config had `use_llama_guard: false` with a model name set. This implied guard-based evaluation was nearly ready.
+
+**Why this was wrong**: Llama Guard integration requires a separate model download, a conversation template, and a proper pipeline. None of this was implemented. Keeping the stub ambiguous risked over-reporting evaluation quality.
+
+**Decision / Fix**:
+- Completely rewrote `src/classification/refusal_classifier.py` to define a proper `GuardClassifier` abstract interface (ABC) with a docstring stating "NOT YET IMPLEMENTED".
+- Added `classify_responses()` parameter `guard_clf=None` with a warning if passed (since it cannot be used yet).
+- Output schema now explicitly reserves `safety_guard_label`, `guard_model_name`, `disagreement_flag` as `null` fields — honest about what is missing.
+- Set `llama_guard_model: null` in config with a comment stating it is not integrated.
+- README now has a dedicated section explaining what the phrase-list classifier does and does not guarantee.
+
+**Impact on scope**: Evaluation is still phrase-list only for now. Future integration requires implementing `LlamaGuardClassifier(GuardClassifier)`.
+
+---
+
+### Fix 4: Fake prompt data was not clearly labeled
+
+**What happened**: Placeholder prompts in `data/harmful_prompts.jsonl` and `data/benign_prompts.jsonl` had `"source": "fake_example"`, which is ambiguous.
+
+**Why this was wrong**: Any output artifact built on this data would not be clearly flagged as using synthetic prompts, making it easy to accidentally treat results as if they came from real benchmarks.
+
+**Decision / Fix**:
+- Changed `"source": "fake_example"` → `"source": "synthetic_placeholder"` in all 50 placeholder records.
+- Created `data/README.md` with clear instructions for obtaining AdvBench (harmful) and Alpaca (benign) data, plus the expected JSONL schema.
+- Created `scripts/normalize_prompts.py` to convert CSV/JSONL from external sources into the repo schema.
+- README now has a "Before Running Experiments" section that makes replacing placeholder data a required step.
+
+**Impact on scope**: No change to pipeline logic. All downstream code works identically with real data once the JSONL files are replaced.
+
+---
+
 ## [Future entries — template]
 
 ## [YYYY-MM-DD] <Short description>

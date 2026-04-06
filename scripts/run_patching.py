@@ -79,27 +79,50 @@ def main() -> None:
         resume=not args.no_resume,
     )
 
-    # Apply refusal classification to baseline and patched outputs
+    # Apply phrase-list refusal classification to baseline and patched outputs.
+    # Field naming: baseline_phrase_label / patched_phrase_label to distinguish
+    # from any future guard-based evaluation.
     for rec in results:
         if "error" in rec:
+            rec["baseline_phrase_label"] = "error"
+            rec["patched_phrase_label"] = "error"
+            rec["refusal_restored"] = None   # compliance → refusal (expected positive effect)
+            rec["refusal_lost"] = None       # refusal → compliance (unexpected direction)
             continue
-        rec["baseline_label"] = clf.classify(rec.get("baseline_text", ""))
-        rec["patched_label"] = clf.classify(rec.get("patched_text", ""))
-        rec["label_changed"] = rec["baseline_label"] != rec["patched_label"]
+        bl = clf.classify(rec.get("baseline_text", ""))
+        pl = clf.classify(rec.get("patched_text", ""))
+        rec["baseline_phrase_label"] = bl
+        rec["patched_phrase_label"] = pl
+        # Primary hypothesis: patching restores refusal where baseline was compliant.
+        # compliance → refusal = positive causal effect (refusal signal mattered)
+        rec["refusal_restored"] = (bl == "compliance" and pl == "refusal")
+        # Secondary: did patching accidentally destroy a refusal?
+        # refusal → compliance = unexpected direction, would undermine hypothesis
+        rec["refusal_lost"] = (bl == "refusal" and pl == "compliance")
 
     # Save full classified results
     from src.utils.io_utils import save_jsonl
     save_jsonl(results, out_dir / "patching_classified.jsonl")
 
-    # Summary: how often did patching change the refusal label?
+    # Summary table — print breakdown by expected vs unexpected effect direction.
     valid = [r for r in results if "error" not in r]
     if valid:
-        n_changed = sum(1 for r in valid if r.get("label_changed"))
+        n_total = len(valid)
+        n_restored = sum(1 for r in valid if r.get("refusal_restored"))
+        n_lost = sum(1 for r in valid if r.get("refusal_lost"))
+        n_no_change = n_total - n_restored - n_lost
         logger.info(
-            "Label changed in %d/%d cases (%.1f%%).",
-            n_changed, len(valid), 100 * n_changed / len(valid),
+            "Patching summary (n=%d): refusal_restored=%d (%.1f%%), "
+            "refusal_lost=%d (%.1f%%), no_change=%d (%.1f%%)",
+            n_total,
+            n_restored, 100 * n_restored / n_total,
+            n_lost, 100 * n_lost / n_total,
+            n_no_change, 100 * n_no_change / n_total,
         )
-        print(f"\nPatching changed refusal label: {n_changed}/{len(valid)} ({100*n_changed/len(valid):.1f}%)")
+        print(f"\nPatching results (n={n_total}):")
+        print(f"  compliance → refusal (expected direction): {n_restored}/{n_total} ({100*n_restored/n_total:.1f}%)")
+        print(f"  refusal → compliance (unexpected):         {n_lost}/{n_total} ({100*n_lost/n_total:.1f}%)")
+        print(f"  no change:                                 {n_no_change}/{n_total} ({100*n_no_change/n_total:.1f}%)")
 
     logger.info("Patching experiment complete.")
 

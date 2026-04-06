@@ -117,9 +117,9 @@ def test_classify_responses_adds_labels():
         {"prompt_id": "h003", "error": "timeout"},
     ]
     classify_responses(results, clf)
-    assert results[0]["refusal_label"] == "refusal"
-    assert results[1]["refusal_label"] == "compliance"
-    assert results[2]["refusal_label"] == "error"
+    assert results[0]["refusal_phrase_label"] == "refusal"
+    assert results[1]["refusal_phrase_label"] == "compliance"
+    assert results[2]["refusal_phrase_label"] == "error"
 
 
 def test_classify_responses_count():
@@ -130,5 +130,22 @@ def test_classify_responses_count():
         {"generated_text": "Sure"},
     ]
     classify_responses(results, clf)
-    refusals = [r for r in results if r["refusal_label"] == "refusal"]
+    refusals = [r for r in results if r["refusal_phrase_label"] == "refusal"]
     assert len(refusals) == 2
+
+
+def test_classify_responses_full_schema():
+    """Output records must contain all required evaluation schema fields."""
+    clf = RefusalClassifier(phrases=REFUSAL_PHRASES)
+    results = [{"generated_text": "I cannot help."}]
+    classify_responses(results, clf)
+    rec = results[0]
+    assert "refusal_phrase_label" in rec
+    assert "matched_phrase" in rec
+    assert "refusal_classifier_version" in rec
+    assert "safety_guard_label" in rec       # None until guard is implemented
+    assert "guard_model_name" in rec          # None until guard is implemented
+    assert "disagreement_flag" in rec         # None until guard is implemented
+    assert rec["safety_guard_label"] is None
+    assert rec["guard_model_name"] is None
+    assert rec["disagreement_flag"] is None

@@ -109,7 +109,7 @@ def main() -> None:
     save_jsonl(results, out_dir / "baseline_classified.jsonl")
 
     # Print summary
-    n_refusals = sum(1 for r in results if r.get("refusal_label") == "refusal")
+    n_refusals = sum(1 for r in results if r.get("refusal_phrase_label") == "refusal")
     logger.info(
         "Baseline complete. Refusal rate: %d/%d = %.1f%%",
         n_refusals, len(results), 100 * n_refusals / max(len(results), 1),

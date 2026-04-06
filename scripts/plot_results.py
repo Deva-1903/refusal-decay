@@ -63,7 +63,7 @@ def plot_refusal_rate_vs_k(sweep_dir: Path, plot_dir: Path) -> None:
         df_all = pd.DataFrame(records)
         rows = []
         for k, group in df_all.groupby("prefix_k"):
-            n_ref = (group["refusal_label"] == "refusal").sum()
+            n_ref = (group["refusal_phrase_label"] == "refusal").sum()
             rows.append({"k": k, "n_prompts": len(group), "n_refusals": n_ref,
                          "refusal_rate": n_ref / len(group)})
         df = pd.DataFrame(rows).sort_values("k")
@@ -173,10 +173,11 @@ def plot_patching_comparison(patch_dir: Path, plot_dir: Path) -> None:
         logger.warning("No valid patching records.")
         return
 
-    # Refusal rate before and after, grouped by (layer, target_position)
+    # Phrase-label refusal rate before and after, grouped by (layer, target_position).
+    # Expected direction: patched_refusal > baseline_refusal (patching restores refusal signal).
     groups = df.groupby(["layer", "target_position"]).agg(
-        baseline_refusal=("baseline_label", lambda x: (x == "refusal").mean()),
-        patched_refusal=("patched_label", lambda x: (x == "refusal").mean()),
+        baseline_refusal=("baseline_phrase_label", lambda x: (x == "refusal").mean()),
+        patched_refusal=("patched_phrase_label", lambda x: (x == "refusal").mean()),
     ).reset_index()
 
     fig, ax = plt.subplots(figsize=(8, 5))
@@ -189,7 +190,7 @@ def plot_patching_comparison(patch_dir: Path, plot_dir: Path) -> None:
 
     ax.set_xlabel("(Layer, Target Position)", fontsize=11)
     ax.set_ylabel("Refusal rate (%)", fontsize=11)
-    ax.set_title("Refusal Rate Before/After Direction Patching", fontsize=12)
+    ax.set_title("Refusal Rate Before/After Direction Patching\n(↑ patched = expected causal effect)", fontsize=12)
     ax.set_xticks(x)
     ax.set_xticklabels(labels, fontsize=8)
     ax.set_ylim(0, 110)

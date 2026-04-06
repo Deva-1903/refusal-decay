@@ -1,8 +1,15 @@
 # Base configuration — all experiments inherit from this.
 # Override any key in an experiment config file.
+#
+# RESEARCH TARGET: meta-llama/Llama-3.1-8B-Instruct
+#   This is the model for the actual course project experiments.
+#
+# SMOKE-TEST / DEBUG OVERRIDE: meta-llama/Llama-3.2-3B-Instruct
+#   Use 3B to validate the pipeline quickly before committing GPU hours.
+#   Pass --model-config configs/model_3b.yaml to any script to switch.
 
 model:
-  name: meta-llama/Llama-3.2-3B-Instruct
+  name: meta-llama/Llama-3.1-8B-Instruct
   dtype: bfloat16          # bfloat16 | float16 | float32
   device_map: auto
   # Set LOCAL_MODEL_PATH env var to skip HF download
@@ -29,8 +36,9 @@ prefilling:
 
 probing:
   # Transformer layer indices to collect (0-indexed)
-  # For Llama-3.2-3B: 28 layers total (0–27)
-  layers: [0, 4, 8, 12, 16, 20, 24, 27]
+  # For Llama-3.1-8B: 32 layers total (0–31)  ← research target
+  # For Llama-3.2-3B: 28 layers total (0–27)  ← see configs/model_3b.yaml
+  layers: [0, 4, 8, 12, 16, 20, 24, 28, 31]
   # Token position to collect for direction extraction
   # -1 = last token of prompt, 0 = first token
   direction_position: -1
@@ -75,9 +83,11 @@ classification:
     - "unethical"
     - "illegal"
     - "dangerous"
-  # Set to true when Llama Guard pipeline is set up
+  # Llama Guard — NOT YET IMPLEMENTED.
+  # The adapter interface exists in src/classification/refusal_classifier.py
+  # but no guard model has been tested or integrated. Leave false.
   use_llama_guard: false
-  llama_guard_model: meta-llama/LlamaGuard-7b  # TODO: update when available
+  llama_guard_model: null  # e.g. meta-llama/Llama-Guard-3-8B when integrated
 
 output:
   base_dir: outputs/
