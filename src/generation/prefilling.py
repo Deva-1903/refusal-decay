@@ -56,7 +56,19 @@ def build_prefilled_input(
         messages,
         add_generation_prompt=True,
         return_tensors="pt",
-    )  # shape: (1, n_chat_tokens)
+    )
+
+    # Normalize: apply_chat_template may return a BatchEncoding / dict-like
+    # object instead of a plain tensor depending on the tokenizer.
+    if not isinstance(chat_ids, torch.Tensor):
+        chat_ids = chat_ids["input_ids"]
+    if chat_ids.dim() == 1:
+        chat_ids = chat_ids.unsqueeze(0)
+    logger.debug(
+        "chat_ids after normalization: type=%s, shape=%s",
+        type(chat_ids).__name__,
+        chat_ids.shape,
+    )
 
     if k == 0:
         return chat_ids
