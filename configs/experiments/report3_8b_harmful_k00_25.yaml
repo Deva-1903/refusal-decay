@@ -1,0 +1,6 @@
+data:
+  max_prompts: 25
+generation:
+  max_new_tokens: 32
+logging:
+  level: INFO
