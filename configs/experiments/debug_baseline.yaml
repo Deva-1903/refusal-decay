@@ -3,7 +3,7 @@
 # Inherits everything else from configs/base.yaml.
 
 data:
-  max_prompts: 1
+  max_prompts: 5
 
 generation:
   max_new_tokens: 8
