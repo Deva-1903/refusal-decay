@@ -141,14 +141,31 @@ def _collect_last_token_activations(
         for prompt in prompts:
             collector.clear()
             messages = [{"role": "user", "content": prompt.text}]
-            input_ids = tokenizer.apply_chat_template(
+            tok_out = tokenizer.apply_chat_template(
                 messages,
                 add_generation_prompt=True,
                 return_tensors="pt",
-            ).to(model.device)
+            )
+
+            # apply_chat_template may return a BatchEncoding or a raw Tensor
+            logger.debug("tokenizer output type: %s", type(tok_out))
+            if isinstance(tok_out, torch.Tensor):
+                input_ids = tok_out
+                attention_mask = torch.ones_like(input_ids)
+            else:  # BatchEncoding / dict-like
+                input_ids = tok_out["input_ids"]
+                attention_mask = tok_out.get("attention_mask", torch.ones_like(input_ids))
+
+            if input_ids.dim() == 1:
+                input_ids = input_ids.unsqueeze(0)
+                attention_mask = attention_mask.unsqueeze(0)
+
+            input_ids = input_ids.to(model.device)
+            attention_mask = attention_mask.to(model.device)
+            logger.debug("input_ids shape: %s, attention_mask present: True", input_ids.shape)
 
             with torch.no_grad():
-                model(input_ids=input_ids)
+                model(input_ids=input_ids, attention_mask=attention_mask)
 
             for layer_idx in layers:
                 act = collector.get_position(layer_idx, direction_position)
