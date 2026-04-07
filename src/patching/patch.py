@@ -53,6 +53,20 @@ from src.utils.io_utils import ensure_dir, save_jsonl
 logger = logging.getLogger(__name__)
 
 
+def _build_prefilled_input_tensor(
+    tokenizer: PreTrainedTokenizer,
+    prompt_text: str,
+    prefix_text: str,
+    k: int,
+) -> torch.Tensor:
+    input_ids = build_prefilled_input(tokenizer, prompt_text, prefix_text, k)
+    if not isinstance(input_ids, torch.Tensor):
+        input_ids = input_ids["input_ids"]
+    if input_ids.dim() == 1:
+        input_ids = input_ids.unsqueeze(0)
+    return input_ids
+
+
 # ---------------------------------------------------------------------------
 # Source activation extraction
 # ---------------------------------------------------------------------------
@@ -74,8 +88,8 @@ def _extract_source_component(
     Returns:
         direction_component: Tensor of shape (hidden_size,) = projection * direction
     """
-    input_ids = build_prefilled_input(tokenizer, prompt.text, prefix_text, k).to(model.device)
-    direction = direction.to(model.device)
+    input_ids = _build_prefilled_input_tensor(tokenizer, prompt.text, prefix_text, k)
+    attention_mask = torch.ones_like(input_ids)
 
     captured = [None]
 
@@ -84,13 +98,14 @@ def _extract_source_component(
         # source_position is relative to the input sequence
         # -1 = last input token (or last forced prefix token)
         act = hidden[0, source_position, :].detach()
-        proj = torch.dot(act, direction)
-        captured[0] = (proj.item(), (proj * direction).detach().cpu())
+        layer_direction = direction.to(act.device)
+        proj = torch.dot(act, layer_direction)
+        captured[0] = (proj.item(), (proj * layer_direction).detach().cpu())
 
     handle = model.model.layers[layer].register_forward_hook(hook_fn)
     try:
         with torch.no_grad():
-            model(input_ids=input_ids)
+            model(input_ids=input_ids, attention_mask=attention_mask)
     finally:
         handle.remove()
 
@@ -137,9 +152,8 @@ def _generate_with_patch(
     Returns:
         (generated_text, generated_token_ids)
     """
-    input_ids = build_prefilled_input(tokenizer, prompt.text, prefix_text, k).to(model.device)
-    source_component = source_component.to(model.device)
-    direction = direction.to(model.device)
+    input_ids = _build_prefilled_input_tensor(tokenizer, prompt.text, prefix_text, k)
+    attention_mask = torch.ones_like(input_ids)
 
     # Step counter: 0 = first autoregressive step (first generated token), etc.
     step_counter = [0]
@@ -160,12 +174,14 @@ def _generate_with_patch(
 
         if current_step == target_generation_pos and not patched[0]:
             hidden = hidden.clone()
+            layer_direction = direction.to(hidden.device)
+            layer_source_component = source_component.to(hidden.device)
             if mode == "replace":
-                existing_proj = torch.dot(hidden[0, 0, :], direction)
-                hidden[0, 0, :] -= existing_proj * direction
-                hidden[0, 0, :] += source_component
+                existing_proj = torch.dot(hidden[0, 0, :], layer_direction)
+                hidden[0, 0, :] -= existing_proj * layer_direction
+                hidden[0, 0, :] += layer_source_component
             elif mode == "add":
-                hidden[0, 0, :] += source_component
+                hidden[0, 0, :] += layer_source_component
             else:
                 raise ValueError(f"Unknown patch mode: {mode}")
             patched[0] = True
@@ -180,6 +196,7 @@ def _generate_with_patch(
         with torch.no_grad():
             output_ids = model.generate(
                 input_ids=input_ids,
+                attention_mask=attention_mask,
                 max_new_tokens=max_new_tokens,
                 do_sample=False,
                 pad_token_id=tokenizer.eos_token_id,
@@ -206,10 +223,12 @@ def _generate_baseline(
     max_new_tokens: int,
 ) -> tuple[str, list[int]]:
     """Normal generation without any patching."""
-    input_ids = build_prefilled_input(tokenizer, prompt.text, prefix_text, k).to(model.device)
+    input_ids = _build_prefilled_input_tensor(tokenizer, prompt.text, prefix_text, k)
+    attention_mask = torch.ones_like(input_ids)
     with torch.no_grad():
         output_ids = model.generate(
             input_ids=input_ids,
+            attention_mask=attention_mask,
             max_new_tokens=max_new_tokens,
             do_sample=False,
             pad_token_id=tokenizer.eos_token_id,
@@ -245,7 +264,10 @@ def patch_direction_component(
     prefix_text: str = getattr(cfg.prefilling, "prefix_text", "Sure, here is how you can do that:")
     mode: str = getattr(cfg.patching, "mode", "replace")
     max_new_tokens: int = getattr(cfg.generation, "max_new_tokens", 256)
-    k: int = 0  # patching experiments use baseline generation (k=0)
+    k_values = getattr(cfg.prefilling, "k_values", [0])
+    if len(k_values) != 1:
+        raise ValueError(f"Patching pilot expects exactly one prefilling k, got {k_values}")
+    k: int = k_values[0]
 
     # Step 1: baseline
     baseline_text, baseline_ids = _generate_baseline(

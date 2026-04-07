@@ -19,9 +19,7 @@ notebooks/.ipynb_checkpoints/
 # OS
 .DS_Store
 *.swp
-outputs/
+
+# Unity job directories
 report3_runs/
 report3_archives/
-*.log
-*.jsonl
-*.csv

@@ -2,12 +2,15 @@
 # copy refusal-direction component from early token position into later positions.
 
 patching:
-  source_position: 0        # take direction component from token 0 of generation
-  target_positions: [5, 10, 15]
-  layers: [8, 16, 24]
+  source_position: -1       # position in the input/prefill sequence (-1 = last input/prefill token)
+  target_positions: [5]     # positions in the generated token sequence
+  layers: [27]
   mode: replace
   output_dir: outputs/patches/
 
+prefilling:
+  k_values: [3]
+
 data:
   # Use a small subset for the pilot
-  max_prompts: 20
+  max_prompts: 5
