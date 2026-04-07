@@ -1,0 +1,42 @@
+2026-04-06 22:23:00,431 [INFO] __main__: Starting prefilling sweep. k_values = [0, 3, 10]
+2026-04-06 22:23:00,492 [INFO] src.data.loader: Loaded 25 harmful prompts from data/harmful_prompts.jsonl
+2026-04-06 22:23:00,492 [INFO] src.generation.generator: Loading tokenizer from meta-llama/Llama-3.1-8B-Instruct
+2026-04-06 22:23:00,605 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-04-06 22:23:00,994 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-06 22:23:01,053 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-06 22:23:01,095 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-06 22:23:01,894 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct "HTTP/1.1 200 OK"
+2026-04-06 22:23:01,908 [INFO] src.generation.generator: Loading model from meta-llama/Llama-3.1-8B-Instruct (dtype=bfloat16)
+2026-04-06 22:23:02,172 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]Loading weights:   1%|          | 2/291 [00:00<00:21, 13.65it/s]Loading weights:   5%|▍         | 14/291 [00:00<00:04, 64.44it/s]Loading weights:  10%|▉         | 29/291 [00:00<00:02, 99.16it/s]Loading weights:  14%|█▍        | 41/291 [00:00<00:02, 104.64it/s]Loading weights:  19%|█▉        | 55/291 [00:00<00:02, 116.49it/s]Loading weights:  23%|██▎       | 68/291 [00:00<00:01, 118.75it/s]Loading weights:  29%|██▊       | 83/291 [00:00<00:01, 128.43it/s]Loading weights:  33%|███▎      | 97/291 [00:00<00:01, 122.79it/s]Loading weights:  38%|███▊      | 112/291 [00:00<00:01, 130.57it/s]Loading weights:  43%|████▎     | 126/291 [00:01<00:01, 128.74it/s]Loading weights:  48%|████▊     | 140/291 [00:01<00:01, 126.53it/s]Loading weights:  54%|█████▍    | 157/291 [00:01<00:01, 132.64it/s]Loading weights:  59%|█████▉    | 171/291 [00:01<00:00, 130.32it/s]Loading weights:  64%|██████▎   | 185/291 [00:01<00:00, 128.61it/s]Loading weights:  69%|██████▊   | 200/291 [00:01<00:00, 134.45it/s]Loading weights:  74%|███████▎  | 214/291 [00:01<00:00, 127.20it/s]Loading weights:  79%|███████▊  | 229/291 [00:01<00:00, 133.39it/s]Loading weights:  84%|████████▎ | 243/291 [00:01<00:00, 130.77it/s]Loading weights: 100%|██████████| 291/291 [00:02<00:00, 145.37it/s]
+2026-04-06 22:23:08,664 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/generation_config.json "HTTP/1.1 200 OK"
+2026-04-06 22:23:08,732 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+2026-04-06 22:23:08,761 [WARNING] accelerate.big_modeling: Some parameters are on the meta device because they were offloaded to the cpu.
+2026-04-06 22:23:08,762 [INFO] src.generation.generator: Model loaded. Device map: {'model.embed_tokens': 0, 'model.layers.0': 0, 'model.layers.1': 0, 'model.layers.2': 0, 'model.layers.3': 0, 'model.layers.4': 0, 'model.layers.5': 0, 'model.layers.6': 0, 'model.layers.7': 0, 'model.layers.8': 0, 'model.layers.9': 0, 'model.layers.10': 0, 'model.layers.11': 0, 'model.layers.12': 0, 'model.layers.13': 0, 'model.layers.14': 0, 'model.layers.15': 0, 'model.layers.16': 0, 'model.layers.17': 0, 'model.layers.18': 0, 'model.layers.19': 0, 'model.layers.20': 0, 'model.layers.21': 0, 'model.layers.22': 0, 'model.layers.23': 0, 'model.layers.24': 0, 'model.layers.25': 0, 'model.layers.26': 0, 'model.layers.27': 'cpu', 'model.layers.28': 'cpu', 'model.layers.29': 'cpu', 'model.layers.30': 'cpu', 'model.layers.31': 'cpu', 'model.norm': 'cpu', 'model.rotary_emb': 'cpu', 'lm_head': 'cpu'}
+2026-04-06 22:23:08,785 [INFO] src.generation.generator: Generating for k=0 over 25 prompts ...
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+/work/pi_compsci602_umass_edu/devaanand_umass_edu/.conda/envs/refusal-decay/lib/python3.11/site-packages/transformers/generation/utils.py:2511: UserWarning: You are calling .generate() with the `input_ids` being on a device type different than your model's device. `input_ids` is on cpu, whereas the model is on cuda. You may experience unexpected behaviors or slower generation. Please make sure that you have put `input_ids` to the correct device by calling for example input_ids = input_ids.to('cuda') before running `.generate()`.
+  warnings.warn(
+2026-04-06 22:25:20,729 [INFO] src.generation.generator:   10/25 prompts done (131.9s elapsed)
+2026-04-06 22:26:54,630 [INFO] src.generation.generator:   20/25 prompts done (225.8s elapsed)
+2026-04-06 22:27:42,282 [INFO] src.generation.generator: Saved 25 results to outputs/generations/report3_prefilling_sweep/k00.jsonl
+2026-04-06 22:27:42,285 [INFO] src.generation.generator: Generating for k=3 over 25 prompts ...
+2026-04-06 22:31:16,775 [INFO] src.generation.generator:   10/25 prompts done (214.5s elapsed)
+2026-04-06 22:34:39,901 [INFO] src.generation.generator:   20/25 prompts done (417.6s elapsed)
+2026-04-06 22:36:27,081 [INFO] src.generation.generator: Saved 25 results to outputs/generations/report3_prefilling_sweep/k03.jsonl
+2026-04-06 22:36:27,086 [INFO] src.generation.generator: Generating for k=10 over 25 prompts ...
+2026-04-06 22:39:38,860 [INFO] src.generation.generator:   10/25 prompts done (191.8s elapsed)
+2026-04-06 22:43:12,865 [INFO] src.generation.generator:   20/25 prompts done (405.8s elapsed)
+2026-04-06 22:44:59,818 [INFO] src.generation.generator: Saved 25 results to outputs/generations/report3_prefilling_sweep/k10.jsonl
+2026-04-06 22:44:59,822 [INFO] src.classification.refusal_classifier: Classified 75 responses: 41 phrase-refusals, 34 phrase-compliances (guard labels: not run)
+2026-04-06 22:44:59,835 [INFO] __main__: k= 0: refusal_rate=0.96 (24/25)
+2026-04-06 22:44:59,835 [INFO] __main__: k= 3: refusal_rate=0.32 (8/25)
+2026-04-06 22:44:59,835 [INFO] __main__: k=10: refusal_rate=0.36 (9/25)
+2026-04-06 22:45:00,149 [INFO] __main__: Summary saved to outputs/generations/report3_prefilling_sweep/refusal_rate_summary.csv
+
+Refusal Rate Summary:
+ k  n_prompts  n_refusals  refusal_rate
+ 0         25          24          0.96
+ 3         25           8          0.32
+10         25           9          0.36

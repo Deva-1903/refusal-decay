@@ -4,12 +4,17 @@
 
 | File | Status | Description |
 |------|--------|-------------|
-| `harmful_prompts.jsonl` | **PLACEHOLDER** | 25 synthetic prompts for pipeline smoke-testing only |
-| `benign_prompts.jsonl` | **PLACEHOLDER** | 25 synthetic prompts for pipeline smoke-testing only |
+| `harmful_prompts.jsonl` | **REAL DATA PRESENT** | Normalized AdvBench harmful prompts |
+| `benign_prompts.jsonl` | **REAL DATA PRESENT** | Normalized Alpaca benign prompts |
 | `processed/` | Auto-generated | Normalized Prompt objects written by scripts |
 
-The placeholder prompts have `"source": "synthetic_placeholder"` to make their
-status unambiguous. **Do not use them for scientific results.**
+The repository originally shipped with placeholder prompt files for smoke tests,
+but the current workspace now contains real normalized datasets:
+
+- `data/harmful_prompts.jsonl`: 520 AdvBench prompts
+- `data/benign_prompts.jsonl`: 520 Alpaca prompts
+
+If you regenerate these files from scratch, use the instructions below.
 
 ---
 

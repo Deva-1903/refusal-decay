@@ -1,0 +1,46 @@
+2026-04-06 22:09:47,162 [INFO] __main__: Starting baseline generation.
+2026-04-06 22:09:47,163 [INFO] __main__: Model: meta-llama/Llama-3.1-8B-Instruct
+2026-04-06 22:09:47,201 [INFO] src.data.loader: Loaded 25 harmful prompts from data/harmful_prompts.jsonl
+2026-04-06 22:09:47,214 [INFO] src.data.loader: Loaded 25 benign prompts from data/benign_prompts.jsonl
+2026-04-06 22:09:47,236 [INFO] src.data.loader: Saved 25 records to data/processed/harmful_prompts.jsonl
+2026-04-06 22:09:47,255 [INFO] src.data.loader: Saved 25 records to data/processed/benign_prompts.jsonl
+2026-04-06 22:09:47,255 [INFO] src.generation.generator: Loading tokenizer from meta-llama/Llama-3.1-8B-Instruct
+2026-04-06 22:09:47,458 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-04-06 22:09:47,694 [INFO] httpx: HTTP Request: GET https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-04-06 22:09:48,129 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-06 22:09:48,245 [INFO] httpx: HTTP Request: GET https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-06 22:09:48,397 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-06 22:09:48,440 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-06 22:09:48,481 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/tokenizer.json "HTTP/1.1 200 OK"
+2026-04-06 22:09:48,605 [INFO] httpx: HTTP Request: GET https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/tokenizer.json "HTTP/1.1 200 OK"
+2026-04-06 22:09:48,927 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/tokenizer.model "HTTP/1.1 404 Not Found"
+2026-04-06 22:09:49,025 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/added_tokens.json "HTTP/1.1 404 Not Found"
+2026-04-06 22:09:49,145 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/special_tokens_map.json "HTTP/1.1 200 OK"
+2026-04-06 22:09:49,258 [INFO] httpx: HTTP Request: GET https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/special_tokens_map.json "HTTP/1.1 200 OK"
+2026-04-06 22:09:49,422 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/chat_template.jinja "HTTP/1.1 404 Not Found"
+2026-04-06 22:09:50,455 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct "HTTP/1.1 200 OK"
+2026-04-06 22:09:50,477 [INFO] src.generation.generator: Loading model from meta-llama/Llama-3.1-8B-Instruct (dtype=bfloat16)
+2026-04-06 22:09:50,549 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-04-06 22:09:54,538 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-04-06 22:09:54,621 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/model.safetensors.index.json "HTTP/1.1 200 OK"
+2026-04-06 22:09:54,724 [INFO] httpx: HTTP Request: GET https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/model.safetensors.index.json "HTTP/1.1 200 OK"
+2026-04-06 22:09:54,888 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/revision/main "HTTP/1.1 200 OK"
+2026-04-06 22:09:54,957 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/0e9e39f249a16976918f6564b8830bc894c89659/model-00002-of-00004.safetensors "HTTP/1.1 302 Found"
+2026-04-06 22:09:54,965 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/0e9e39f249a16976918f6564b8830bc894c89659/model-00003-of-00004.safetensors "HTTP/1.1 302 Found"
+2026-04-06 22:09:54,977 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/0e9e39f249a16976918f6564b8830bc894c89659/model-00004-of-00004.safetensors "HTTP/1.1 302 Found"
+2026-04-06 22:09:54,978 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/0e9e39f249a16976918f6564b8830bc894c89659/model-00001-of-00004.safetensors "HTTP/1.1 302 Found"
+2026-04-06 22:09:55,591 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/xet-read-token/0e9e39f249a16976918f6564b8830bc894c89659 "HTTP/1.1 200 OK"
+2026-04-06 22:09:55,594 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/xet-read-token/0e9e39f249a16976918f6564b8830bc894c89659 "HTTP/1.1 200 OK"
+2026-04-06 22:09:55,594 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/xet-read-token/0e9e39f249a16976918f6564b8830bc894c89659 "HTTP/1.1 200 OK"
+2026-04-06 22:09:55,594 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/xet-read-token/0e9e39f249a16976918f6564b8830bc894c89659 "HTTP/1.1 200 OK"
+2026-04-06 22:12:05,544 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/generation_config.json "HTTP/1.1 200 OK"
+2026-04-06 22:12:05,688 [INFO] httpx: HTTP Request: GET https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/generation_config.json "HTTP/1.1 200 OK"
+2026-04-06 22:12:05,865 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+2026-04-06 22:12:05,932 [WARNING] accelerate.big_modeling: Some parameters are on the meta device because they were offloaded to the cpu.
+2026-04-06 22:12:05,954 [INFO] src.generation.generator: Model loaded. Device map: {'model.embed_tokens': 0, 'model.layers.0': 0, 'model.layers.1': 0, 'model.layers.2': 0, 'model.layers.3': 0, 'model.layers.4': 0, 'model.layers.5': 0, 'model.layers.6': 0, 'model.layers.7': 0, 'model.layers.8': 0, 'model.layers.9': 0, 'model.layers.10': 0, 'model.layers.11': 0, 'model.layers.12': 0, 'model.layers.13': 0, 'model.layers.14': 0, 'model.layers.15': 0, 'model.layers.16': 0, 'model.layers.17': 0, 'model.layers.18': 0, 'model.layers.19': 0, 'model.layers.20': 0, 'model.layers.21': 0, 'model.layers.22': 0, 'model.layers.23': 0, 'model.layers.24': 0, 'model.layers.25': 0, 'model.layers.26': 0, 'model.layers.27': 'cpu', 'model.layers.28': 'cpu', 'model.layers.29': 'cpu', 'model.layers.30': 'cpu', 'model.layers.31': 'cpu', 'model.norm': 'cpu', 'model.rotary_emb': 'cpu', 'lm_head': 'cpu'}
+2026-04-06 22:12:06,055 [INFO] src.generation.generator: Generating for k=0 over 25 prompts ...
+2026-04-06 22:14:37,324 [INFO] src.generation.generator:   10/25 prompts done (151.3s elapsed)
+2026-04-06 22:16:11,116 [INFO] src.generation.generator:   20/25 prompts done (245.1s elapsed)
+2026-04-06 22:16:58,659 [INFO] src.generation.generator: Saved 25 results to outputs/generations/k00.jsonl
+2026-04-06 22:16:58,659 [INFO] src.classification.refusal_classifier: Classified 25 responses: 24 phrase-refusals, 1 phrase-compliances (guard labels: not run)
+2026-04-06 22:16:58,676 [INFO] __main__: Baseline complete. Refusal rate: 24/25 = 96.0%

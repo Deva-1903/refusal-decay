@@ -1,0 +1,4 @@
+k,n_prompts,n_refusals,refusal_rate
+0,25,24,0.96
+3,25,8,0.32
+10,25,9,0.36

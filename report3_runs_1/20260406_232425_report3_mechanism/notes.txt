@@ -1,0 +1,13 @@
+Run summary:
+- Stage: mechanism exploration
+- Model: Llama-3.1-8B-Instruct
+- Direction extraction: succeeded
+- Direction layers: [0, 4, 8, 12, 16, 20, 24, 27]
+- Tracing completed for k = 0, 3, 10
+- Trace outputs saved:
+  - traces_k00.parquet
+  - traces_k03.parquet
+  - traces_k10.parquet
+  - traces_all.parquet
+- Interpretation:
+  Mechanism-stage artifacts are now available for Report 3 analysis.
