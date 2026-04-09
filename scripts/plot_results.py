@@ -7,6 +7,9 @@ Generates:
   2. projection_vs_position.png  — line plot of refusal projection over token position (per layer)
   3. projection_heatmap.png      — heatmap of projection over (layer × token position)
   4. patching_comparison.png     — bar chart of label changes before/after patching
+  5. layer27_prompt_projection_strip.png      — prompt-level strip plot of mean projection by k
+  6. layer27_prompt_projection_delta_k00_k03.png — per-prompt paired delta plot for k=0→3
+  7. behavioral_prompt_flip_heatmap.png       — prompt-level refusal/compliance heatmap by k
 
 Usage:
     python scripts/plot_results.py
@@ -27,6 +30,8 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as mticker
 import numpy as np
 import pandas as pd
+from matplotlib.colors import ListedColormap
+from matplotlib.patches import Patch
 
 from src.utils.logging_utils import setup_logging
 from src.utils.io_utils import ensure_dir, load_jsonl
@@ -45,6 +50,28 @@ def savefig(fig: plt.Figure, path: Path, dpi: int = 150) -> None:
     fig.savefig(path, dpi=dpi, bbox_inches="tight")
     plt.close(fig)
     logger.info("Saved plot: %s", path)
+
+
+def _load_trace_dataframe(trace_dir: Path) -> pd.DataFrame | None:
+    trace_path = trace_dir / "traces_all.parquet"
+    if trace_path.exists():
+        return pd.read_parquet(trace_path)
+
+    trace_path = trace_dir / "traces_all.csv"
+    if trace_path.exists():
+        return pd.read_csv(trace_path)
+
+    logger.warning("No combined trace file found in %s", trace_dir)
+    return None
+
+
+def _load_sweep_dataframe(sweep_dir: Path) -> pd.DataFrame | None:
+    classified_path = sweep_dir / "sweep_classified.jsonl"
+    if classified_path.exists():
+        return pd.DataFrame(load_jsonl(classified_path))
+
+    logger.warning("No sweep classified JSONL found in %s", sweep_dir)
+    return None
 
 
 # ---------------------------------------------------------------------------
@@ -86,15 +113,9 @@ def plot_refusal_rate_vs_k(sweep_dir: Path, plot_dir: Path) -> None:
 # ---------------------------------------------------------------------------
 
 def plot_projection_vs_position(trace_dir: Path, plot_dir: Path, max_pos: int = 30) -> None:
-    trace_path = trace_dir / "traces_all.parquet"
-    if not trace_path.exists():
-        trace_path = trace_dir / "traces_all.csv"
-        if not trace_path.exists():
-            logger.warning("No combined trace file found in %s", trace_dir)
-            return
-        df = pd.read_csv(trace_path)
-    else:
-        df = pd.read_parquet(trace_path)
+    df = _load_trace_dataframe(trace_dir)
+    if df is None:
+        return
 
     # Keep only generated token positions (not prefill)
     df = df[~df["is_prefill"]].copy()
@@ -125,15 +146,10 @@ def plot_projection_vs_position(trace_dir: Path, plot_dir: Path, max_pos: int = 
 # ---------------------------------------------------------------------------
 
 def plot_projection_heatmap(trace_dir: Path, plot_dir: Path, k: int = 0, max_pos: int = 30) -> None:
-    trace_path = trace_dir / "traces_all.parquet"
-    if not trace_path.exists():
-        trace_path = trace_dir / "traces_all.csv"
-        if not trace_path.exists():
-            logger.warning("No trace file for heatmap.")
-            return
-        df = pd.read_csv(trace_path)
-    else:
-        df = pd.read_parquet(trace_path)
+    df = _load_trace_dataframe(trace_dir)
+    if df is None:
+        logger.warning("No trace file for heatmap.")
+        return
 
     df = df[~df["is_prefill"] & (df["prefix_k"] == k) & (df["gen_token_pos"] < max_pos)]
     if df.empty:
@@ -200,6 +216,215 @@ def plot_patching_comparison(patch_dir: Path, plot_dir: Path) -> None:
 
 
 # ---------------------------------------------------------------------------
+# Plot 5: Prompt-level strip plot for one layer
+# ---------------------------------------------------------------------------
+
+def plot_prompt_level_projection_strip(
+    trace_dir: Path,
+    sweep_dir: Path,
+    plot_dir: Path,
+    layer: int = 27,
+    max_pos: int = 30,
+) -> None:
+    trace_df = _load_trace_dataframe(trace_dir)
+    if trace_df is None:
+        return
+
+    trace_df = trace_df[
+        (~trace_df["is_prefill"])
+        & (trace_df["layer"] == layer)
+        & (trace_df["gen_token_pos"] < max_pos)
+    ].copy()
+    if trace_df.empty:
+        logger.warning("No prompt-level trace data for layer %d", layer)
+        return
+
+    prompt_means = (
+        trace_df.groupby(["prompt_id", "prefix_k"])["projection"]
+        .mean()
+        .reset_index(name="mean_projection")
+    )
+
+    sweep_df = _load_sweep_dataframe(sweep_dir)
+    if sweep_df is not None and not sweep_df.empty:
+        labels = sweep_df[["prompt_id", "prefix_k", "refusal_phrase_label"]].drop_duplicates()
+        prompt_means = prompt_means.merge(labels, on=["prompt_id", "prefix_k"], how="left")
+    else:
+        prompt_means["refusal_phrase_label"] = "unknown"
+
+    k_values = sorted(prompt_means["prefix_k"].unique())
+    x_lookup = {k: i for i, k in enumerate(k_values)}
+    rng = np.random.default_rng(7)
+    jitter = rng.uniform(-0.18, 0.18, size=len(prompt_means))
+    color_map = {
+        "refusal": "#B91C1C",
+        "compliance": "#2563EB",
+        "unknown": "#6B7280",
+    }
+
+    fig, ax = plt.subplots(figsize=(8, 5))
+    for idx, row in prompt_means.reset_index(drop=True).iterrows():
+        x = x_lookup[row["prefix_k"]] + jitter[idx]
+        color = color_map.get(row["refusal_phrase_label"], "#6B7280")
+        ax.scatter(
+            x,
+            row["mean_projection"],
+            s=44,
+            color=color,
+            alpha=0.85,
+            edgecolors="white",
+            linewidths=0.5,
+        )
+
+    summary = (
+        prompt_means.groupby("prefix_k")["mean_projection"]
+        .agg(["mean", "median"])
+        .reset_index()
+    )
+    ax.plot(
+        [x_lookup[k] for k in summary["prefix_k"]],
+        summary["mean"],
+        color="black",
+        linewidth=1.5,
+        marker="D",
+        markersize=6,
+        label="Mean",
+    )
+
+    ax.axhline(0, color="black", linewidth=0.8, linestyle="--")
+    ax.set_xticks(range(len(k_values)))
+    ax.set_xticklabels([f"k={k}" for k in k_values])
+    ax.set_xlabel("Prefilling length", fontsize=11)
+    ax.set_ylabel(f"Mean projection at layer {layer}\n(avg. over generated positions 0-{max_pos-1})", fontsize=11)
+    ax.set_title(
+        f"Prompt-Level Refusal Projection at Layer {layer}\nEach point is one harmful prompt; color = behavioral label",
+        fontsize=12,
+    )
+    ax.grid(axis="y", alpha=0.25)
+    legend_handles = [
+        Patch(facecolor=color_map["refusal"], label="Refusal"),
+        Patch(facecolor=color_map["compliance"], label="Compliance"),
+        plt.Line2D([0], [0], color="black", marker="D", linewidth=1.5, markersize=6, label="Mean"),
+    ]
+    ax.legend(handles=legend_handles, fontsize=9, frameon=True)
+    savefig(fig, plot_dir / f"layer{layer}_prompt_projection_strip.png")
+
+
+# ---------------------------------------------------------------------------
+# Plot 6: Prompt-level paired delta plot for k=0 -> k=3
+# ---------------------------------------------------------------------------
+
+def plot_prompt_level_delta_k00_k03(
+    trace_dir: Path,
+    sweep_dir: Path,
+    plot_dir: Path,
+    layer: int = 27,
+    max_pos: int = 30,
+) -> None:
+    trace_df = _load_trace_dataframe(trace_dir)
+    if trace_df is None:
+        return
+
+    trace_df = trace_df[
+        (~trace_df["is_prefill"])
+        & (trace_df["layer"] == layer)
+        & (trace_df["gen_token_pos"] < max_pos)
+        & (trace_df["prefix_k"].isin([0, 3]))
+    ].copy()
+    if trace_df.empty:
+        logger.warning("No k=0/3 trace data for layer %d", layer)
+        return
+
+    prompt_means = (
+        trace_df.groupby(["prompt_id", "prefix_k"])["projection"]
+        .mean()
+        .reset_index(name="mean_projection")
+    )
+    wide = prompt_means.pivot(index="prompt_id", columns="prefix_k", values="mean_projection").dropna()
+    if wide.empty:
+        logger.warning("No paired prompt means available for k=0 and k=3")
+        return
+
+    sweep_df = _load_sweep_dataframe(sweep_dir)
+    if sweep_df is not None and not sweep_df.empty:
+        labels = sweep_df[["prompt_id", "prefix_k", "refusal_phrase_label"]].drop_duplicates()
+        label_wide = labels.pivot(index="prompt_id", columns="prefix_k", values="refusal_phrase_label")
+        wide = wide.join(label_wide.add_prefix("label_k"))
+
+    wide["delta_0_to_3"] = wide[3] - wide[0]
+    wide = wide.sort_values("delta_0_to_3")
+
+    fig, ax = plt.subplots(figsize=(8, 8))
+    y = np.arange(len(wide))
+    for yi, (_, row) in enumerate(wide.iterrows()):
+        color = "#6B7280"
+        if row.get("label_k0") == "refusal" and row.get("label_k3") == "compliance":
+            color = "#DC2626"
+        elif row.get("label_k0") == row.get("label_k3"):
+            color = "#2563EB"
+        ax.plot([row[0], row[3]], [yi, yi], color=color, linewidth=1.4, alpha=0.8)
+        ax.scatter(row[0], yi, color="#111827", s=22, zorder=3)
+        ax.scatter(row[3], yi, color=color, s=22, zorder=3)
+
+    ax.axvline(0, color="black", linewidth=0.8, linestyle="--")
+    ax.set_yticks(y)
+    ax.set_yticklabels(wide.index.tolist(), fontsize=7)
+    ax.set_xlabel(f"Mean projection at layer {layer} (generated positions 0-{max_pos-1})", fontsize=11)
+    ax.set_ylabel("Prompt ID (sorted by k=3 - k=0 shift)", fontsize=11)
+    ax.set_title(
+        f"Per-Prompt Shift in Refusal Projection at Layer {layer}\nPaired values for k=0 and k=3",
+        fontsize=12,
+    )
+    legend_handles = [
+        Patch(facecolor="#DC2626", label="Refusal -> Compliance"),
+        Patch(facecolor="#2563EB", label="No label flip"),
+        Patch(facecolor="#6B7280", label="Other pattern"),
+        plt.Line2D([0], [0], color="#111827", marker="o", linewidth=0, markersize=5, label="k=0 point"),
+    ]
+    ax.legend(handles=legend_handles, fontsize=8, loc="lower right", frameon=True)
+    ax.grid(axis="x", alpha=0.25)
+    savefig(fig, plot_dir / f"layer{layer}_prompt_projection_delta_k00_k03.png")
+
+
+# ---------------------------------------------------------------------------
+# Plot 7: Prompt-level behavioral heatmap by k
+# ---------------------------------------------------------------------------
+
+def plot_behavioral_prompt_flip_heatmap(sweep_dir: Path, plot_dir: Path) -> None:
+    sweep_df = _load_sweep_dataframe(sweep_dir)
+    if sweep_df is None or sweep_df.empty:
+        return
+
+    df = sweep_df[sweep_df["prefix_k"].isin([0, 3, 10])].copy()
+    df["behavior_code"] = (df["refusal_phrase_label"] == "refusal").astype(int)
+
+    pivot = df.pivot(index="prompt_id", columns="prefix_k", values="behavior_code")
+    if pivot.empty:
+        logger.warning("No behavioral prompt-level data available")
+        return
+
+    sort_cols = [k for k in [0, 3, 10] if k in pivot.columns]
+    pivot = pivot.sort_values(by=sort_cols, ascending=False)
+
+    fig, ax = plt.subplots(figsize=(5.5, 8))
+    cmap = ListedColormap(["#2563EB", "#B91C1C"])
+    ax.imshow(pivot.values, aspect="auto", interpolation="nearest", cmap=cmap, vmin=0, vmax=1)
+    ax.set_xticks(range(len(pivot.columns)))
+    ax.set_xticklabels([f"k={k}" for k in pivot.columns])
+    ax.set_yticks(range(len(pivot.index)))
+    ax.set_yticklabels(pivot.index.tolist(), fontsize=7)
+    ax.set_xlabel("Prefilling length", fontsize=11)
+    ax.set_ylabel("Prompt ID", fontsize=11)
+    ax.set_title("Behavioral Outcome by Prompt and Prefilling Length\nRed = refusal, blue = compliance", fontsize=12)
+    legend_handles = [
+        Patch(facecolor="#B91C1C", label="Refusal"),
+        Patch(facecolor="#2563EB", label="Compliance"),
+    ]
+    ax.legend(handles=legend_handles, fontsize=8, loc="upper right", frameon=True)
+    savefig(fig, plot_dir / "behavioral_prompt_flip_heatmap.png")
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -211,6 +436,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--plot-dir", type=str, default="outputs/plots")
     parser.add_argument("--k-heatmap", type=int, default=0,
                         help="Which k value to use for the heatmap plot.")
+    parser.add_argument("--prompt-layer", type=int, default=27,
+                        help="Which layer to use for prompt-level projection plots.")
+    parser.add_argument("--max-pos", type=int, default=30,
+                        help="Use generated positions [0, max_pos) for prompt-level summaries.")
     return parser.parse_args()
 
 
@@ -219,9 +448,24 @@ def main() -> None:
     plot_dir = ensure_dir(args.plot_dir)
 
     plot_refusal_rate_vs_k(Path(args.sweep_dir), plot_dir)
-    plot_projection_vs_position(Path(args.trace_dir), plot_dir)
-    plot_projection_heatmap(Path(args.trace_dir), plot_dir, k=args.k_heatmap)
+    plot_projection_vs_position(Path(args.trace_dir), plot_dir, max_pos=args.max_pos)
+    plot_projection_heatmap(Path(args.trace_dir), plot_dir, k=args.k_heatmap, max_pos=args.max_pos)
     plot_patching_comparison(Path(args.patch_dir), plot_dir)
+    plot_prompt_level_projection_strip(
+        Path(args.trace_dir),
+        Path(args.sweep_dir),
+        plot_dir,
+        layer=args.prompt_layer,
+        max_pos=args.max_pos,
+    )
+    plot_prompt_level_delta_k00_k03(
+        Path(args.trace_dir),
+        Path(args.sweep_dir),
+        plot_dir,
+        layer=args.prompt_layer,
+        max_pos=args.max_pos,
+    )
+    plot_behavioral_prompt_flip_heatmap(Path(args.sweep_dir), plot_dir)
 
     logger.info("All plots saved to %s", plot_dir)
 
