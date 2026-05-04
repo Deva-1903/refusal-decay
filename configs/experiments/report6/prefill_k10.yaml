@@ -1,0 +1,17 @@
+# Optional Report 6 harmful attacked generation (k=10).
+
+prefilling:
+  k_values: [10]
+
+data:
+  max_prompts: 25
+
+generation:
+  max_new_tokens: 64
+
+output:
+  generations_dir: outputs/report6/generations/harmful_k10
+  log_dir: outputs/report6/logs
+
+logging:
+  level: INFO

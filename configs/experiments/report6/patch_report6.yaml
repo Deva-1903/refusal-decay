@@ -1,0 +1,29 @@
+# Report 6 targeted patching on attacked harmful prompts (k=3).
+
+report6:
+  attacked_k: 3
+
+data:
+  max_prompts: 10
+
+generation:
+  max_new_tokens: 64
+
+prefilling:
+  k_values: [3]
+
+probing:
+  direction_save_path: outputs/report6/directions/refusal_direction.pt
+
+patching:
+  source_position: -1
+  target_positions: [1, 3, 5]
+  layers: [16, 24, 27]
+  mode: replace
+  output_dir: outputs/report6/patching
+
+output:
+  log_dir: outputs/report6/logs
+
+logging:
+  level: INFO

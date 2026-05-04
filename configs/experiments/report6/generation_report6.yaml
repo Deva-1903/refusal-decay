@@ -1,0 +1,57 @@
+# Report 6 master generation config.
+# Used by scripts/run_report6_generation.py and as a shared reference for
+# summary/plot scripts.
+
+report6:
+  name: report6
+  output_root: outputs/report6
+  summaries_dir: outputs/report6/summaries
+  directions_dir: outputs/report6/directions
+  key_layers: [24, 27]
+  comparison_layer: 16
+  attacked_k: 3
+  optional_k: 10
+  plot_max_token_positions: 32
+  prompt_plot_layer: 27
+  generation_conditions:
+    - name: harmful_k00
+      dataset: harmful
+      k: 0
+      max_prompts: 25
+    - name: harmful_k03
+      dataset: harmful
+      k: 3
+      max_prompts: 25
+    - name: harmful_k10
+      dataset: harmful
+      k: 10
+      max_prompts: 25
+      optional: true
+    - name: benign_k00
+      dataset: benign
+      k: 0
+      max_prompts: 25
+
+generation:
+  max_new_tokens: 64
+
+probing:
+  layers: [16, 20, 24, 27]
+  direction_position: -1
+  direction_save_path: outputs/report6/directions/refusal_direction.pt
+
+tracing:
+  output_dir: outputs/report6/traces
+  save_format: parquet
+
+patching:
+  output_dir: outputs/report6/patching
+
+output:
+  base_dir: outputs/report6
+  generations_dir: outputs/report6/generations
+  plots_dir: outputs/report6/plots
+  log_dir: outputs/report6/logs
+
+logging:
+  level: INFO

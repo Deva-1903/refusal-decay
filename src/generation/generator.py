@@ -29,6 +29,12 @@ logger = logging.getLogger(__name__)
 # Model loading
 # ---------------------------------------------------------------------------
 
+def _get_model_input_device(model) -> torch.device:
+    """Return the device where input tensors should be placed."""
+    if hasattr(model, "device"):
+        return model.device
+    return next(model.parameters()).device
+
 def load_model_and_tokenizer(cfg: Config) -> tuple:
     """
     Load model and tokenizer from HuggingFace (or local path).
@@ -112,6 +118,7 @@ def generate_one(
         prefix_text=prefix_text,
         k=k,
     )
+    input_ids = input_ids.to(_get_model_input_device(model))
     input_length = input_ids.shape[1]
     logger.debug("generate_one: prompt=%s k=%d input_length=%d", prompt.prompt_id, k, input_length)
 

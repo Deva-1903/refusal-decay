@@ -1,0 +1,28 @@
+# Report 6 observational tracing on harmful prompts.
+
+report6:
+  trace_dataset: harmful
+
+data:
+  max_prompts: 25
+
+generation:
+  max_new_tokens: 48
+
+prefilling:
+  k_values: [0, 3, 10]
+
+probing:
+  layers: [16, 20, 24, 27]
+  direction_position: -1
+  direction_save_path: outputs/report6/directions/refusal_direction.pt
+
+tracing:
+  output_dir: outputs/report6/traces
+  save_format: parquet
+
+output:
+  log_dir: outputs/report6/logs
+
+logging:
+  level: INFO

@@ -1,0 +1,17 @@
+# Report 6 harmful baseline generation (k=0).
+
+prefilling:
+  k_values: [0]
+
+data:
+  max_prompts: 25
+
+generation:
+  max_new_tokens: 64
+
+output:
+  generations_dir: outputs/report6/generations/harmful_k00
+  log_dir: outputs/report6/logs
+
+logging:
+  level: INFO

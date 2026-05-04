@@ -1,12 +1,12 @@
-# SMOKE-TEST / DEBUG OVERRIDE: Llama-3.2-3B-Instruct
+# Explicit 8B model override.
 #
-# Use this config when you want to validate the pipeline quickly
-# before running full experiments on the 8B research target.
+# Use this config when you want to pin the repo to the 8B research target
+# explicitly instead of relying on the base config default.
 #
 # Usage (any script):
-#   python scripts/run_baseline.py --model-config configs/model_3b.yaml
+#   python scripts/run_baseline.py --model-config configs/model_8b.yaml
 #
-# Do NOT use this for final course project results — use 8B (the default).
+# This matches the project's primary model.
 
 model:
   name: meta-llama/Llama-3.1-8B-Instruct
@@ -14,5 +14,5 @@ model:
   device_map: auto
 
 probing:
-  # 3B has 28 layers (indices 0–27)
-  layers: [0, 4, 8, 12, 16, 20, 24, 27]
+  # 8B has 32 layers (indices 0–31)
+  layers: [0, 4, 8, 12, 16, 20, 24, 28, 31]

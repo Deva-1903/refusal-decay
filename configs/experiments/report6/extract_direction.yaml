@@ -1,0 +1,16 @@
+# Report 6 refusal-direction extraction.
+
+data:
+  max_prompts: 50
+
+probing:
+  layers: [16, 20, 24, 27]
+  direction_position: -1
+  direction_save_path: outputs/report6/directions/refusal_direction.pt
+  held_out_n: 50
+
+output:
+  log_dir: outputs/report6/logs
+
+logging:
+  level: INFO

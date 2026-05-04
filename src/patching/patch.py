@@ -53,6 +53,13 @@ from src.utils.io_utils import ensure_dir, save_jsonl
 logger = logging.getLogger(__name__)
 
 
+def _get_model_input_device(model) -> torch.device:
+    """Return the device where prompt tensors should be placed."""
+    if hasattr(model, "device"):
+        return model.device
+    return next(model.parameters()).device
+
+
 def _build_prefilled_input_tensor(
     tokenizer: PreTrainedTokenizer,
     prompt_text: str,
@@ -86,9 +93,12 @@ def _extract_source_component(
     during a normal forward pass.
 
     Returns:
-        direction_component: Tensor of shape (hidden_size,) = projection * direction
+        Tuple of:
+            scalar projection onto the refusal direction
+            direction component tensor of shape (hidden_size,)
     """
     input_ids = _build_prefilled_input_tensor(tokenizer, prompt.text, prefix_text, k)
+    input_ids = input_ids.to(_get_model_input_device(model))
     attention_mask = torch.ones_like(input_ids)
 
     captured = [None]
@@ -117,7 +127,7 @@ def _extract_source_component(
         "Source component at layer=%d pos=%d: projection=%.4f",
         layer, source_position, scalar_proj,
     )
-    return component  # (hidden_size,)
+    return scalar_proj, component  # scalar, (hidden_size,)
 
 
 # ---------------------------------------------------------------------------
@@ -136,7 +146,7 @@ def _generate_with_patch(
     direction: torch.Tensor,
     mode: str,
     max_new_tokens: int,
-) -> tuple[str, list[int]]:
+) -> tuple[str, list[int], bool]:
     """
     Generate text with a hook that patches the residual stream at
     (layer, target_generation_pos) during autoregressive generation.
@@ -150,9 +160,10 @@ def _generate_with_patch(
               "add"     — add source component on top of existing.
 
     Returns:
-        (generated_text, generated_token_ids)
+        (generated_text, generated_token_ids, patch_applied)
     """
     input_ids = _build_prefilled_input_tensor(tokenizer, prompt.text, prefix_text, k)
+    input_ids = input_ids.to(_get_model_input_device(model))
     attention_mask = torch.ones_like(input_ids)
 
     # Step counter: 0 = first autoregressive step (first generated token), etc.
@@ -207,7 +218,7 @@ def _generate_with_patch(
     input_len = input_ids.shape[1]
     generated_ids = output_ids[0, input_len:].tolist()
     generated_text = tokenizer.decode(generated_ids, skip_special_tokens=True)
-    return generated_text, generated_ids
+    return generated_text, generated_ids, patched[0]
 
 
 # ---------------------------------------------------------------------------
@@ -224,6 +235,7 @@ def _generate_baseline(
 ) -> tuple[str, list[int]]:
     """Normal generation without any patching."""
     input_ids = _build_prefilled_input_tensor(tokenizer, prompt.text, prefix_text, k)
+    input_ids = input_ids.to(_get_model_input_device(model))
     attention_mask = torch.ones_like(input_ids)
     with torch.no_grad():
         output_ids = model.generate(
@@ -251,6 +263,9 @@ def patch_direction_component(
     target_position: int,
     direction: torch.Tensor,
     cfg: Config,
+    baseline_result: Optional[tuple[str, list[int]]] = None,
+    source_projection: Optional[float] = None,
+    source_component: Optional[torch.Tensor] = None,
 ) -> dict:
     """
     Run one complete patch experiment for a single prompt.
@@ -270,18 +285,22 @@ def patch_direction_component(
     k: int = k_values[0]
 
     # Step 1: baseline
-    baseline_text, baseline_ids = _generate_baseline(
-        model, tokenizer, prompt, k, prefix_text, max_new_tokens
-    )
+    if baseline_result is None:
+        baseline_text, baseline_ids = _generate_baseline(
+            model, tokenizer, prompt, k, prefix_text, max_new_tokens
+        )
+    else:
+        baseline_text, baseline_ids = baseline_result
 
     # Step 2: extract source component from the prompt's own forward pass
-    source_component = _extract_source_component(
-        model, tokenizer, prompt, k, prefix_text,
-        layer, source_position, direction
-    )
+    if source_component is None or source_projection is None:
+        source_projection, source_component = _extract_source_component(
+            model, tokenizer, prompt, k, prefix_text,
+            layer, source_position, direction
+        )
 
     # Step 3: patched generation
-    patched_text, patched_ids = _generate_with_patch(
+    patched_text, patched_ids, patch_applied = _generate_with_patch(
         model, tokenizer, prompt, k, prefix_text,
         layer, target_position, source_component, direction, mode, max_new_tokens
     )
@@ -290,10 +309,13 @@ def patch_direction_component(
         "prompt_id": prompt.prompt_id,
         "label": prompt.label,
         "category": prompt.category,
+        "prefix_k": k,
         "layer": layer,
         "source_position": source_position,
+        "source_projection": source_projection,
         "target_position": target_position,
         "mode": mode,
+        "patch_applied": patch_applied,
         "baseline_text": baseline_text,
         "patched_text": patched_text,
         "baseline_n_tokens": len(baseline_ids),
@@ -331,8 +353,15 @@ def run_patching_experiment(
     layers: list[int] = getattr(cfg.patching, "layers", [8, 16, 24])
     target_positions: list[int] = getattr(cfg.patching, "target_positions", [5, 10, 15])
     source_position: int = getattr(cfg.patching, "source_position", 0)
+    prefix_text: str = getattr(cfg.prefilling, "prefix_text", "Sure, here is how you can do that:")
+    k_values = getattr(cfg.prefilling, "k_values", [0])
+    if len(k_values) != 1:
+        raise ValueError(f"Patching pilot expects exactly one prefilling k, got {k_values}")
+    k: int = k_values[0]
 
     all_results: list[dict] = []
+    baseline_cache: dict[str, tuple[str, list[int]]] = {}
+    source_cache: dict[tuple[str, int, int], tuple[float, torch.Tensor]] = {}
 
     for layer in layers:
         if layer not in directions:
@@ -357,6 +386,33 @@ def run_patching_experiment(
 
             for prompt in prompts:
                 try:
+                    baseline_result = baseline_cache.get(prompt.prompt_id)
+                    if baseline_result is None:
+                        baseline_result = _generate_baseline(
+                            model=model,
+                            tokenizer=tokenizer,
+                            prompt=prompt,
+                            k=k,
+                            prefix_text=prefix_text,
+                            max_new_tokens=getattr(cfg.generation, "max_new_tokens", 256),
+                        )
+                        baseline_cache[prompt.prompt_id] = baseline_result
+
+                    source_key = (prompt.prompt_id, layer, source_position)
+                    source_result = source_cache.get(source_key)
+                    if source_result is None:
+                        source_result = _extract_source_component(
+                            model=model,
+                            tokenizer=tokenizer,
+                            prompt=prompt,
+                            k=k,
+                            prefix_text=prefix_text,
+                            layer=layer,
+                            source_position=source_position,
+                            direction=direction,
+                        )
+                        source_cache[source_key] = source_result
+
                     result = patch_direction_component(
                         model=model,
                         tokenizer=tokenizer,
@@ -366,6 +422,9 @@ def run_patching_experiment(
                         target_position=target_pos,
                         direction=direction,
                         cfg=cfg,
+                        baseline_result=baseline_result,
+                        source_projection=source_result[0],
+                        source_component=source_result[1],
                     )
                     run_results.append(result)
                 except Exception as e:
