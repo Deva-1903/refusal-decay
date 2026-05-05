@@ -12,6 +12,7 @@
   - `scripts/plot_report6_results.py`
 - Added `RUN_REPORT6.md` with command order, expected outputs, Unity notes, and resume guidance.
 - Added `slurm/report6_pipeline.sh` for a one-job Unity run.
+- Added `scripts/check_cuda_stack.py` plus a fail-fast CUDA preflight in generation to catch Unity GPU architecture mismatches before the full run starts.
 - Fixed input-device placement in generation and patching to avoid CPU/GPU mismatch warnings.
 - Tightened patching internals so baseline generations and source components are cached across repeated patch conditions.
 - Corrected `configs/model_8b.yaml` so it actually documents and points to the 8B setup.
@@ -20,6 +21,7 @@
 
 - `src/generation/generator.py`
   - moved generated inputs onto the model input device before `generate()`
+  - added a CUDA smoke test and clearer unsupported-GPU error on cluster nodes
 - `src/patching/patch.py`
   - moved inputs onto the model input device
   - cached baseline generations and source components
@@ -42,6 +44,7 @@
 - `scripts/summarize_report6_results.py`
 - `scripts/plot_report6_results.py`
 - `slurm/report6_pipeline.sh`
+- `scripts/check_cuda_stack.py`
 - `RUN_REPORT6.md`
 - `BUILD_JOURNAL.md`
 
@@ -50,6 +53,7 @@
 - Report 6 needs a narrow, clean pipeline rather than the broader exploratory Report 3 structure.
 - The repo already had the core mechanics, so the work focused on orchestration, stable output locations, report tables, and report-ready figures.
 - The new scripts avoid replacing the existing pipeline. They mostly reuse the current generation, direction, tracing, and patching modules.
+- Unity's general `gpu` partition is heterogeneous, so the repo now points more aggressively toward constrained modern GPUs and a Torch CUDA smoke test before the experiment run.
 
 ## Assumptions I Had To Make
 

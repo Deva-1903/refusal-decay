@@ -211,10 +211,12 @@ python -c "from transformers import AutoTokenizer; AutoTokenizer.from_pretrained
 
 If this fails, fix token or access issues first. It is much better to catch gated-model problems before starting a GPU job.
 
-5. After the check passes, request an interactive GPU session if you want to run manually:
+5. When you request a GPU, do not use a bare `gpu` request if you can avoid it. Unity's general `gpu` partition mixes older GPUs like `m40`, `titanx`, and `1080ti` with newer GPUs like `v100`, `a100`, `a40`, and `l40s`. The Report 6 pipeline should be run on a modern GPU.
+
+Recommended interactive request:
 
 ```bash
-srun --partition=gpu --gres=gpu:1 --mem=48G --time=08:00:00 --pty bash
+srun --partition=gpu --gres=gpu:1 --constraint=a100\|a40\|l40s --mem=48G --time=08:00:00 --pty bash
 ```
 
 Inside that shell, reload the env if needed and return to the repo:
@@ -228,12 +230,21 @@ export HUGGINGFACE_HUB_TOKEN=$HF_TOKEN
 cd /work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay
 ```
 
+6. Run a real Torch-on-CUDA smoke test before launching the full pipeline:
+
+```bash
+nvidia-smi -L
+python scripts/check_cuda_stack.py
+```
+
+If `check_cuda_stack.py` fails with `no kernel image is available for execution on the device`, exit that node and request a newer GPU constraint. Do not launch the full generation run on that node.
+
 This is the best option if you want to watch logs live while the Report 6 steps run.
 
 ### Interactive
 
 ```bash
-srun --partition=gpu --gres=gpu:1 --mem=48G --time=08:00:00 --pty bash
+srun --partition=gpu --gres=gpu:1 --constraint=a100\|a40\|l40s --mem=48G --time=08:00:00 --pty bash
 source ~/.bashrc
 conda activate refusal-decay
 cd /path/to/refusal-decay

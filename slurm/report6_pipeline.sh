@@ -4,6 +4,7 @@
 #SBATCH --error=report6_pipeline_%j.err
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
+#SBATCH --constraint=a100|a40|l40s
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=48G
 #SBATCH --time=10:00:00
@@ -17,16 +18,22 @@ echo "Node: $(hostname)"
 echo "GPU: $(nvidia-smi --query-gpu=name --format=csv,noheader 2>/dev/null || echo 'none')"
 date
 
+module load conda/latest
 source ~/.bashrc
-conda activate refusal-decay
+conda activate /work/pi_compsci602_umass_edu/devaanand_umass_edu/.conda/envs/refusal-decay
 
 if [ -z "${HF_TOKEN:-}" ]; then
     echo "ERROR: HF_TOKEN is not set."
     exit 1
 fi
 
+export HF_HOME="${HF_HOME:-/work/pi_compsci602_umass_edu/devaanand_umass_edu/.cache/huggingface}"
+export HUGGINGFACE_HUB_TOKEN="${HUGGINGFACE_HUB_TOKEN:-$HF_TOKEN}"
+
 cd "$SLURM_SUBMIT_DIR"
 mkdir -p outputs/report6/logs
+
+python scripts/check_cuda_stack.py
 
 python scripts/run_report6_generation.py \
     --config configs/experiments/report6/generation_report6.yaml

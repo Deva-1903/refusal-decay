@@ -35,6 +35,57 @@ def _get_model_input_device(model) -> torch.device:
         return model.device
     return next(model.parameters()).device
 
+
+def _describe_cuda_device(device: torch.device) -> str:
+    """Return a short human-readable description of a CUDA device."""
+    if device.type != "cuda":
+        return str(device)
+    index = device.index if device.index is not None else torch.cuda.current_device()
+    major, minor = torch.cuda.get_device_capability(index)
+    name = torch.cuda.get_device_name(index)
+    return f"{name} (cuda:{index}, sm_{major}{minor})"
+
+
+def _is_cuda_arch_mismatch_error(exc: Exception) -> bool:
+    """Detect the common 'no kernel image' CUDA architecture mismatch."""
+    text = str(exc).lower()
+    return "no kernel image is available for execution on the device" in text
+
+
+def _raise_cuda_arch_mismatch(device: torch.device, exc: Exception) -> None:
+    """Raise a clearer cluster-facing error for unsupported GPU architectures."""
+    raise RuntimeError(
+        "CUDA kernel launch failed on "
+        f"{_describe_cuda_device(device)}. This usually means the current "
+        "PyTorch/CUDA build does not support the GPU architecture on this node. "
+        "On UMass Unity, the general gpu partition mixes older GPUs with newer "
+        "ones, so request a modern GPU constraint such as "
+        "`--constraint=a100|a40|l40s` and rerun. "
+        "If you want to check a node before launching the full pipeline, run "
+        "`python scripts/check_cuda_stack.py`. "
+        f"Original error: {type(exc).__name__}: {exc}"
+    ) from exc
+
+
+def _run_cuda_preflight(model) -> None:
+    """
+    Run a tiny CUDA kernel before generation so GPU architecture mismatches
+    fail fast instead of producing per-prompt error spam.
+    """
+    device = _get_model_input_device(model)
+    if device.type != "cuda":
+        logger.info("CUDA preflight skipped: model input device is %s", device)
+        return
+
+    logger.info("Running CUDA preflight on %s", _describe_cuda_device(device))
+    try:
+        probe = torch.ones(4, device=device)
+        _ = (probe + 1).sum().item()
+    except Exception as exc:
+        if _is_cuda_arch_mismatch_error(exc):
+            _raise_cuda_arch_mismatch(device, exc)
+        raise
+
 def load_model_and_tokenizer(cfg: Config) -> tuple:
     """
     Load model and tokenizer from HuggingFace (or local path).
@@ -80,6 +131,7 @@ def load_model_and_tokenizer(cfg: Config) -> tuple:
     )
     model.eval()
     logger.info("Model loaded. Device map: %s", model.hf_device_map if hasattr(model, "hf_device_map") else "single device")
+    _run_cuda_preflight(model)
     return model, tokenizer
 
 
@@ -223,6 +275,9 @@ def generate_responses(
                 result = generate_one(model, tokenizer, prompt, k, cfg)
                 k_results.append(result)
             except Exception as e:
+                if _is_cuda_arch_mismatch_error(e):
+                    logger.error("Fatal CUDA architecture mismatch detected; aborting remaining prompts.")
+                    _raise_cuda_arch_mismatch(_get_model_input_device(model), e)
                 logger.exception("Error on prompt %s (k=%d)", prompt.prompt_id, k)
                 k_results.append({
                     "prompt_id": prompt.prompt_id,
