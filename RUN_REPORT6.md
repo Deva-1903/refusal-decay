@@ -164,6 +164,72 @@ Then add patching:
 
 ## Unity
 
+### UMass Unity Workflow
+
+If you are running this on the UMass Unity cluster, this is the recommended start-up sequence before you request GPU time.
+
+1. Check whether your old `tmux` session is still around:
+
+```bash
+tmux ls
+```
+
+If you see `refusal`, reattach:
+
+```bash
+tmux attach -t refusal
+```
+
+If not, create a new session:
+
+```bash
+tmux new -s refusal
+```
+
+2. Go to the repo:
+
+```bash
+cd /work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay
+```
+
+3. Load the Unity conda module, activate the existing env, and point Hugging Face caching to your Unity workspace:
+
+```bash
+module load conda/latest
+conda activate /work/pi_compsci602_umass_edu/devaanand_umass_edu/.conda/envs/refusal-decay
+export HF_HOME=/work/pi_compsci602_umass_edu/devaanand_umass_edu/.cache/huggingface
+export HF_TOKEN=hf_XXXXXXXXXXXXXXXX
+export HUGGINGFACE_HUB_TOKEN=$HF_TOKEN
+```
+
+4. Do a quick Hugging Face access check before requesting a GPU:
+
+```bash
+huggingface-cli whoami
+python -c "from transformers import AutoTokenizer; AutoTokenizer.from_pretrained('meta-llama/Llama-3.2-3B-Instruct'); print('Access OK')"
+```
+
+If this fails, fix token or access issues first. It is much better to catch gated-model problems before starting a GPU job.
+
+5. After the check passes, request an interactive GPU session if you want to run manually:
+
+```bash
+srun --partition=gpu --gres=gpu:1 --mem=48G --time=08:00:00 --pty bash
+```
+
+Inside that shell, reload the env if needed and return to the repo:
+
+```bash
+module load conda/latest
+conda activate /work/pi_compsci602_umass_edu/devaanand_umass_edu/.conda/envs/refusal-decay
+export HF_HOME=/work/pi_compsci602_umass_edu/devaanand_umass_edu/.cache/huggingface
+export HF_TOKEN=hf_XXXXXXXXXXXXXXXX
+export HUGGINGFACE_HUB_TOKEN=$HF_TOKEN
+cd /work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay
+```
+
+This is the best option if you want to watch logs live while the Report 6 steps run.
+
 ### Interactive
 
 ```bash
