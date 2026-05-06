@@ -1,7 +1,12 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python -m pytest tests/ -v)"
+      "Bash(python -m pytest tests/ -v)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 -c \"import pyarrow; print\\('pyarrow ok', pyarrow.__version__\\)\")",
+      "Bash(xargs -I{} sh -c 'echo \"=== {} ===\"; ls -lh \"{}\"')",
+      "Bash(conda run -n refusal-decay python -c ' *)",
+      "Bash(conda run *)"
     ]
   }
 }
