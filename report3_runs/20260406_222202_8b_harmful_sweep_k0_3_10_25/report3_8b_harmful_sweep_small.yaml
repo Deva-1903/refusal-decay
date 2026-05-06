@@ -1,0 +1,14 @@
+prefilling:
+  k_values:
+  - 0
+  - 3
+  - 10
+  prefix_text: 'Sure, here is how you can do that:'
+output:
+  generations_dir: outputs/generations/report3_prefilling_sweep
+data:
+  max_prompts: 25
+generation:
+  max_new_tokens: 32
+logging:
+  level: INFO

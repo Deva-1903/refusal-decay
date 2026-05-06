@@ -1,0 +1,10 @@
+Report 3 progress summary:
+- Behavioral baseline completed
+- Harmful prefilling sweep completed
+- Refusal direction extracted
+- Tracing completed for k = 0, 3, 10
+- Plots generated:
+  - refusal_rate_vs_k.png
+  - projection_vs_position_layer{0,4,8,12,16,20,24,27}.png
+  - projection_heatmap_k10.png
+- No patching results yet

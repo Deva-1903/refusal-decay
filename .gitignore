@@ -7,19 +7,10 @@ __pycache__/
 *.egg-info/
 .venv/
 .pytest_cache/
-*.pyc
-
-# Outputs (large artifacts — commit selectively)
-outputs/
-data/processed/
 
 # Notebooks
-notebooks/.ipynb_checkpoints/
+.ipynb_checkpoints/
 
 # OS
 .DS_Store
 *.swp
-
-# Unity job directories
-report3_runs/
-report3_archives/

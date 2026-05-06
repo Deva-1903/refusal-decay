@@ -1,0 +1,24 @@
+probing:
+  layers:
+  - 0
+  - 4
+  - 8
+  - 12
+  - 16
+  - 20
+  - 24
+  - 27
+  direction_position: -1
+  direction_save_path: outputs/directions/report3_refusal_direction.pt
+prefilling:
+  k_values:
+  - 0
+  - 3
+  - 10
+tracing:
+  output_dir: outputs/traces/report3_small
+  save_format: parquet
+data:
+  max_prompts: 25
+logging:
+  level: INFO

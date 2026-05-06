@@ -1,0 +1,42 @@
+2026-04-06 23:31:11,513 [INFO] __main__: Starting projection tracing.
+2026-04-06 23:31:11,591 [INFO] src.data.loader: Loaded 25 harmful prompts from data/harmful_prompts.jsonl
+2026-04-06 23:31:11,619 [INFO] src.probing.direction: Loaded refusal directions for layers: [0, 4, 8, 12, 16, 20, 24, 27]
+2026-04-06 23:31:11,619 [INFO] src.generation.generator: Loading tokenizer from meta-llama/Llama-3.1-8B-Instruct
+2026-04-06 23:31:11,689 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-04-06 23:31:11,788 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-06 23:31:11,845 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-06 23:31:11,890 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-06 23:31:12,656 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct "HTTP/1.1 200 OK"
+2026-04-06 23:31:12,671 [INFO] src.generation.generator: Loading model from meta-llama/Llama-3.1-8B-Instruct (dtype=bfloat16)
+2026-04-06 23:31:12,715 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]Loading weights:   1%|          | 2/291 [00:00<00:23, 12.24it/s]Loading weights:   5%|▌         | 15/291 [00:00<00:04, 65.09it/s]Loading weights:  11%|█         | 32/291 [00:00<00:02, 99.32it/s]Loading weights:  16%|█▌        | 46/291 [00:00<00:02, 94.96it/s]Loading weights:  23%|██▎       | 67/291 [00:00<00:01, 128.14it/s]Loading weights:  28%|██▊       | 81/291 [00:00<00:01, 127.00it/s]Loading weights:  33%|███▎      | 95/291 [00:00<00:01, 119.94it/s]Loading weights:  38%|███▊      | 112/291 [00:00<00:01, 133.15it/s]Loading weights:  43%|████▎     | 126/291 [00:01<00:01, 130.85it/s]Loading weights:  48%|████▊     | 140/291 [00:01<00:01, 128.55it/s]Loading weights:  54%|█████▍    | 157/291 [00:01<00:01, 133.05it/s]Loading weights:  59%|█████▉    | 171/291 [00:01<00:00, 130.78it/s]Loading weights:  64%|██████▎   | 185/291 [00:01<00:00, 128.77it/s]Loading weights:  69%|██████▊   | 200/291 [00:01<00:00, 134.50it/s]Loading weights:  74%|███████▎  | 214/291 [00:01<00:00, 127.18it/s]Loading weights:  79%|███████▊  | 229/291 [00:01<00:00, 133.15it/s]Loading weights:  84%|████████▎ | 243/291 [00:01<00:00, 130.62it/s]Loading weights: 100%|██████████| 291/291 [00:02<00:00, 145.17it/s]
+2026-04-06 23:31:20,230 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/generation_config.json "HTTP/1.1 200 OK"
+2026-04-06 23:31:20,314 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+2026-04-06 23:31:20,354 [WARNING] accelerate.big_modeling: Some parameters are on the meta device because they were offloaded to the cpu.
+2026-04-06 23:31:20,355 [INFO] src.generation.generator: Model loaded. Device map: {'model.embed_tokens': 0, 'model.layers.0': 0, 'model.layers.1': 0, 'model.layers.2': 0, 'model.layers.3': 0, 'model.layers.4': 0, 'model.layers.5': 0, 'model.layers.6': 0, 'model.layers.7': 0, 'model.layers.8': 0, 'model.layers.9': 0, 'model.layers.10': 0, 'model.layers.11': 0, 'model.layers.12': 0, 'model.layers.13': 0, 'model.layers.14': 0, 'model.layers.15': 0, 'model.layers.16': 0, 'model.layers.17': 0, 'model.layers.18': 0, 'model.layers.19': 0, 'model.layers.20': 0, 'model.layers.21': 0, 'model.layers.22': 0, 'model.layers.23': 0, 'model.layers.24': 0, 'model.layers.25': 0, 'model.layers.26': 0, 'model.layers.27': 'cpu', 'model.layers.28': 'cpu', 'model.layers.29': 'cpu', 'model.layers.30': 'cpu', 'model.layers.31': 'cpu', 'model.norm': 'cpu', 'model.rotary_emb': 'cpu', 'lm_head': 'cpu'}
+2026-04-06 23:31:20,360 [INFO] src.probing.tracing: Tracing k=0 over 25 prompts ...
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+2026-04-06 23:32:21,174 [INFO] src.probing.tracing:   5/25 prompts traced
+2026-04-06 23:33:54,484 [INFO] src.probing.tracing:   10/25 prompts traced
+2026-04-06 23:35:07,846 [INFO] src.probing.tracing:   15/25 prompts traced
+2026-04-06 23:35:49,401 [INFO] src.probing.tracing:   20/25 prompts traced
+2026-04-06 23:36:36,929 [INFO] src.probing.tracing:   25/25 prompts traced
+2026-04-06 23:36:38,124 [INFO] src.probing.tracing: Saved 3768 trace records to outputs/traces/report3_small/traces_k00.parquet
+2026-04-06 23:36:38,124 [INFO] src.probing.tracing: Tracing k=3 over 25 prompts ...
+2026-04-06 23:40:11,887 [INFO] src.probing.tracing:   5/25 prompts traced
+2026-04-06 23:43:45,595 [INFO] src.probing.tracing:   10/25 prompts traced
+2026-04-06 23:47:19,218 [INFO] src.probing.tracing:   15/25 prompts traced
+2026-04-06 23:50:20,165 [INFO] src.probing.tracing:   20/25 prompts traced
+2026-04-06 23:53:42,067 [INFO] src.probing.tracing:   25/25 prompts traced
+2026-04-06 23:53:42,131 [INFO] src.probing.tracing: Saved 12264 trace records to outputs/traces/report3_small/traces_k03.parquet
+2026-04-06 23:53:42,131 [INFO] src.probing.tracing: Tracing k=10 over 25 prompts ...
+2026-04-06 23:56:46,652 [INFO] src.probing.tracing:   5/25 prompts traced
+2026-04-06 23:59:44,458 [INFO] src.probing.tracing:   10/25 prompts traced
+2026-04-07 00:03:18,198 [INFO] src.probing.tracing:   15/25 prompts traced
+2026-04-07 00:06:52,050 [INFO] src.probing.tracing:   20/25 prompts traced
+2026-04-07 00:10:18,387 [INFO] src.probing.tracing:   25/25 prompts traced
+2026-04-07 00:10:18,446 [INFO] src.probing.tracing: Saved 11928 trace records to outputs/traces/report3_small/traces_k10.parquet
+2026-04-07 00:10:18,520 [INFO] __main__: Combined trace saved: outputs/traces/report3_small/traces_all.parquet (27960 rows)
+2026-04-07 00:10:18,520 [INFO] __main__: Tracing complete.
