@@ -4,3 +4,9 @@
 2026-05-06 18:57:54,204 [INFO] __main__: Patching dir: outputs/report6/patching
 2026-05-06 18:57:54,204 [INFO] __main__: Summary dir: outputs/report6/summaries
 2026-05-06 18:57:55,027 [INFO] __main__: Created 8 summary artifacts.
+2026-05-06 19:36:32,084 [INFO] __main__: Building Report 6 summaries.
+2026-05-06 19:36:32,084 [INFO] __main__: Generations dir: outputs/report6/generations
+2026-05-06 19:36:32,084 [INFO] __main__: Traces dir: outputs/report6/traces
+2026-05-06 19:36:32,084 [INFO] __main__: Patching dir: outputs/report6/patching
+2026-05-06 19:36:32,084 [INFO] __main__: Summary dir: outputs/report6/summaries
+2026-05-06 19:36:32,345 [INFO] __main__: Created 8 summary artifacts.
