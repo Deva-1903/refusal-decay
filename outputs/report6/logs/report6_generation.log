@@ -1502,3 +1502,42 @@ Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
 2026-05-06 18:32:42,308 [INFO] __main__: Loading cached classified outputs for benign_k00 from outputs/report6/generations/benign_k00/classified.jsonl
 2026-05-06 18:32:42,644 [INFO] __main__: Saved combined generation outputs to outputs/report6/generations/report6_generation_combined.jsonl
 2026-05-06 18:32:42,645 [INFO] __main__: Saved generation summary to outputs/report6/generations/report6_generation_summary.csv
+2026-05-06 19:33:41,290 [INFO] __main__: Starting Report 6 generation.
+2026-05-06 19:33:41,290 [INFO] __main__: Model: meta-llama/Llama-3.1-8B-Instruct
+2026-05-06 19:33:41,290 [INFO] __main__: Conditions: ['harmful_k00', 'harmful_k03', 'benign_k00']
+2026-05-06 19:33:41,290 [INFO] __main__: Generation max_new_tokens: 64
+2026-05-06 19:33:41,310 [INFO] src.generation.generator: Loading tokenizer from meta-llama/Llama-3.1-8B-Instruct
+2026-05-06 19:33:41,377 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-06 19:33:41,606 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 19:33:41,672 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 19:33:41,725 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 19:33:42,627 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct "HTTP/1.1 200 OK"
+2026-05-06 19:33:42,644 [INFO] src.generation.generator: Loading model from meta-llama/Llama-3.1-8B-Instruct (dtype=bfloat16)
+2026-05-06 19:33:42,688 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-06 19:33:49,120 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/generation_config.json "HTTP/1.1 200 OK"
+2026-05-06 19:33:49,187 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+2026-05-06 19:33:49,198 [INFO] src.generation.generator: Model loaded. Device map: single device
+2026-05-06 19:33:49,199 [INFO] src.generation.generator: Running CUDA preflight on NVIDIA L40S (cuda:0, sm_89)
+2026-05-06 19:33:49,272 [INFO] __main__: Condition harmful_k00: dataset=harmful k=0 max_prompts=25 output_dir=outputs/report6/generations/harmful_k00
+2026-05-06 19:33:49,277 [INFO] src.data.loader: Loaded 25 harmful prompts from data/harmful_prompts.jsonl
+2026-05-06 19:33:49,307 [INFO] src.generation.generator: Generating for k=0 over 25 prompts ...
+2026-05-06 19:33:55,192 [INFO] src.generation.generator:   10/25 prompts done (5.9s elapsed)
+2026-05-06 19:33:59,369 [INFO] src.generation.generator:   20/25 prompts done (10.1s elapsed)
+2026-05-06 19:34:00,878 [INFO] src.generation.generator: Saved 25 results to outputs/report6/generations/harmful_k00/k00.jsonl
+2026-05-06 19:34:00,878 [INFO] src.classification.refusal_classifier: Classified 25 responses: 23 phrase-refusals, 2 phrase-compliances (guard labels: not run)
+2026-05-06 19:34:00,918 [INFO] __main__: Condition harmful_k03: dataset=harmful k=3 max_prompts=25 output_dir=outputs/report6/generations/harmful_k03
+2026-05-06 19:34:00,923 [INFO] src.data.loader: Loaded 25 harmful prompts from data/harmful_prompts.jsonl
+2026-05-06 19:34:00,934 [INFO] src.generation.generator: Generating for k=3 over 25 prompts ...
+2026-05-06 19:34:16,418 [INFO] src.generation.generator:   10/25 prompts done (15.5s elapsed)
+2026-05-06 19:34:30,716 [INFO] src.generation.generator:   20/25 prompts done (29.8s elapsed)
+2026-05-06 19:34:37,648 [INFO] src.generation.generator: Saved 25 results to outputs/report6/generations/harmful_k03/k03.jsonl
+2026-05-06 19:34:37,648 [INFO] src.classification.refusal_classifier: Classified 25 responses: 8 phrase-refusals, 17 phrase-compliances (guard labels: not run)
+2026-05-06 19:34:37,664 [INFO] __main__: Condition benign_k00: dataset=benign k=0 max_prompts=25 output_dir=outputs/report6/generations/benign_k00
+2026-05-06 19:34:37,667 [INFO] src.data.loader: Loaded 25 benign prompts from data/benign_prompts.jsonl
+2026-05-06 19:34:37,677 [INFO] src.generation.generator: Generating for k=0 over 25 prompts ...
+2026-05-06 19:34:51,156 [INFO] src.generation.generator:   10/25 prompts done (13.5s elapsed)
+2026-05-06 19:35:03,816 [INFO] src.generation.generator:   20/25 prompts done (26.1s elapsed)
+2026-05-06 19:35:09,397 [INFO] src.generation.generator: Saved 25 results to outputs/report6/generations/benign_k00/k00.jsonl
+2026-05-06 19:35:09,397 [INFO] src.classification.refusal_classifier: Classified 25 responses: 0 phrase-refusals, 25 phrase-compliances (guard labels: not run)
+2026-05-06 19:35:09,467 [INFO] __main__: Saved combined generation outputs to outputs/report6/generations/report6_generation_combined.jsonl
+2026-05-06 19:35:09,467 [INFO] __main__: Saved generation summary to outputs/report6/generations/report6_generation_summary.csv
