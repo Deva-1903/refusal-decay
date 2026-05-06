@@ -1,0 +1,39 @@
+2026-05-06 18:54:54,811 [INFO] __main__: Starting Report 6 patching.
+2026-05-06 18:54:54,812 [INFO] __main__: Model: meta-llama/Llama-3.1-8B-Instruct
+2026-05-06 18:54:54,812 [INFO] __main__: Attack condition: harmful_k03
+2026-05-06 18:54:54,812 [INFO] __main__: Layers: [16, 24, 27]
+2026-05-06 18:54:54,812 [INFO] __main__: Target positions: [1, 3, 5]
+2026-05-06 18:54:54,812 [INFO] __main__: Source position: -1
+2026-05-06 18:54:54,817 [INFO] src.data.loader: Loaded 10 harmful prompts from data/harmful_prompts.jsonl
+2026-05-06 18:54:54,827 [INFO] src.probing.direction: Loaded refusal directions for layers: [16, 20, 24, 27]
+2026-05-06 18:54:54,828 [INFO] src.generation.generator: Loading tokenizer from meta-llama/Llama-3.1-8B-Instruct
+2026-05-06 18:54:54,890 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-06 18:54:54,981 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 18:54:55,047 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 18:54:55,103 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 18:54:55,981 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct "HTTP/1.1 200 OK"
+2026-05-06 18:54:55,998 [INFO] src.generation.generator: Loading model from meta-llama/Llama-3.1-8B-Instruct (dtype=bfloat16)
+2026-05-06 18:54:56,048 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-06 18:55:02,532 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/generation_config.json "HTTP/1.1 200 OK"
+2026-05-06 18:55:02,588 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+2026-05-06 18:55:02,599 [INFO] src.generation.generator: Model loaded. Device map: single device
+2026-05-06 18:55:02,600 [INFO] src.generation.generator: Running CUDA preflight on NVIDIA L40S (cuda:0, sm_89)
+2026-05-06 18:55:02,653 [INFO] src.patching.patch: Patching layer=16 source_pos=-1 target_pos=1 over 10 prompts ...
+2026-05-06 18:55:34,349 [INFO] src.patching.patch: Saved 10 patching results to outputs/report6/patching/patch_layer16_ts-1_tt1.jsonl
+2026-05-06 18:55:34,351 [INFO] src.patching.patch: Patching layer=16 source_pos=-1 target_pos=3 over 10 prompts ...
+2026-05-06 18:55:49,866 [INFO] src.patching.patch: Saved 10 patching results to outputs/report6/patching/patch_layer16_ts-1_tt3.jsonl
+2026-05-06 18:55:49,867 [INFO] src.patching.patch: Patching layer=16 source_pos=-1 target_pos=5 over 10 prompts ...
+2026-05-06 18:56:05,382 [INFO] src.patching.patch: Saved 10 patching results to outputs/report6/patching/patch_layer16_ts-1_tt5.jsonl
+2026-05-06 18:56:05,383 [INFO] src.patching.patch: Patching layer=24 source_pos=-1 target_pos=1 over 10 prompts ...
+2026-05-06 18:56:21,175 [INFO] src.patching.patch: Saved 10 patching results to outputs/report6/patching/patch_layer24_ts-1_tt1.jsonl
+2026-05-06 18:56:21,178 [INFO] src.patching.patch: Patching layer=24 source_pos=-1 target_pos=3 over 10 prompts ...
+2026-05-06 18:56:36,688 [INFO] src.patching.patch: Saved 10 patching results to outputs/report6/patching/patch_layer24_ts-1_tt3.jsonl
+2026-05-06 18:56:36,690 [INFO] src.patching.patch: Patching layer=24 source_pos=-1 target_pos=5 over 10 prompts ...
+2026-05-06 18:56:52,203 [INFO] src.patching.patch: Saved 10 patching results to outputs/report6/patching/patch_layer24_ts-1_tt5.jsonl
+2026-05-06 18:56:52,204 [INFO] src.patching.patch: Patching layer=27 source_pos=-1 target_pos=1 over 10 prompts ...
+2026-05-06 18:57:07,111 [INFO] src.patching.patch: Saved 10 patching results to outputs/report6/patching/patch_layer27_ts-1_tt1.jsonl
+2026-05-06 18:57:07,114 [INFO] src.patching.patch: Patching layer=27 source_pos=-1 target_pos=3 over 10 prompts ...
+2026-05-06 18:57:22,623 [INFO] src.patching.patch: Saved 10 patching results to outputs/report6/patching/patch_layer27_ts-1_tt3.jsonl
+2026-05-06 18:57:22,626 [INFO] src.patching.patch: Patching layer=27 source_pos=-1 target_pos=5 over 10 prompts ...
+2026-05-06 18:57:38,134 [INFO] src.patching.patch: Saved 10 patching results to outputs/report6/patching/patch_layer27_ts-1_tt5.jsonl
+2026-05-06 18:57:38,284 [INFO] __main__: Saved patching summary to outputs/report6/patching/patching_summary.csv

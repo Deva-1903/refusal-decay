@@ -1,0 +1,14 @@
+Patching pilot summary:
+- Model: Llama-3.1-8B-Instruct
+- Attack condition: prefilling k=3
+- Layer: 27
+- Source position: -1
+- Target position: 5
+- Prompts: 5 harmful prompts
+- Result:
+  - compliance -> refusal: 0/5
+  - refusal -> compliance: 0/5
+  - no change: 5/5
+- Interpretation:
+  This pilot did not provide evidence that patching the selected late-layer refusal-direction component restores refusal under attack.
+  This is a preliminary negative result under one specific intervention setting, not a general disproof of the inversion hypothesis.

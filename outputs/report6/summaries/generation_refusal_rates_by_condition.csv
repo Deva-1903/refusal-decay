@@ -1,0 +1,4 @@
+condition_name,dataset_name,prefix_k,n_total,n_refusal,n_compliance,n_error,n_valid,refusal_rate
+harmful_k00,harmful,0,25,0,0,25,0,
+harmful_k03,harmful,3,25,0,0,25,0,
+benign_k00,benign,0,25,0,0,25,0,

@@ -1,0 +1,1504 @@
+2026-05-05 02:54:44,902 [INFO] __main__: Starting Report 6 generation.
+2026-05-05 02:54:44,902 [INFO] __main__: Model: meta-llama/Llama-3.1-8B-Instruct
+2026-05-05 02:54:44,903 [INFO] __main__: Conditions: ['harmful_k00', 'harmful_k03', 'harmful_k10', 'benign_k00']
+2026-05-05 02:54:44,903 [INFO] __main__: Generation max_new_tokens: 64
+2026-05-05 02:54:44,934 [INFO] src.generation.generator: Loading tokenizer from meta-llama/Llama-3.1-8B-Instruct
+2026-05-05 02:54:45,000 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-05 02:54:45,418 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-05 02:54:45,485 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-05 02:54:45,553 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-05 02:54:46,662 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct "HTTP/1.1 200 OK"
+2026-05-05 02:54:46,682 [INFO] src.generation.generator: Loading model from meta-llama/Llama-3.1-8B-Instruct (dtype=bfloat16)
+2026-05-05 02:54:46,725 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-05 02:54:52,490 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/generation_config.json "HTTP/1.1 200 OK"
+2026-05-05 02:54:52,578 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+2026-05-05 02:54:52,591 [INFO] src.generation.generator: Model loaded. Device map: single device
+2026-05-05 02:54:52,616 [INFO] __main__: Condition harmful_k00: dataset=harmful k=0 max_prompts=25 output_dir=outputs/report6/generations/harmful_k00
+2026-05-05 02:54:52,643 [INFO] src.data.loader: Loaded 25 harmful prompts from data/harmful_prompts.jsonl
+2026-05-05 02:54:52,699 [INFO] src.generation.generator: Generating for k=0 over 25 prompts ...
+2026-05-05 03:18:20,401 [INFO] __main__: Starting Report 6 generation.
+2026-05-05 03:18:20,401 [INFO] __main__: Model: meta-llama/Llama-3.1-8B-Instruct
+2026-05-05 03:18:20,401 [INFO] __main__: Conditions: ['harmful_k00', 'harmful_k03', 'harmful_k10', 'benign_k00']
+2026-05-05 03:18:20,401 [INFO] __main__: Generation max_new_tokens: 64
+2026-05-05 03:18:20,471 [INFO] src.generation.generator: Loading tokenizer from meta-llama/Llama-3.1-8B-Instruct
+2026-05-05 03:18:20,896 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-05 03:18:23,838 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-05 03:18:24,365 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-05 03:18:24,425 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-05 03:18:27,023 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct "HTTP/1.1 200 OK"
+2026-05-05 03:18:27,057 [INFO] src.generation.generator: Loading model from meta-llama/Llama-3.1-8B-Instruct (dtype=bfloat16)
+2026-05-05 03:18:27,103 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-05 03:49:35,893 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/generation_config.json "HTTP/1.1 200 OK"
+2026-05-05 03:49:36,634 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+2026-05-05 03:49:36,857 [INFO] src.generation.generator: Model loaded. Device map: single device
+2026-05-05 03:49:37,110 [INFO] __main__: Condition harmful_k00: dataset=harmful k=0 max_prompts=25 output_dir=outputs/report6/generations/harmful_k00
+2026-05-05 03:49:37,134 [INFO] src.data.loader: Loaded 25 harmful prompts from data/harmful_prompts.jsonl
+2026-05-05 03:49:38,064 [INFO] src.generation.generator: Generating for k=0 over 25 prompts ...
+2026-05-05 03:49:40,688 [ERROR] src.generation.generator: Error on prompt advbench_0000 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,690 [ERROR] src.generation.generator: Error on prompt advbench_0001 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,692 [ERROR] src.generation.generator: Error on prompt advbench_0002 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,694 [ERROR] src.generation.generator: Error on prompt advbench_0003 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,696 [ERROR] src.generation.generator: Error on prompt advbench_0004 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,698 [ERROR] src.generation.generator: Error on prompt advbench_0005 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,700 [ERROR] src.generation.generator: Error on prompt advbench_0006 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,702 [ERROR] src.generation.generator: Error on prompt advbench_0007 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,704 [ERROR] src.generation.generator: Error on prompt advbench_0008 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,706 [ERROR] src.generation.generator: Error on prompt advbench_0009 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,707 [INFO] src.generation.generator:   10/25 prompts done (2.6s elapsed)
+2026-05-05 03:49:40,708 [ERROR] src.generation.generator: Error on prompt advbench_0010 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,710 [ERROR] src.generation.generator: Error on prompt advbench_0011 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,712 [ERROR] src.generation.generator: Error on prompt advbench_0012 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,714 [ERROR] src.generation.generator: Error on prompt advbench_0013 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,716 [ERROR] src.generation.generator: Error on prompt advbench_0014 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,718 [ERROR] src.generation.generator: Error on prompt advbench_0015 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,720 [ERROR] src.generation.generator: Error on prompt advbench_0016 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,722 [ERROR] src.generation.generator: Error on prompt advbench_0017 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,723 [ERROR] src.generation.generator: Error on prompt advbench_0018 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,725 [ERROR] src.generation.generator: Error on prompt advbench_0019 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,726 [INFO] src.generation.generator:   20/25 prompts done (2.7s elapsed)
+2026-05-05 03:49:40,727 [ERROR] src.generation.generator: Error on prompt advbench_0020 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,729 [ERROR] src.generation.generator: Error on prompt advbench_0021 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,731 [ERROR] src.generation.generator: Error on prompt advbench_0022 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,733 [ERROR] src.generation.generator: Error on prompt advbench_0023 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,734 [ERROR] src.generation.generator: Error on prompt advbench_0024 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,757 [INFO] src.generation.generator: Saved 25 results to outputs/report6/generations/harmful_k00/k00.jsonl
+2026-05-05 03:49:40,757 [INFO] src.classification.refusal_classifier: Classified 25 responses: 0 phrase-refusals, 0 phrase-compliances (guard labels: not run)
+2026-05-05 03:49:40,819 [INFO] __main__: Condition harmful_k03: dataset=harmful k=3 max_prompts=25 output_dir=outputs/report6/generations/harmful_k03
+2026-05-05 03:49:40,826 [INFO] src.data.loader: Loaded 25 harmful prompts from data/harmful_prompts.jsonl
+2026-05-05 03:49:40,830 [INFO] src.generation.generator: Generating for k=3 over 25 prompts ...
+2026-05-05 03:49:40,901 [ERROR] src.generation.generator: Error on prompt advbench_0000 (k=3)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,903 [ERROR] src.generation.generator: Error on prompt advbench_0001 (k=3)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,905 [ERROR] src.generation.generator: Error on prompt advbench_0002 (k=3)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,907 [ERROR] src.generation.generator: Error on prompt advbench_0003 (k=3)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,910 [ERROR] src.generation.generator: Error on prompt advbench_0004 (k=3)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,912 [ERROR] src.generation.generator: Error on prompt advbench_0005 (k=3)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,914 [ERROR] src.generation.generator: Error on prompt advbench_0006 (k=3)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,916 [ERROR] src.generation.generator: Error on prompt advbench_0007 (k=3)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,918 [ERROR] src.generation.generator: Error on prompt advbench_0008 (k=3)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,920 [ERROR] src.generation.generator: Error on prompt advbench_0009 (k=3)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,921 [INFO] src.generation.generator:   10/25 prompts done (0.1s elapsed)
+2026-05-05 03:49:40,923 [ERROR] src.generation.generator: Error on prompt advbench_0010 (k=3)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,925 [ERROR] src.generation.generator: Error on prompt advbench_0011 (k=3)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,927 [ERROR] src.generation.generator: Error on prompt advbench_0012 (k=3)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,929 [ERROR] src.generation.generator: Error on prompt advbench_0013 (k=3)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,932 [ERROR] src.generation.generator: Error on prompt advbench_0014 (k=3)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,934 [ERROR] src.generation.generator: Error on prompt advbench_0015 (k=3)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,936 [ERROR] src.generation.generator: Error on prompt advbench_0016 (k=3)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,938 [ERROR] src.generation.generator: Error on prompt advbench_0017 (k=3)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,940 [ERROR] src.generation.generator: Error on prompt advbench_0018 (k=3)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,942 [ERROR] src.generation.generator: Error on prompt advbench_0019 (k=3)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,943 [INFO] src.generation.generator:   20/25 prompts done (0.1s elapsed)
+2026-05-05 03:49:40,944 [ERROR] src.generation.generator: Error on prompt advbench_0020 (k=3)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,946 [ERROR] src.generation.generator: Error on prompt advbench_0021 (k=3)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,948 [ERROR] src.generation.generator: Error on prompt advbench_0022 (k=3)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,949 [ERROR] src.generation.generator: Error on prompt advbench_0023 (k=3)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,951 [ERROR] src.generation.generator: Error on prompt advbench_0024 (k=3)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:40,984 [INFO] src.generation.generator: Saved 25 results to outputs/report6/generations/harmful_k03/k03.jsonl
+2026-05-05 03:49:40,984 [INFO] src.classification.refusal_classifier: Classified 25 responses: 0 phrase-refusals, 0 phrase-compliances (guard labels: not run)
+2026-05-05 03:49:41,031 [INFO] __main__: Condition harmful_k10: dataset=harmful k=10 max_prompts=25 output_dir=outputs/report6/generations/harmful_k10
+2026-05-05 03:49:41,038 [INFO] src.data.loader: Loaded 25 harmful prompts from data/harmful_prompts.jsonl
+2026-05-05 03:49:41,042 [INFO] src.generation.generator: Generating for k=10 over 25 prompts ...
+2026-05-05 03:49:41,043 [ERROR] src.generation.generator: Error on prompt advbench_0000 (k=10)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,044 [ERROR] src.generation.generator: Error on prompt advbench_0001 (k=10)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,045 [ERROR] src.generation.generator: Error on prompt advbench_0002 (k=10)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,046 [ERROR] src.generation.generator: Error on prompt advbench_0003 (k=10)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,048 [ERROR] src.generation.generator: Error on prompt advbench_0004 (k=10)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,049 [ERROR] src.generation.generator: Error on prompt advbench_0005 (k=10)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,050 [ERROR] src.generation.generator: Error on prompt advbench_0006 (k=10)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,051 [ERROR] src.generation.generator: Error on prompt advbench_0007 (k=10)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,052 [ERROR] src.generation.generator: Error on prompt advbench_0008 (k=10)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,053 [ERROR] src.generation.generator: Error on prompt advbench_0009 (k=10)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,054 [INFO] src.generation.generator:   10/25 prompts done (0.0s elapsed)
+2026-05-05 03:49:41,055 [ERROR] src.generation.generator: Error on prompt advbench_0010 (k=10)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,056 [ERROR] src.generation.generator: Error on prompt advbench_0011 (k=10)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,057 [ERROR] src.generation.generator: Error on prompt advbench_0012 (k=10)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,058 [ERROR] src.generation.generator: Error on prompt advbench_0013 (k=10)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,059 [ERROR] src.generation.generator: Error on prompt advbench_0014 (k=10)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,060 [ERROR] src.generation.generator: Error on prompt advbench_0015 (k=10)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,062 [ERROR] src.generation.generator: Error on prompt advbench_0016 (k=10)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,063 [ERROR] src.generation.generator: Error on prompt advbench_0017 (k=10)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,064 [ERROR] src.generation.generator: Error on prompt advbench_0018 (k=10)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,065 [ERROR] src.generation.generator: Error on prompt advbench_0019 (k=10)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,065 [INFO] src.generation.generator:   20/25 prompts done (0.0s elapsed)
+2026-05-05 03:49:41,066 [ERROR] src.generation.generator: Error on prompt advbench_0020 (k=10)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,067 [ERROR] src.generation.generator: Error on prompt advbench_0021 (k=10)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,069 [ERROR] src.generation.generator: Error on prompt advbench_0022 (k=10)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,070 [ERROR] src.generation.generator: Error on prompt advbench_0023 (k=10)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,071 [ERROR] src.generation.generator: Error on prompt advbench_0024 (k=10)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,302 [INFO] src.generation.generator: Saved 25 results to outputs/report6/generations/harmful_k10/k10.jsonl
+2026-05-05 03:49:41,302 [INFO] src.classification.refusal_classifier: Classified 25 responses: 0 phrase-refusals, 0 phrase-compliances (guard labels: not run)
+2026-05-05 03:49:41,364 [INFO] __main__: Condition benign_k00: dataset=benign k=0 max_prompts=25 output_dir=outputs/report6/generations/benign_k00
+2026-05-05 03:49:41,383 [INFO] src.data.loader: Loaded 25 benign prompts from data/benign_prompts.jsonl
+2026-05-05 03:49:41,388 [INFO] src.generation.generator: Generating for k=0 over 25 prompts ...
+2026-05-05 03:49:41,389 [ERROR] src.generation.generator: Error on prompt alpaca_0000 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,390 [ERROR] src.generation.generator: Error on prompt alpaca_0001 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,391 [ERROR] src.generation.generator: Error on prompt alpaca_0002 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,392 [ERROR] src.generation.generator: Error on prompt alpaca_0003 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,393 [ERROR] src.generation.generator: Error on prompt alpaca_0004 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,394 [ERROR] src.generation.generator: Error on prompt alpaca_0005 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,395 [ERROR] src.generation.generator: Error on prompt alpaca_0006 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,396 [ERROR] src.generation.generator: Error on prompt alpaca_0007 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,397 [ERROR] src.generation.generator: Error on prompt alpaca_0008 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,398 [ERROR] src.generation.generator: Error on prompt alpaca_0009 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,398 [INFO] src.generation.generator:   10/25 prompts done (0.0s elapsed)
+2026-05-05 03:49:41,399 [ERROR] src.generation.generator: Error on prompt alpaca_0010 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,400 [ERROR] src.generation.generator: Error on prompt alpaca_0011 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,401 [ERROR] src.generation.generator: Error on prompt alpaca_0012 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,402 [ERROR] src.generation.generator: Error on prompt alpaca_0013 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,403 [ERROR] src.generation.generator: Error on prompt alpaca_0014 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,404 [ERROR] src.generation.generator: Error on prompt alpaca_0015 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,405 [ERROR] src.generation.generator: Error on prompt alpaca_0016 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,406 [ERROR] src.generation.generator: Error on prompt alpaca_0017 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,407 [ERROR] src.generation.generator: Error on prompt alpaca_0018 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,408 [ERROR] src.generation.generator: Error on prompt alpaca_0019 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,408 [INFO] src.generation.generator:   20/25 prompts done (0.0s elapsed)
+2026-05-05 03:49:41,409 [ERROR] src.generation.generator: Error on prompt alpaca_0020 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,410 [ERROR] src.generation.generator: Error on prompt alpaca_0021 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,411 [ERROR] src.generation.generator: Error on prompt alpaca_0022 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,412 [ERROR] src.generation.generator: Error on prompt alpaca_0023 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,413 [ERROR] src.generation.generator: Error on prompt alpaca_0024 (k=0)
+Traceback (most recent call last):
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 223, in generate_responses
+    result = generate_one(model, tokenizer, prompt, k, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/src/generation/generator.py", line 126, in generate_one
+    attention_mask = torch.ones_like(input_ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-05-05 03:49:41,427 [INFO] src.generation.generator: Saved 25 results to outputs/report6/generations/benign_k00/k00.jsonl
+2026-05-05 03:49:41,427 [INFO] src.classification.refusal_classifier: Classified 25 responses: 0 phrase-refusals, 0 phrase-compliances (guard labels: not run)
+2026-05-05 03:49:44,065 [INFO] __main__: Saved combined generation outputs to outputs/report6/generations/report6_generation_combined.jsonl
+2026-05-05 03:49:44,066 [INFO] __main__: Saved generation summary to outputs/report6/generations/report6_generation_summary.csv
+2026-05-06 18:22:33,534 [INFO] __main__: Starting Report 6 generation.
+2026-05-06 18:22:33,534 [INFO] __main__: Model: meta-llama/Llama-3.1-8B-Instruct
+2026-05-06 18:22:33,534 [INFO] __main__: Conditions: ['harmful_k00', 'harmful_k03', 'benign_k00']
+2026-05-06 18:22:33,535 [INFO] __main__: Generation max_new_tokens: 64
+2026-05-06 18:22:33,585 [INFO] src.generation.generator: Loading tokenizer from meta-llama/Llama-3.1-8B-Instruct
+2026-05-06 18:22:33,770 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-06 18:22:34,286 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 18:22:34,387 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 18:22:34,446 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 18:22:36,177 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct "HTTP/1.1 200 OK"
+2026-05-06 18:22:36,211 [INFO] src.generation.generator: Loading model from meta-llama/Llama-3.1-8B-Instruct (dtype=bfloat16)
+2026-05-06 18:22:36,261 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-06 18:23:15,011 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/generation_config.json "HTTP/1.1 200 OK"
+2026-05-06 18:23:15,101 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+2026-05-06 18:23:15,178 [WARNING] accelerate.big_modeling: Some parameters are on the meta device because they were offloaded to the cpu.
+2026-05-06 18:23:15,185 [INFO] src.generation.generator: Model loaded. Device map: {'model.embed_tokens': 0, 'model.layers.0': 0, 'model.layers.1': 0, 'model.layers.2': 0, 'model.layers.3': 0, 'model.layers.4': 0, 'model.layers.5': 0, 'model.layers.6': 0, 'model.layers.7': 0, 'model.layers.8': 0, 'model.layers.9': 0, 'model.layers.10': 0, 'model.layers.11': 0, 'model.layers.12': 0, 'model.layers.13': 0, 'model.layers.14': 0, 'model.layers.15': 0, 'model.layers.16': 0, 'model.layers.17': 0, 'model.layers.18': 0, 'model.layers.19': 'cpu', 'model.layers.20': 'cpu', 'model.layers.21': 'cpu', 'model.layers.22': 'cpu', 'model.layers.23': 'cpu', 'model.layers.24': 'cpu', 'model.layers.25': 'cpu', 'model.layers.26': 'cpu', 'model.layers.27': 'cpu', 'model.layers.28': 'cpu', 'model.layers.29': 'cpu', 'model.layers.30': 'cpu', 'model.layers.31': 'cpu', 'model.norm': 'cpu', 'model.rotary_emb': 'cpu', 'lm_head': 'cpu'}
+2026-05-06 18:23:15,186 [INFO] src.generation.generator: Running CUDA preflight on NVIDIA GeForce GTX 1080 Ti (cuda:0, sm_61)
+2026-05-06 18:31:36,404 [INFO] __main__: Starting Report 6 generation.
+2026-05-06 18:31:36,404 [INFO] __main__: Model: meta-llama/Llama-3.1-8B-Instruct
+2026-05-06 18:31:36,404 [INFO] __main__: Conditions: ['harmful_k00', 'harmful_k03', 'benign_k00']
+2026-05-06 18:31:36,404 [INFO] __main__: Generation max_new_tokens: 64
+2026-05-06 18:31:36,443 [INFO] src.generation.generator: Loading tokenizer from meta-llama/Llama-3.1-8B-Instruct
+2026-05-06 18:31:36,644 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-06 18:31:37,080 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 18:31:37,163 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 18:31:37,216 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 18:31:38,384 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct "HTTP/1.1 200 OK"
+2026-05-06 18:31:38,401 [INFO] src.generation.generator: Loading model from meta-llama/Llama-3.1-8B-Instruct (dtype=bfloat16)
+2026-05-06 18:31:38,466 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-06 18:32:41,693 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/generation_config.json "HTTP/1.1 200 OK"
+2026-05-06 18:32:41,780 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+2026-05-06 18:32:41,796 [INFO] src.generation.generator: Model loaded. Device map: single device
+2026-05-06 18:32:41,796 [INFO] src.generation.generator: Running CUDA preflight on NVIDIA L40S (cuda:0, sm_89)
+2026-05-06 18:32:42,179 [INFO] __main__: Condition harmful_k00: dataset=harmful k=0 max_prompts=25 output_dir=outputs/report6/generations/harmful_k00
+2026-05-06 18:32:42,181 [INFO] __main__: Loading cached classified outputs for harmful_k00 from outputs/report6/generations/harmful_k00/classified.jsonl
+2026-05-06 18:32:42,238 [INFO] __main__: Condition harmful_k03: dataset=harmful k=3 max_prompts=25 output_dir=outputs/report6/generations/harmful_k03
+2026-05-06 18:32:42,240 [INFO] __main__: Loading cached classified outputs for harmful_k03 from outputs/report6/generations/harmful_k03/classified.jsonl
+2026-05-06 18:32:42,306 [INFO] __main__: Condition benign_k00: dataset=benign k=0 max_prompts=25 output_dir=outputs/report6/generations/benign_k00
+2026-05-06 18:32:42,308 [INFO] __main__: Loading cached classified outputs for benign_k00 from outputs/report6/generations/benign_k00/classified.jsonl
+2026-05-06 18:32:42,644 [INFO] __main__: Saved combined generation outputs to outputs/report6/generations/report6_generation_combined.jsonl
+2026-05-06 18:32:42,645 [INFO] __main__: Saved generation summary to outputs/report6/generations/report6_generation_summary.csv

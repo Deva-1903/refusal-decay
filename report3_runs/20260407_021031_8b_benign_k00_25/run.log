@@ -1,0 +1,29 @@
+2026-04-07 02:13:53,790 [INFO] __main__: Starting baseline generation.
+2026-04-07 02:13:53,790 [INFO] __main__: Model: meta-llama/Llama-3.1-8B-Instruct
+2026-04-07 02:13:53,828 [INFO] src.data.loader: Loaded 25 harmful prompts from data/harmful_prompts.jsonl
+2026-04-07 02:13:53,831 [INFO] src.data.loader: Loaded 25 benign prompts from data/benign_prompts.jsonl
+2026-04-07 02:13:53,861 [INFO] src.data.loader: Saved 25 records to data/processed/harmful_prompts.jsonl
+2026-04-07 02:13:53,885 [INFO] src.data.loader: Saved 25 records to data/processed/benign_prompts.jsonl
+2026-04-07 02:13:53,885 [INFO] src.generation.generator: Loading tokenizer from meta-llama/Llama-3.1-8B-Instruct
+2026-04-07 02:13:53,955 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-04-07 02:13:54,096 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-07 02:13:54,154 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-07 02:13:54,193 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-07 02:13:54,960 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct "HTTP/1.1 200 OK"
+2026-04-07 02:13:54,976 [INFO] src.generation.generator: Loading model from meta-llama/Llama-3.1-8B-Instruct (dtype=bfloat16)
+2026-04-07 02:13:55,013 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]Loading weights:   1%|          | 2/291 [00:00<00:21, 13.55it/s]Loading weights:   5%|▍         | 14/291 [00:00<00:04, 64.25it/s]Loading weights:  10%|▉         | 29/291 [00:00<00:02, 98.86it/s]Loading weights:  14%|█▍        | 41/291 [00:00<00:02, 104.44it/s]Loading weights:  19%|█▉        | 56/291 [00:00<00:01, 119.84it/s]Loading weights:  24%|██▎       | 69/291 [00:00<00:01, 114.13it/s]Loading weights:  29%|██▉       | 85/291 [00:00<00:01, 127.95it/s]Loading weights:  34%|███▍      | 99/291 [00:00<00:01, 125.05it/s]Loading weights:  39%|███▉      | 113/291 [00:01<00:01, 126.84it/s]Loading weights:  44%|████▍     | 128/291 [00:01<00:01, 133.45it/s]Loading weights:  49%|████▉     | 142/291 [00:01<00:01, 126.54it/s]Loading weights:  54%|█████▍    | 157/291 [00:01<00:01, 133.08it/s]Loading weights:  59%|█████▉    | 171/291 [00:01<00:00, 130.56it/s]Loading weights:  64%|██████▎   | 185/291 [00:01<00:00, 128.81it/s]Loading weights:  69%|██████▊   | 200/291 [00:01<00:00, 134.71it/s]Loading weights:  74%|███████▎  | 214/291 [00:01<00:00, 127.45it/s]Loading weights:  79%|███████▊  | 229/291 [00:01<00:00, 133.62it/s]Loading weights:  84%|████████▎ | 243/291 [00:01<00:00, 131.01it/s]Loading weights: 100%|██████████| 291/291 [00:02<00:00, 145.48it/s]
+2026-04-07 02:14:01,204 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/generation_config.json "HTTP/1.1 200 OK"
+2026-04-07 02:14:01,281 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+2026-04-07 02:14:01,316 [WARNING] accelerate.big_modeling: Some parameters are on the meta device because they were offloaded to the cpu.
+2026-04-07 02:14:01,317 [INFO] src.generation.generator: Model loaded. Device map: {'model.embed_tokens': 0, 'model.layers.0': 0, 'model.layers.1': 0, 'model.layers.2': 0, 'model.layers.3': 0, 'model.layers.4': 0, 'model.layers.5': 0, 'model.layers.6': 0, 'model.layers.7': 0, 'model.layers.8': 0, 'model.layers.9': 0, 'model.layers.10': 0, 'model.layers.11': 0, 'model.layers.12': 0, 'model.layers.13': 0, 'model.layers.14': 0, 'model.layers.15': 0, 'model.layers.16': 0, 'model.layers.17': 0, 'model.layers.18': 0, 'model.layers.19': 0, 'model.layers.20': 0, 'model.layers.21': 0, 'model.layers.22': 0, 'model.layers.23': 0, 'model.layers.24': 0, 'model.layers.25': 0, 'model.layers.26': 0, 'model.layers.27': 'cpu', 'model.layers.28': 'cpu', 'model.layers.29': 'cpu', 'model.layers.30': 'cpu', 'model.layers.31': 'cpu', 'model.norm': 'cpu', 'model.rotary_emb': 'cpu', 'lm_head': 'cpu'}
+2026-04-07 02:14:01,342 [INFO] src.generation.generator: Generating for k=0 over 25 prompts ...
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+/work/pi_compsci602_umass_edu/devaanand_umass_edu/.conda/envs/refusal-decay/lib/python3.11/site-packages/transformers/generation/utils.py:2511: UserWarning: You are calling .generate() with the `input_ids` being on a device type different than your model's device. `input_ids` is on cpu, whereas the model is on cuda. You may experience unexpected behaviors or slower generation. Please make sure that you have put `input_ids` to the correct device by calling for example input_ids = input_ids.to('cuda') before running `.generate()`.
+  warnings.warn(
+2026-04-07 02:17:34,582 [INFO] src.generation.generator:   10/25 prompts done (213.2s elapsed)
+2026-04-07 02:20:50,037 [INFO] src.generation.generator:   20/25 prompts done (408.7s elapsed)
+2026-04-07 02:22:20,805 [INFO] src.generation.generator: Saved 25 results to outputs/generations/k00.jsonl
+2026-04-07 02:22:20,806 [INFO] src.classification.refusal_classifier: Classified 25 responses: 0 phrase-refusals, 25 phrase-compliances (guard labels: not run)
+2026-04-07 02:22:20,819 [INFO] __main__: Baseline complete. Refusal rate: 0/25 = 0.0%

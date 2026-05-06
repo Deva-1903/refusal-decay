@@ -1,0 +1,13 @@
+{
+  "config": "configs/experiments/report6/generation_report6.yaml",
+  "summary_dir": "outputs/report6/summaries",
+  "created_files": [
+    "outputs/report6/summaries/generation_refusal_rates_by_condition.csv",
+    "outputs/report6/summaries/generation_prompt_labels.csv",
+    "outputs/report6/summaries/trace_projection_by_condition_layer_token.csv",
+    "outputs/report6/summaries/trace_mean_projection_by_condition_layer.csv",
+    "outputs/report6/summaries/trace_prompt_level_key_layers.csv",
+    "outputs/report6/summaries/patching_refusal_recovery_summary.csv",
+    "outputs/report6/summaries/patching_prompt_results.csv"
+  ]
+}

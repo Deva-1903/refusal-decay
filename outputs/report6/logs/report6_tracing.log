@@ -1,0 +1,41 @@
+2026-05-06 18:52:01,693 [INFO] __main__: Starting Report 6 tracing.
+2026-05-06 18:52:01,694 [INFO] __main__: Model: meta-llama/Llama-3.1-8B-Instruct
+2026-05-06 18:52:01,694 [INFO] __main__: Trace dataset: harmful
+2026-05-06 18:52:01,694 [INFO] __main__: Trace k values: [0, 3, 10]
+2026-05-06 18:52:01,695 [INFO] __main__: Trace layers: [16, 20, 24, 27]
+2026-05-06 18:52:01,726 [INFO] src.data.loader: Loaded 25 harmful prompts from data/harmful_prompts.jsonl
+2026-05-06 18:52:01,745 [INFO] src.probing.direction: Loaded refusal directions for layers: [16, 20, 24, 27]
+2026-05-06 18:52:01,745 [INFO] src.generation.generator: Loading tokenizer from meta-llama/Llama-3.1-8B-Instruct
+2026-05-06 18:52:01,827 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-06 18:52:01,923 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 18:52:01,992 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 18:52:02,046 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 18:52:02,941 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct "HTTP/1.1 200 OK"
+2026-05-06 18:52:02,958 [INFO] src.generation.generator: Loading model from meta-llama/Llama-3.1-8B-Instruct (dtype=bfloat16)
+2026-05-06 18:52:03,004 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-06 18:52:09,798 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/generation_config.json "HTTP/1.1 200 OK"
+2026-05-06 18:52:09,863 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+2026-05-06 18:52:09,878 [INFO] src.generation.generator: Model loaded. Device map: single device
+2026-05-06 18:52:09,878 [INFO] src.generation.generator: Running CUDA preflight on NVIDIA L40S (cuda:0, sm_89)
+2026-05-06 18:52:09,933 [INFO] src.probing.tracing: Tracing k=0 over 25 prompts ...
+2026-05-06 18:52:13,345 [INFO] src.probing.tracing:   5/25 prompts traced
+2026-05-06 18:52:16,414 [INFO] src.probing.tracing:   10/25 prompts traced
+2026-05-06 18:52:18,518 [INFO] src.probing.tracing:   15/25 prompts traced
+2026-05-06 18:52:20,301 [INFO] src.probing.tracing:   20/25 prompts traced
+2026-05-06 18:52:21,834 [INFO] src.probing.tracing:   25/25 prompts traced
+2026-05-06 18:52:22,121 [INFO] src.probing.tracing: Saved 1712 trace records to outputs/report6/traces/traces_k00.parquet
+2026-05-06 18:52:22,123 [INFO] src.probing.tracing: Tracing k=3 over 25 prompts ...
+2026-05-06 18:52:28,115 [INFO] src.probing.tracing:   5/25 prompts traced
+2026-05-06 18:52:34,069 [INFO] src.probing.tracing:   10/25 prompts traced
+2026-05-06 18:52:40,020 [INFO] src.probing.tracing:   15/25 prompts traced
+2026-05-06 18:52:45,157 [INFO] src.probing.tracing:   20/25 prompts traced
+2026-05-06 18:52:50,667 [INFO] src.probing.tracing:   25/25 prompts traced
+2026-05-06 18:52:50,692 [INFO] src.probing.tracing: Saved 4596 trace records to outputs/report6/traces/traces_k03.parquet
+2026-05-06 18:52:50,693 [INFO] src.probing.tracing: Tracing k=10 over 25 prompts ...
+2026-05-06 18:52:55,959 [INFO] src.probing.tracing:   5/25 prompts traced
+2026-05-06 18:53:00,975 [INFO] src.probing.tracing:   10/25 prompts traced
+2026-05-06 18:53:06,930 [INFO] src.probing.tracing:   15/25 prompts traced
+2026-05-06 18:53:11,925 [INFO] src.probing.tracing:   20/25 prompts traced
+2026-05-06 18:53:17,290 [INFO] src.probing.tracing:   25/25 prompts traced
+2026-05-06 18:53:17,312 [INFO] src.probing.tracing: Saved 4284 trace records to outputs/report6/traces/traces_k10.parquet
+2026-05-06 18:53:17,390 [INFO] __main__: Saved combined traces to outputs/report6/traces/traces_all.parquet (10592 rows)
