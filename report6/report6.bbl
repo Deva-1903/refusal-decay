@@ -1,0 +1,47 @@
+\begin{thebibliography}{1}
+
+\bibitem{arditi2024refusal}
+A.~Arditi, O.~Obeso, A.~Syed, D.~Paleka, N.~Panickssery, W.~Gurnee, and
+  N.~Nanda.
+\newblock Refusal in language models is mediated by a single direction.
+\newblock {\em arXiv preprint arXiv:2406.11717}, 2024.
+
+\bibitem{chen2025safetyneurons}
+J.~Chen, X.~Wang, Z.~Yao, Y.~Bai, L.~Hou, and J.~Li.
+\newblock Towards understanding safety alignment: A mechanistic perspective
+  from safety neurons.
+\newblock In {\em Advances in Neural Information Processing Systems (NeurIPS)},
+  2025.
+
+\bibitem{dubey2024llama3}
+A.~Dubey, A.~Jauhri, A.~Pandey, et~al.
+\newblock The {Llama 3} herd of models.
+\newblock {\em arXiv preprint arXiv:2407.21783}, 2024.
+
+\bibitem{qi2025shallow}
+X.~Qi, A.~Panda, K.~Lyu, X.~Ma, S.~Roy, A.~Beirami, P.~Mittal, and
+  P.~Henderson.
+\newblock Safety alignment should be made more than just a few tokens deep.
+\newblock In {\em International Conference on Learning Representations (ICLR)},
+  2025.
+
+\bibitem{taori2023alpaca}
+R.~Taori, I.~Gulrajani, T.~Zhang, Y.~Dubois, X.~Li, C.~Guestrin, P.~Liang, and
+  T.~B. Hashimoto.
+\newblock Stanford {Alpaca}: An instruction-following {LLaMA} model.
+\newblock GitHub repository,
+  \url{https://github.com/tatsu-lab/stanford_alpaca}, 2023.
+
+\bibitem{zhou2025safetyheads}
+Z.~Zhou, H.~Yu, X.~Zhang, R.~Xu, F.~Huang, K.~Wang, Y.~Liu, J.~Fang, and Y.~Li.
+\newblock On the role of attention heads in large language model safety.
+\newblock In {\em International Conference on Learning Representations (ICLR)},
+  2025.
+
+\bibitem{zou2023advbench}
+A.~Zou, Z.~Wang, J.~Z. Kolter, and M.~Fredrikson.
+\newblock Universal and transferable adversarial attacks on aligned language
+  models.
+\newblock {\em arXiv preprint arXiv:2307.15043}, 2023.
+
+\end{thebibliography}

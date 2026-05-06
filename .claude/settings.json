@@ -6,7 +6,10 @@
       "Bash(python3 -c \"import pyarrow; print\\('pyarrow ok', pyarrow.__version__\\)\")",
       "Bash(xargs -I{} sh -c 'echo \"=== {} ===\"; ls -lh \"{}\"')",
       "Bash(conda run -n refusal-decay python -c ' *)",
-      "Bash(conda run *)"
+      "Bash(conda run *)",
+      "Bash(conda activate *)",
+      "Read(//Users/devaanand/miniconda3/envs/**)",
+      "Read(//Users/devaanand/opt/anaconda3/**)"
     ]
   }
 }

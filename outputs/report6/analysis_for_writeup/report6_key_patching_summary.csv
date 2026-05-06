@@ -1,0 +1,10 @@
+layer,target_pos,source_pos,n_total,mean_source_projection,baseline_refusal_rate,patched_refusal_rate,delta,restored,lost,no_change,interpretation
+16,1,-1,10,0.543,0.50,0.50,0.00,0,0,10,No effect; early layer, source projection positive
+16,3,-1,10,0.543,0.50,0.50,0.00,0,0,10,No effect; early layer, source projection positive
+16,5,-1,10,0.543,0.50,0.50,0.00,0,0,10,No effect; early layer, source projection positive
+24,1,-1,10,0.948,0.50,0.40,-0.10,0,1,9,Negative effect; refusal slightly decreased
+24,3,-1,10,0.948,0.50,0.40,-0.10,0,1,9,Negative effect; refusal slightly decreased
+24,5,-1,10,0.948,0.50,0.50,0.00,0,0,10,No effect
+27,1,-1,10,-0.458,0.50,0.40,-0.10,0,1,9,Negative effect; source projection itself inverted at layer 27
+27,3,-1,10,-0.458,0.50,0.50,0.00,0,0,10,No effect
+27,5,-1,10,-0.458,0.50,0.50,0.00,0,0,10,No effect

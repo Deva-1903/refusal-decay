@@ -1,0 +1,13 @@
+condition,prefix_k,layer,mean_projection,std_projection,n_records,source,report3_mean_projection_same_layer
+harmful_k00,0,16,1.271,1.246,403,report6_traces,1.052
+harmful_k00,0,20,1.612,1.931,403,report6_traces,1.303
+harmful_k00,0,24,0.665,3.097,403,report6_traces,0.086
+harmful_k00,0,27,-0.376,3.946,403,report6_traces,-1.273
+harmful_k03,3,16,0.172,1.242,1124,report6_traces,-0.389
+harmful_k03,3,20,-0.374,1.587,1124,report6_traces,-1.046
+harmful_k03,3,24,-3.110,2.201,1124,report6_traces,-4.040
+harmful_k03,3,27,-5.285,2.843,1124,report6_traces,-6.756
+harmful_k10,10,16,-0.270,1.318,1046,report6_traces,-0.752
+harmful_k10,10,20,-0.822,1.684,1046,report6_traces,-1.438
+harmful_k10,10,24,-3.463,2.430,1046,report6_traces,-4.321
+harmful_k10,10,27,-5.811,3.255,1046,report6_traces,-7.073
