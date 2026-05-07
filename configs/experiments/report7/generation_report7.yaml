@@ -1,0 +1,57 @@
+# Report 7 generation verification config.
+# Reuses the Report 6 behavioral conditions but writes to outputs/report7.
+
+report7:
+  name: report7
+  output_root: outputs/report7
+  summaries_dir: outputs/report7/summaries
+  directions_dir: outputs/report7/directions
+  report6_root: outputs/report6
+  key_layers: [24, 27]
+  comparison_layers: [16, 20]
+  attacked_k: 3
+  optional_k: 10
+  plot_max_token_positions: 32
+  prompt_plot_layer: 27
+  generation_conditions:
+    - name: harmful_k00
+      dataset: harmful
+      k: 0
+      max_prompts: 25
+    - name: harmful_k03
+      dataset: harmful
+      k: 3
+      max_prompts: 25
+    - name: benign_k00
+      dataset: benign
+      k: 0
+      max_prompts: 25
+    - name: harmful_k10
+      dataset: harmful
+      k: 10
+      max_prompts: 25
+      optional: true
+
+generation:
+  max_new_tokens: 64
+
+probing:
+  layers: [16, 20, 24, 27]
+  direction_position: -1
+  direction_save_path: outputs/report7/directions/refusal_direction.pt
+
+tracing:
+  output_dir: outputs/report7/traces
+  save_format: parquet
+
+patching:
+  output_dir: outputs/report7/patching
+
+output:
+  base_dir: outputs/report7
+  generations_dir: outputs/report7/generations
+  plots_dir: outputs/report7/plots
+  log_dir: outputs/report7/logs
+
+logging:
+  level: INFO

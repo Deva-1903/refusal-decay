@@ -1,0 +1,31 @@
+# Report 7 additive refusal-direction intervention.
+
+report7:
+  condition: harmful_k03
+  output_root: outputs/report7
+
+data:
+  max_prompts: 10
+
+generation:
+  max_new_tokens: 64
+
+prefilling:
+  k_values: [3]
+
+probing:
+  direction_save_path: outputs/report7/directions/refusal_direction.pt
+
+intervention:
+  layers: [16, 24, 27]
+  target_positions: [0, 1, 3, 5]
+  alphas: [0.5, 1.0, 2.0]
+  direction_types: [refusal, random]
+  output_dir: outputs/report7/interventions
+  seed: 42
+
+output:
+  log_dir: outputs/report7/logs
+
+logging:
+  level: INFO

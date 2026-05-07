@@ -1,0 +1,10 @@
+method,layer,target_position,n_prompts,restored,lost,unchanged,restoration_rate,loss_rate
+report6_same_condition_attacked_source,16,1,10,0,0,10,0.0,0.0
+report6_same_condition_attacked_source,16,3,10,0,0,10,0.0,0.0
+report6_same_condition_attacked_source,16,5,10,0,0,10,0.0,0.0
+report6_same_condition_attacked_source,24,1,10,0,1,9,0.0,0.1
+report6_same_condition_attacked_source,24,3,10,0,1,9,0.0,0.1
+report6_same_condition_attacked_source,24,5,10,0,0,10,0.0,0.0
+report6_same_condition_attacked_source,27,1,10,0,1,9,0.0,0.1
+report6_same_condition_attacked_source,27,3,10,0,0,10,0.0,0.0
+report6_same_condition_attacked_source,27,5,10,0,0,10,0.0,0.0

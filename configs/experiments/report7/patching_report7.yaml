@@ -1,0 +1,33 @@
+# Report 7 cross-condition baseline-source patching.
+
+report7:
+  source_condition: harmful_k00
+  target_condition: harmful_k03
+  output_root: outputs/report7
+
+data:
+  max_prompts: 10
+
+generation:
+  max_new_tokens: 64
+
+prefilling:
+  source_k: 0
+  target_k: 3
+  k_values: [3]
+
+probing:
+  direction_save_path: outputs/report7/directions/refusal_direction.pt
+
+patching:
+  source_position: -1
+  target_positions: [0, 1, 3, 5]
+  layers: [16, 24, 27]
+  mode: replace
+  output_dir: outputs/report7/patching
+
+output:
+  log_dir: outputs/report7/logs
+
+logging:
+  level: INFO
