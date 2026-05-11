@@ -149,12 +149,6 @@ The two new blocks:
   context, induces false refusals. A specific direction should not.
 \end{itemize}
 
-All scripts and configs are committed under
-\texttt{configs/experiments/report7/} and
-\texttt{scripts/run\_report7\_*}; the SLURM pipeline lives at
-\texttt{slurm/report7\_pipeline.sh}; all output CSVs and figures are under
-\texttt{outputs/report7/}.
-
 \section{Behavioral Results (H1)}
 \label{sec:behavior}
 
@@ -165,12 +159,11 @@ gap is closed).
 \begin{table}[h]
 \centering
 \small
-\caption{Refusal rates by condition (Report~7 pipeline). Source:
-\texttt{outputs/report7/generations/report7\_generation\_summary.csv}.
+\caption{Refusal rates by condition.
 \textbf{Conclusion to draw:} prefilling at $k=3$ reduces refusal from 0.92
-to 0.32 (H1 supported, replicating Report~6); $k=10$ closes at 0.36,
-matching the Report~3 pilot and confirming the plateau between $k=3$ and
-$k=10$. Benign prompts produce 0 refusals (no generic refusal tendency).}
+to 0.32 (H1 supported); $k=10$ closes at 0.36, confirming the plateau
+between $k=3$ and $k=10$. Benign prompts produce 0 refusals
+(no generic refusal tendency).}
 \label{tab:behavior}
 \begin{tabular}{lcccc}
 \toprule
@@ -210,8 +203,7 @@ from the 25 traced prompts (Section~\ref{sec:design}).
 \small
 \caption{Mean refusal-direction projection by condition $\times$ layer
 (generated tokens only, $n_{\text{prompts}} = 25$ in every row; held-out
-direction). Source:
-\texttt{outputs/report7/summaries/trace\_generated\_token\_mean\_by\_condition\_layer.csv}.
+direction).
 \textbf{Conclusion to draw:} the monotone-by-depth shift reported in
 Report~6 survives the held-out direction (deltas 0.76, 1.63, 3.23, 4.08
 across layers 16/20/24/27 for $k=3$ vs.\ $k=0$). Layer~27 inverts from
@@ -254,8 +246,7 @@ Table~\ref{tab:h3} and Figure~\ref{fig:h3}.
 \centering
 \small
 \caption{Prompt-level association within $k=3$ (held-out direction).
-Refusers ($n=8$) versus compliers ($n=17$); source:
-\texttt{outputs/report7/summaries/prompt\_projection\_label\_differences.csv}.
+Refusers ($n=8$) versus compliers ($n=17$).
 \textbf{Conclusion to draw:} refusers have less-negative late-layer
 projection than compliers, and the gap grows monotonically with depth
 ($+0.93$, $+1.39$, $+1.85$ at layers 20, 24, 27). H3 is supported, with
@@ -304,8 +295,6 @@ have substantially more headroom to restore refusal.
 \caption{Cross-condition patching results ($k=0$ source $\rightarrow$
 $k=3$ target). Each cell is 25 prompts; bootstrap 95\% confidence
 intervals are computed by resampling per-prompt outcomes ($B=2000$).
-Source:
-\texttt{outputs/report7/summaries/cross\_condition\_patching\_stats.csv}.
 \textbf{Conclusion to draw:} no cell restores refusal at a rate above 0.08
 and every CI overlaps zero. Two cells \emph{lose} refusal at a higher rate
 than they restore it (layer~24 / tt$=$1: 4 lost vs.\ 0 restored; layer~27 /
@@ -371,8 +360,7 @@ residual edit at this site.
 \small
 \caption{Mean restoration rate (averaged across seeds for random and
 orthogonal) by direction type at the late layers (24, 27), pooled across
-target positions and $\alpha$ values. Source:
-\texttt{outputs/report7/interventions/additive\_direction\_seed\_aggregated.csv}.
+target positions and $\alpha$ values.
 \textbf{Conclusion to draw:} the refusal direction restores refusal in
 \emph{zero} of 12 late-layer cells (300 of 300 prompts unchanged); random
 and orthogonal controls average $\approx$0.5\% across cells. The refusal
@@ -395,9 +383,7 @@ Orthogonal & 0.004 & 0.01 & 12 \\
 \centering
 \small
 \caption{Per-cell additive intervention restoration rate at the late
-layers (refusal direction only). All 12 cells return zero. Per-seed and
-combined CIs are in
-\texttt{outputs/report7/summaries/additive\_direction\_stats.csv};
+layers (refusal direction only). All 12 cells return zero;
 McNemar cannot fire in any cell (discordant $= 0$). \textbf{Conclusion to
 draw:} even with the strongest available causal lever (the empirically
 extracted refusal direction, added at the cleanest restoration target
@@ -450,8 +436,7 @@ position) is essentially causally inert in either direction.
 \centering
 \small
 \caption{Cross-report comparison of intervention restoration rates,
-pooled across cells at each layer. Source:
-\texttt{outputs/report7/summaries/report6\_vs\_report7\_intervention\_comparison.csv}.
+pooled across cells at each layer.
 \textbf{Conclusion to draw:} fixing the source quality (R6 same-condition
 attacked source $\rightarrow$ R7 cross-condition clean source) and
 broadening to a stronger causal lever (additive refusal-direction
@@ -550,16 +535,15 @@ causal knob on behavior regardless of context.
 \paragraph{Threats to validity.}
 \begin{itemize}
 \item \emph{Classifier validity.} A stratified spot-check of 32 outputs
-  was independently re-labelled with a secondary classifier
-  (Claude Opus 4.7); auto-vs-secondary agreement is 87.5\% (28/32) overall
+  was independently re-labelled by a strong secondary classifier;
+  auto-vs-secondary agreement is 87.5\% (28/32) overall
   and 100\% on benign $k=0$ and harmful $k=0$. The three flips are all in
   attacked conditions: two cases where the model pivots to a safer related
   topic (``soft refusal via redirect'') and one case where the disclaimer
   contained the word ``illegal'' and produced a false-positive refusal
-  label. This means the Report~7 refusal-rate estimates at $k=0$ are very
+  label. This means the refusal-rate estimates at $k=0$ are very
   reliable, while the attacked refusal counts may be off by $\pm 1$--$2$
-  prompts on each side. Spot-check source data:
-  \texttt{outputs/report7/classifier\_spot\_check/}.
+  prompts on each side.
 \item \emph{Intervention scope.} The additive intervention is one-time at a
   single generated-token position. Multi-position or attention-routed
   interventions are not tested and may produce different results.
