@@ -1,0 +1,34 @@
+\begin{thebibliography}{1}
+
+\bibitem{arditi2024refusal}
+Andy Arditi, Oscar Obeso, Aaquib Syed, Daniel Paleka, Nina Panickssery, Wes
+  Gurnee, and Neel Nanda.
+\newblock Refusal in language models is mediated by a single direction.
+\newblock {\em arXiv preprint arXiv:2406.11717}, 2024.
+
+\bibitem{dubey2024llama3}
+Abhimanyu Dubey, Abhinav Jauhri, Abhinav Pandey, et~al.
+\newblock The {Llama 3} herd of models.
+\newblock {\em arXiv preprint arXiv:2407.21783}, 2024.
+
+\bibitem{qi2025shallow}
+Xiangyu Qi, Ashwinee Panda, Kaifeng Lyu, Xiao Ma, Subhrajit Roy, Ahmad Beirami,
+  Prateek Mittal, and Peter Henderson.
+\newblock Safety alignment should be made more than just a few tokens deep.
+\newblock In {\em International Conference on Learning Representations (ICLR)},
+  2025.
+
+\bibitem{taori2023alpaca}
+Rohan Taori, Ishaan Gulrajani, Tianyi Zhang, Yann Dubois, Xuechen Li, Carlos
+  Guestrin, Percy Liang, and Tatsunori~B. Hashimoto.
+\newblock Stanford {Alpaca}: An instruction-following {LLaMA} model.
+\newblock GitHub repository,
+  \url{https://github.com/tatsu-lab/stanford_alpaca}, 2023.
+
+\bibitem{zou2023advbench}
+Andy Zou, Zifan Wang, J.~Zico Kolter, and Matt Fredrikson.
+\newblock Universal and transferable adversarial attacks on aligned language
+  models.
+\newblock {\em arXiv preprint arXiv:2307.15043}, 2023.
+
+\end{thebibliography}
