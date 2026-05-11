@@ -1,0 +1,26 @@
+2026-05-11 01:55:39,588 [INFO] __main__: Starting Report 7 generation verification.
+2026-05-11 01:55:39,588 [INFO] __main__: Model: meta-llama/Llama-3.1-8B-Instruct
+2026-05-11 01:55:39,588 [INFO] __main__: Conditions: ['harmful_k00', 'harmful_k03', 'benign_k00', 'harmful_k10']
+2026-05-11 01:55:39,629 [INFO] __main__: Reusing valid Report 6 outputs for harmful_k00
+2026-05-11 01:55:39,651 [INFO] __main__: Reusing valid Report 6 outputs for harmful_k03
+2026-05-11 01:55:39,672 [INFO] __main__: Reusing valid Report 6 outputs for benign_k00
+2026-05-11 01:55:39,694 [INFO] src.generation.generator: Loading tokenizer from meta-llama/Llama-3.1-8B-Instruct
+2026-05-11 01:55:39,770 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-11 01:55:40,012 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-11 01:55:40,072 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-11 01:55:40,121 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-11 01:55:40,980 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct "HTTP/1.1 200 OK"
+2026-05-11 01:55:40,996 [INFO] src.generation.generator: Loading model from meta-llama/Llama-3.1-8B-Instruct (dtype=bfloat16)
+2026-05-11 01:55:41,046 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-11 01:55:47,818 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/generation_config.json "HTTP/1.1 200 OK"
+2026-05-11 01:55:47,889 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+2026-05-11 01:55:47,898 [INFO] src.generation.generator: Model loaded. Device map: single device
+2026-05-11 01:55:47,898 [INFO] src.generation.generator: Running CUDA preflight on NVIDIA L40S (cuda:0, sm_89)
+2026-05-11 01:55:47,938 [INFO] src.data.loader: Loaded 25 harmful prompts from data/harmful_prompts.jsonl
+2026-05-11 01:55:47,967 [INFO] src.generation.generator: Generating for k=10 over 25 prompts ...
+2026-05-11 01:56:01,932 [INFO] src.generation.generator:   10/25 prompts done (14.0s elapsed)
+2026-05-11 01:56:16,034 [INFO] src.generation.generator:   20/25 prompts done (28.1s elapsed)
+2026-05-11 01:56:22,792 [INFO] src.generation.generator: Saved 25 results to outputs/report7/generations/harmful_k10/k10.jsonl
+2026-05-11 01:56:22,792 [INFO] src.classification.refusal_classifier: Classified 25 responses: 9 phrase-refusals, 16 phrase-compliances (guard labels: not run)
+2026-05-11 01:56:23,056 [INFO] __main__: Saved combined generation outputs to outputs/report7/generations/report7_generation_combined.jsonl
+2026-05-11 01:56:23,057 [INFO] __main__: Saved generation summary to outputs/report7/generations/report7_generation_summary.csv
