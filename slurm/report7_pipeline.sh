@@ -4,10 +4,13 @@
 #SBATCH --error=report7_pipeline_%j.err
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
-#SBATCH --constraint=a100|a40|l40s
+# Modern, fast inference GPUs only. A40 is viable but slower; add it back if
+# you keep getting queued. Avoid V100/A16/GTX 1080 Ti — the latter broke
+# R6's k=10 run due to an incompatible CUDA stack.
+#SBATCH --constraint=a100|h100|l40s
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=48G
-#SBATCH --time=10:00:00
+#SBATCH --time=12:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 
