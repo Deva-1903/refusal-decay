@@ -4,10 +4,10 @@
 #SBATCH --error=report7_pipeline_%j.err
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
-# Modern, fast inference GPUs only. A40 is viable but slower; add it back if
-# you keep getting queued. Avoid V100/A16/GTX 1080 Ti — the latter broke
-# R6's k=10 run due to an incompatible CUDA stack.
-#SBATCH --constraint=a100|h100|l40s
+# Modern inference GPUs with >=40GB VRAM. A40 included because A100/H100/L40S
+# are often queued. Avoid V100/A16/GTX 1080 Ti — the latter broke R6's k=10
+# run due to an incompatible CUDA stack.
+#SBATCH --constraint=a100|h100|l40s|a40
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=48G
 #SBATCH --time=12:00:00
@@ -58,10 +58,11 @@ python scripts/prepare_report7_disjoint_prompts.py
 
 # ---------------------------------------------------------------------------
 # 2. Held-out refusal-direction extraction (disjoint from traced prompts)
+#    Resume-safe: skips if outputs/report7/directions/refusal_direction.pt
+#    already exists.
 # ---------------------------------------------------------------------------
 python scripts/extract_refusal_direction.py \
-    --config configs/experiments/report7/extract_direction_heldout.yaml \
-    --no-resume
+    --config configs/experiments/report7/extract_direction_heldout.yaml
 
 # ---------------------------------------------------------------------------
 # 3. Behavioral generation (k=0, k=3, benign k=0, k=10 rerun)

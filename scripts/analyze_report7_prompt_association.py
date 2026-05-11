@@ -49,9 +49,19 @@ def main() -> None:
     ][["prompt_id", "condition_name", "refusal_phrase_label"]].drop_duplicates()
 
     merged = prompt_projection.merge(labels, on="prompt_id", how="inner")
+    # Column-name resolution after merge:
+    # - If pandas added suffixes (both sides had `condition_name`), prefer the
+    #   x-suffixed copy (prompt_projection side).
+    # - If `condition` already exists from the prompt-level summary, drop the
+    #   labels-side `condition_name` rather than renaming into a duplicate.
+    # - Otherwise rename `condition_name` to `condition` as before.
     if "condition_name_x" in merged.columns:
         merged = merged.rename(columns={"condition_name_x": "condition"})
-    else:
+        if "condition_name_y" in merged.columns:
+            merged = merged.drop(columns=["condition_name_y"])
+    elif "condition" in merged.columns and "condition_name" in merged.columns:
+        merged = merged.drop(columns=["condition_name"])
+    elif "condition_name" in merged.columns:
         merged = merged.rename(columns={"condition_name": "condition"})
     merged = merged[(merged["condition"] == args.condition) & (merged["layer"].isin(args.layers))]
 
