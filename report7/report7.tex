@@ -518,31 +518,34 @@ H6 & Mixed (see comment) & Refusal vs.\ controls indistinguishable at zero; beni
 \end{table}
 
 \paragraph{Information loss vs.\ active suppression.}
-The Report~5 design proposed information loss and active suppression as
-two competing mechanistic accounts of the attack. The discriminator was
-written as: if a clean intervention restores refusal, information loss is
-supported; if it does not, active suppression (or downstream override) is
-supported. Report~7 ran two such interventions, with controls. Both fail
-at the late layers, even though the observational signal at those same
-layers is unambiguous:
+The Report~5 design treated information loss and active suppression as two
+competing mechanistic accounts of the attack. The discriminator was: if a
+clean intervention restores refusal, the information-loss account is
+supported; if it does not, then the late-layer signal is more likely to be
+a downstream readout or to be overridden by other computations. Report~7
+ran two cleaner interventions with controls. Both fail at the late layers,
+even though the observational signal at those same layers is unambiguous:
+the refusal direction is robust under a held-out extraction set (H2),
+tracks prompt-level behavior under attack (H3), and additive injection at
+early generated positions does nothing distinguishable from random or
+orthogonal controls (H5/H6).
 
-\begin{itemize}
-\item The refusal direction is robust and held-out (H2).
-\item It tracks prompt-level behavior under attack (H3).
-\item Injecting it at the very position where it would be most useful does
-  nothing distinguishable from random or orthogonal noise (H5/H6).
-\end{itemize}
-
-The most parsimonious reading is that the late-layer refusal-direction
-signal under attack is a \emph{downstream readout} of an earlier decision
---- almost certainly the result of the prefill, since by the start of
-generation the model has already processed the prefix tokens --- and that
-single-position residual surgery on the generation side is too local and
-too late to overturn that decision. This is consistent with
-\emph{active-suppression-by-locking-in}, not with simple information loss.
-The same null result also holds in the benign direction: adding the
-refusal direction to a benign prompt residual does not induce refusal, so
-the direction is not a free knob on behavior regardless of context.
+The safest interpretation is therefore not simple information loss. The
+late-layer refusal-direction projection appears to be a real and
+predictive readout of the model's attacked state, but under the
+intervention granularity tested here it is not a direct behavioral knob.
+One plausible explanation is active suppression or
+``locking-in'': by the time generation begins, the prefill has already
+shaped the model state enough that a single-position residual edit in
+layers 24/27 is too local and too late to recover refusal. This does not
+prove the full suppression mechanism, because multi-position edits,
+earlier residual interventions, or attention-routing interventions were
+not tested. It does, however, rule out the simpler account that restoring
+or adding the late-layer refusal-direction component at one generated-token
+position is sufficient to recover refusal. The same null also holds in the
+benign positive control: adding the refusal direction to a benign
+residual does not induce false-refusal, so the direction is not a free
+causal knob on behavior regardless of context.
 
 \paragraph{Threats to validity.}
 \begin{itemize}
