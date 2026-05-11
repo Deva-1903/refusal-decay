@@ -64,3 +64,27 @@
 2026-05-11 02:29:42,416 [INFO] src.probing.tracing: Loading cached traces for k=3 from outputs/report7/traces/traces_k03.parquet
 2026-05-11 02:29:42,454 [INFO] src.probing.tracing: Loading cached traces for k=10 from outputs/report7/traces/traces_k10.parquet
 2026-05-11 02:29:42,560 [INFO] __main__: Saved combined traces to outputs/report7/traces/traces_all.parquet (10592 rows)
+2026-05-11 03:26:19,434 [INFO] __main__: Starting Report 7 tracing.
+2026-05-11 03:26:19,434 [INFO] __main__: Model: meta-llama/Llama-3.1-8B-Instruct
+2026-05-11 03:26:19,434 [INFO] __main__: Trace dataset: harmful
+2026-05-11 03:26:19,434 [INFO] __main__: Trace k values: [0, 3, 10]
+2026-05-11 03:26:19,434 [INFO] __main__: Trace layers: [16, 20, 24, 27]
+2026-05-11 03:26:19,434 [INFO] __main__: Direction path: outputs/report7/directions/refusal_direction.pt
+2026-05-11 03:26:19,459 [INFO] src.data.loader: Loaded 25 harmful prompts from data/processed/report7_traced_harmful.jsonl
+2026-05-11 03:26:19,535 [INFO] src.probing.direction: Loaded refusal directions for layers: [16, 20, 24, 27]
+2026-05-11 03:26:19,536 [INFO] src.generation.generator: Loading tokenizer from meta-llama/Llama-3.1-8B-Instruct
+2026-05-11 03:26:19,723 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-11 03:26:19,858 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-11 03:26:19,926 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-11 03:26:19,976 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-11 03:26:21,169 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct "HTTP/1.1 200 OK"
+2026-05-11 03:26:21,190 [INFO] src.generation.generator: Loading model from meta-llama/Llama-3.1-8B-Instruct (dtype=bfloat16)
+2026-05-11 03:26:21,231 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-11 03:27:17,475 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/generation_config.json "HTTP/1.1 200 OK"
+2026-05-11 03:27:17,552 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+2026-05-11 03:27:17,565 [INFO] src.generation.generator: Model loaded. Device map: single device
+2026-05-11 03:27:17,565 [INFO] src.generation.generator: Running CUDA preflight on NVIDIA L40S (cuda:0, sm_89)
+2026-05-11 03:27:17,784 [INFO] src.probing.tracing: Loading cached traces for k=0 from outputs/report7/traces/traces_k00.parquet
+2026-05-11 03:27:18,355 [INFO] src.probing.tracing: Loading cached traces for k=3 from outputs/report7/traces/traces_k03.parquet
+2026-05-11 03:27:18,397 [INFO] src.probing.tracing: Loading cached traces for k=10 from outputs/report7/traces/traces_k10.parquet
+2026-05-11 03:27:18,513 [INFO] __main__: Saved combined traces to outputs/report7/traces/traces_all.parquet (10592 rows)

@@ -20,3 +20,4 @@
 2026-05-11 01:55:21,504 [INFO] src.probing.direction: Saved refusal directions to outputs/report7/directions/refusal_direction.pt
 2026-05-11 01:55:21,515 [INFO] __main__: Done. Direction saved to outputs/report7/directions/refusal_direction.pt
 2026-05-11 02:28:45,113 [INFO] __main__: Direction file already exists at outputs/report7/directions/refusal_direction.pt. Use --no-resume to recompute.
+2026-05-11 03:25:47,504 [INFO] __main__: Direction file already exists at outputs/report7/directions/refusal_direction.pt. Use --no-resume to recompute.

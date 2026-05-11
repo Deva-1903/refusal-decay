@@ -1,0 +1,544 @@
+Job ID: 57504447
+Node: gpu025
+GPU: NVIDIA L40S
+Mon May 11 03:24:35 AM UTC 2026
+torch: 2.11.0+cu130
+torch cuda build: 13.0
+cuda available: True
+device: cuda:0
+gpu: NVIDIA L40S
+compute capability: sm_89
+cuda tensor check: OK
+sample value: 4.0
+harmful: traced=25 -> /work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/data/processed/report7_traced_harmful.jsonl | direction=50 -> /work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/data/processed/report7_direction_harmful.jsonl
+benign: traced=25 -> /work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/data/processed/report7_traced_benign.jsonl | direction=50 -> /work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/data/processed/report7_direction_benign.jsonl
+2026-05-11 03:25:47,504 [INFO] __main__: Direction file already exists at outputs/report7/directions/refusal_direction.pt. Use --no-resume to recompute.
+2026-05-11 03:26:05,876 [INFO] __main__: Starting Report 7 generation verification.
+2026-05-11 03:26:05,876 [INFO] __main__: Model: meta-llama/Llama-3.1-8B-Instruct
+2026-05-11 03:26:05,876 [INFO] __main__: Conditions: ['harmful_k00', 'harmful_k03', 'benign_k00', 'harmful_k10']
+2026-05-11 03:26:05,912 [INFO] __main__: Loading cached classified outputs for harmful_k00
+2026-05-11 03:26:05,940 [INFO] __main__: Loading cached classified outputs for harmful_k03
+2026-05-11 03:26:05,962 [INFO] __main__: Loading cached classified outputs for benign_k00
+2026-05-11 03:26:05,982 [INFO] __main__: Loading cached classified outputs for harmful_k10
+2026-05-11 03:26:06,397 [INFO] __main__: Saved combined generation outputs to outputs/report7/generations/report7_generation_combined.jsonl
+2026-05-11 03:26:06,398 [INFO] __main__: Saved generation summary to outputs/report7/generations/report7_generation_summary.csv
+condition_name dataset_name  prefix_k  n_total  n_refusal  n_compliance  n_error  n_valid  refusal_rate
+    benign_k00       benign         0       25          0            25        0       25          0.00
+   harmful_k00      harmful         0       25         23             2        0       25          0.92
+   harmful_k03      harmful         3       25          8            17        0       25          0.32
+   harmful_k10      harmful        10       25          9            16        0       25          0.36
+2026-05-11 03:26:19,434 [INFO] __main__: Starting Report 7 tracing.
+2026-05-11 03:26:19,434 [INFO] __main__: Model: meta-llama/Llama-3.1-8B-Instruct
+2026-05-11 03:26:19,434 [INFO] __main__: Trace dataset: harmful
+2026-05-11 03:26:19,434 [INFO] __main__: Trace k values: [0, 3, 10]
+2026-05-11 03:26:19,434 [INFO] __main__: Trace layers: [16, 20, 24, 27]
+2026-05-11 03:26:19,434 [INFO] __main__: Direction path: outputs/report7/directions/refusal_direction.pt
+2026-05-11 03:26:19,459 [INFO] src.data.loader: Loaded 25 harmful prompts from data/processed/report7_traced_harmful.jsonl
+2026-05-11 03:26:19,535 [INFO] src.probing.direction: Loaded refusal directions for layers: [16, 20, 24, 27]
+2026-05-11 03:26:19,536 [INFO] src.generation.generator: Loading tokenizer from meta-llama/Llama-3.1-8B-Instruct
+2026-05-11 03:26:19,723 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-11 03:26:19,858 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-11 03:26:19,926 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-11 03:26:19,976 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-11 03:26:21,169 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct "HTTP/1.1 200 OK"
+2026-05-11 03:26:21,190 [INFO] src.generation.generator: Loading model from meta-llama/Llama-3.1-8B-Instruct (dtype=bfloat16)
+2026-05-11 03:26:21,231 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-11 03:27:17,475 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/generation_config.json "HTTP/1.1 200 OK"
+2026-05-11 03:27:17,552 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+2026-05-11 03:27:17,565 [INFO] src.generation.generator: Model loaded. Device map: single device
+2026-05-11 03:27:17,565 [INFO] src.generation.generator: Running CUDA preflight on NVIDIA L40S (cuda:0, sm_89)
+2026-05-11 03:27:17,784 [INFO] src.probing.tracing: Loading cached traces for k=0 from outputs/report7/traces/traces_k00.parquet
+2026-05-11 03:27:18,355 [INFO] src.probing.tracing: Loading cached traces for k=3 from outputs/report7/traces/traces_k03.parquet
+2026-05-11 03:27:18,397 [INFO] src.probing.tracing: Loading cached traces for k=10 from outputs/report7/traces/traces_k10.parquet
+2026-05-11 03:27:18,513 [INFO] __main__: Saved combined traces to outputs/report7/traces/traces_all.parquet (10592 rows)
+outputs/report7/summaries/trace_generated_token_mean_by_condition_layer.csv
+outputs/report7/summaries/trace_all_position_mean_by_condition_layer.csv
+outputs/report7/summaries/trace_token_trajectory_by_condition_layer.csv
+outputs/report7/summaries/trace_prompt_level_key_layers.csv
+outputs/report7/summaries/prompt_projection_label_association.csv
+outputs/report7/summaries/prompt_projection_label_differences.csv
+Skipping cross-condition patching: results already exist
+2026-05-11 03:27:33,683 [INFO] __main__: Dataset: harmful
+2026-05-11 03:27:33,684 [INFO] __main__: Condition: harmful_k03
+2026-05-11 03:27:33,684 [INFO] __main__: Layers: [16, 24, 27]
+2026-05-11 03:27:33,684 [INFO] __main__: Target positions: [0, 1, 3]
+2026-05-11 03:27:33,684 [INFO] __main__: Alphas: [1.0, 2.0]
+2026-05-11 03:27:33,684 [INFO] __main__: Direction types: ['refusal', 'random', 'orthogonal']
+2026-05-11 03:27:33,685 [INFO] __main__: Seeds: [42, 43, 44, 45, 46]
+2026-05-11 03:27:33,687 [INFO] src.data.loader: Loaded 25 harmful prompts from data/processed/report7_traced_harmful.jsonl
+2026-05-11 03:27:33,699 [INFO] src.probing.direction: Loaded refusal directions for layers: [16, 20, 24, 27]
+2026-05-11 03:27:33,700 [INFO] src.generation.generator: Loading tokenizer from meta-llama/Llama-3.1-8B-Instruct
+2026-05-11 03:27:33,782 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-11 03:27:33,862 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-11 03:27:33,933 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-11 03:27:33,982 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-11 03:27:34,951 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct "HTTP/1.1 200 OK"
+2026-05-11 03:27:34,972 [INFO] src.generation.generator: Loading model from meta-llama/Llama-3.1-8B-Instruct (dtype=bfloat16)
+2026-05-11 03:27:35,019 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-11 03:27:41,554 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/generation_config.json "HTTP/1.1 200 OK"
+2026-05-11 03:27:41,613 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+2026-05-11 03:27:41,620 [INFO] src.generation.generator: Model loaded. Device map: single device
+2026-05-11 03:27:41,620 [INFO] src.generation.generator: Running CUDA preflight on NVIDIA L40S (cuda:0, sm_89)
+2026-05-11 03:27:41,712 [INFO] __main__: Running layer=16 target=0 alpha=1.00 direction=refusal seed=42
+2026-05-11 03:28:57,021 [INFO] __main__: Running layer=16 target=0 alpha=2.00 direction=refusal seed=42
+2026-05-11 03:29:34,093 [INFO] __main__: Running layer=16 target=1 alpha=1.00 direction=refusal seed=42
+2026-05-11 03:30:10,340 [INFO] __main__: Running layer=16 target=1 alpha=2.00 direction=refusal seed=42
+2026-05-11 03:30:48,202 [INFO] __main__: Running layer=16 target=3 alpha=1.00 direction=refusal seed=42
+2026-05-11 03:31:23,946 [INFO] __main__: Running layer=16 target=3 alpha=2.00 direction=refusal seed=42
+2026-05-11 03:31:59,265 [INFO] __main__: Running layer=16 target=0 alpha=1.00 direction=random seed=42
+2026-05-11 03:32:35,945 [INFO] __main__: Running layer=16 target=0 alpha=2.00 direction=random seed=42
+2026-05-11 03:33:12,629 [INFO] __main__: Running layer=16 target=1 alpha=1.00 direction=random seed=42
+2026-05-11 03:33:49,310 [INFO] __main__: Running layer=16 target=1 alpha=2.00 direction=random seed=42
+2026-05-11 03:34:25,995 [INFO] __main__: Running layer=16 target=3 alpha=1.00 direction=random seed=42
+2026-05-11 03:35:02,676 [INFO] __main__: Running layer=16 target=3 alpha=2.00 direction=random seed=42
+2026-05-11 03:35:39,357 [INFO] __main__: Running layer=16 target=0 alpha=1.00 direction=random seed=43
+2026-05-11 03:36:16,037 [INFO] __main__: Running layer=16 target=0 alpha=2.00 direction=random seed=43
+2026-05-11 03:36:53,470 [INFO] __main__: Running layer=16 target=1 alpha=1.00 direction=random seed=43
+2026-05-11 03:37:29,258 [INFO] __main__: Running layer=16 target=1 alpha=2.00 direction=random seed=43
+2026-05-11 03:38:05,947 [INFO] __main__: Running layer=16 target=3 alpha=1.00 direction=random seed=43
+2026-05-11 03:38:42,633 [INFO] __main__: Running layer=16 target=3 alpha=2.00 direction=random seed=43
+2026-05-11 03:39:18,430 [INFO] __main__: Running layer=16 target=0 alpha=1.00 direction=random seed=44
+2026-05-11 03:39:55,118 [INFO] __main__: Running layer=16 target=0 alpha=2.00 direction=random seed=44
+2026-05-11 03:40:31,808 [INFO] __main__: Running layer=16 target=1 alpha=1.00 direction=random seed=44
+2026-05-11 03:41:08,422 [INFO] __main__: Running layer=16 target=1 alpha=2.00 direction=random seed=44
+2026-05-11 03:41:44,675 [INFO] __main__: Running layer=16 target=3 alpha=1.00 direction=random seed=44
+2026-05-11 03:42:20,473 [INFO] __main__: Running layer=16 target=3 alpha=2.00 direction=random seed=44
+2026-05-11 03:42:57,165 [INFO] __main__: Running layer=16 target=0 alpha=1.00 direction=random seed=45
+2026-05-11 03:43:33,422 [INFO] __main__: Running layer=16 target=0 alpha=2.00 direction=random seed=45
+2026-05-11 03:44:09,212 [INFO] __main__: Running layer=16 target=1 alpha=1.00 direction=random seed=45
+2026-05-11 03:44:45,900 [INFO] __main__: Running layer=16 target=1 alpha=2.00 direction=random seed=45
+2026-05-11 03:45:22,594 [INFO] __main__: Running layer=16 target=3 alpha=1.00 direction=random seed=45
+2026-05-11 03:45:58,387 [INFO] __main__: Running layer=16 target=3 alpha=2.00 direction=random seed=45
+2026-05-11 03:46:35,072 [INFO] __main__: Running layer=16 target=0 alpha=1.00 direction=random seed=46
+2026-05-11 03:47:11,327 [INFO] __main__: Running layer=16 target=0 alpha=2.00 direction=random seed=46
+2026-05-11 03:47:48,011 [INFO] __main__: Running layer=16 target=1 alpha=1.00 direction=random seed=46
+2026-05-11 03:48:24,254 [INFO] __main__: Running layer=16 target=1 alpha=2.00 direction=random seed=46
+2026-05-11 03:49:00,934 [INFO] __main__: Running layer=16 target=3 alpha=1.00 direction=random seed=46
+2026-05-11 03:49:36,727 [INFO] __main__: Running layer=16 target=3 alpha=2.00 direction=random seed=46
+2026-05-11 03:50:12,588 [INFO] __main__: Running layer=16 target=0 alpha=1.00 direction=orthogonal seed=42
+2026-05-11 03:50:48,840 [INFO] __main__: Running layer=16 target=0 alpha=2.00 direction=orthogonal seed=42
+2026-05-11 03:51:26,708 [INFO] __main__: Running layer=16 target=1 alpha=1.00 direction=orthogonal seed=42
+2026-05-11 03:52:03,391 [INFO] __main__: Running layer=16 target=1 alpha=2.00 direction=orthogonal seed=42
+2026-05-11 03:52:40,078 [INFO] __main__: Running layer=16 target=3 alpha=1.00 direction=orthogonal seed=42
+2026-05-11 03:53:15,872 [INFO] __main__: Running layer=16 target=3 alpha=2.00 direction=orthogonal seed=42
+2026-05-11 03:53:51,669 [INFO] __main__: Running layer=16 target=0 alpha=1.00 direction=orthogonal seed=43
+2026-05-11 03:54:28,356 [INFO] __main__: Running layer=16 target=0 alpha=2.00 direction=orthogonal seed=43
+2026-05-11 03:55:05,790 [INFO] __main__: Running layer=16 target=1 alpha=1.00 direction=orthogonal seed=43
+2026-05-11 03:55:42,477 [INFO] __main__: Running layer=16 target=1 alpha=2.00 direction=orthogonal seed=43
+2026-05-11 03:56:19,167 [INFO] __main__: Running layer=16 target=3 alpha=1.00 direction=orthogonal seed=43
+2026-05-11 03:56:56,238 [INFO] __main__: Running layer=16 target=3 alpha=2.00 direction=orthogonal seed=43
+2026-05-11 03:57:32,924 [INFO] __main__: Running layer=16 target=0 alpha=1.00 direction=orthogonal seed=44
+2026-05-11 03:58:09,614 [INFO] __main__: Running layer=16 target=0 alpha=2.00 direction=orthogonal seed=44
+2026-05-11 03:58:46,305 [INFO] __main__: Running layer=16 target=1 alpha=1.00 direction=orthogonal seed=44
+2026-05-11 03:59:22,991 [INFO] __main__: Running layer=16 target=1 alpha=2.00 direction=orthogonal seed=44
+2026-05-11 04:00:01,679 [INFO] __main__: Running layer=16 target=3 alpha=1.00 direction=orthogonal seed=44
+2026-05-11 04:00:38,364 [INFO] __main__: Running layer=16 target=3 alpha=2.00 direction=orthogonal seed=44
+2026-05-11 04:01:14,616 [INFO] __main__: Running layer=16 target=0 alpha=1.00 direction=orthogonal seed=45
+2026-05-11 04:01:50,870 [INFO] __main__: Running layer=16 target=0 alpha=2.00 direction=orthogonal seed=45
+2026-05-11 04:02:27,848 [INFO] __main__: Running layer=16 target=1 alpha=1.00 direction=orthogonal seed=45
+2026-05-11 04:03:04,540 [INFO] __main__: Running layer=16 target=1 alpha=2.00 direction=orthogonal seed=45
+2026-05-11 04:03:41,613 [INFO] __main__: Running layer=16 target=3 alpha=1.00 direction=orthogonal seed=45
+2026-05-11 04:04:18,302 [INFO] __main__: Running layer=16 target=3 alpha=2.00 direction=orthogonal seed=45
+2026-05-11 04:04:55,366 [INFO] __main__: Running layer=16 target=0 alpha=1.00 direction=orthogonal seed=46
+2026-05-11 04:05:32,045 [INFO] __main__: Running layer=16 target=0 alpha=2.00 direction=orthogonal seed=46
+2026-05-11 04:06:08,292 [INFO] __main__: Running layer=16 target=1 alpha=1.00 direction=orthogonal seed=46
+2026-05-11 04:06:44,978 [INFO] __main__: Running layer=16 target=1 alpha=2.00 direction=orthogonal seed=46
+2026-05-11 04:07:21,664 [INFO] __main__: Running layer=16 target=3 alpha=1.00 direction=orthogonal seed=46
+2026-05-11 04:07:57,917 [INFO] __main__: Running layer=16 target=3 alpha=2.00 direction=orthogonal seed=46
+2026-05-11 04:08:34,171 [INFO] __main__: Running layer=24 target=0 alpha=1.00 direction=refusal seed=42
+2026-05-11 04:09:10,855 [INFO] __main__: Running layer=24 target=0 alpha=2.00 direction=refusal seed=42
+2026-05-11 04:09:47,543 [INFO] __main__: Running layer=24 target=1 alpha=1.00 direction=refusal seed=42
+2026-05-11 04:10:24,225 [INFO] __main__: Running layer=24 target=1 alpha=2.00 direction=refusal seed=42
+2026-05-11 04:11:00,909 [INFO] __main__: Running layer=24 target=3 alpha=1.00 direction=refusal seed=42
+2026-05-11 04:11:37,592 [INFO] __main__: Running layer=24 target=3 alpha=2.00 direction=refusal seed=42
+2026-05-11 04:12:14,278 [INFO] __main__: Running layer=24 target=0 alpha=1.00 direction=random seed=42
+2026-05-11 04:12:50,967 [INFO] __main__: Running layer=24 target=0 alpha=2.00 direction=random seed=42
+2026-05-11 04:13:27,655 [INFO] __main__: Running layer=24 target=1 alpha=1.00 direction=random seed=42
+2026-05-11 04:14:04,342 [INFO] __main__: Running layer=24 target=1 alpha=2.00 direction=random seed=42
+2026-05-11 04:14:41,028 [INFO] __main__: Running layer=24 target=3 alpha=1.00 direction=random seed=42
+2026-05-11 04:15:17,280 [INFO] __main__: Running layer=24 target=3 alpha=2.00 direction=random seed=42
+2026-05-11 04:15:53,964 [INFO] __main__: Running layer=24 target=0 alpha=1.00 direction=random seed=43
+2026-05-11 04:16:30,651 [INFO] __main__: Running layer=24 target=0 alpha=2.00 direction=random seed=43
+2026-05-11 04:17:07,337 [INFO] __main__: Running layer=24 target=1 alpha=1.00 direction=random seed=43
+2026-05-11 04:17:44,022 [INFO] __main__: Running layer=24 target=1 alpha=2.00 direction=random seed=43
+2026-05-11 04:18:20,710 [INFO] __main__: Running layer=24 target=3 alpha=1.00 direction=random seed=43
+2026-05-11 04:18:57,394 [INFO] __main__: Running layer=24 target=3 alpha=2.00 direction=random seed=43
+2026-05-11 04:19:34,081 [INFO] __main__: Running layer=24 target=0 alpha=1.00 direction=random seed=44
+2026-05-11 04:20:10,774 [INFO] __main__: Running layer=24 target=0 alpha=2.00 direction=random seed=44
+2026-05-11 04:20:47,031 [INFO] __main__: Running layer=24 target=1 alpha=1.00 direction=random seed=44
+2026-05-11 04:21:23,718 [INFO] __main__: Running layer=24 target=1 alpha=2.00 direction=random seed=44
+2026-05-11 04:22:00,411 [INFO] __main__: Running layer=24 target=3 alpha=1.00 direction=random seed=44
+2026-05-11 04:22:37,102 [INFO] __main__: Running layer=24 target=3 alpha=2.00 direction=random seed=44
+2026-05-11 04:23:13,801 [INFO] __main__: Running layer=24 target=0 alpha=1.00 direction=random seed=45
+2026-05-11 04:23:50,491 [INFO] __main__: Running layer=24 target=0 alpha=2.00 direction=random seed=45
+2026-05-11 04:24:27,187 [INFO] __main__: Running layer=24 target=1 alpha=1.00 direction=random seed=45
+2026-05-11 04:25:03,457 [INFO] __main__: Running layer=24 target=1 alpha=2.00 direction=random seed=45
+2026-05-11 04:25:40,162 [INFO] __main__: Running layer=24 target=3 alpha=1.00 direction=random seed=45
+2026-05-11 04:26:16,861 [INFO] __main__: Running layer=24 target=3 alpha=2.00 direction=random seed=45
+2026-05-11 04:26:53,544 [INFO] __main__: Running layer=24 target=0 alpha=1.00 direction=random seed=46
+2026-05-11 04:27:30,225 [INFO] __main__: Running layer=24 target=0 alpha=2.00 direction=random seed=46
+2026-05-11 04:28:06,914 [INFO] __main__: Running layer=24 target=1 alpha=1.00 direction=random seed=46
+2026-05-11 04:28:43,164 [INFO] __main__: Running layer=24 target=1 alpha=2.00 direction=random seed=46
+2026-05-11 04:29:19,850 [INFO] __main__: Running layer=24 target=3 alpha=1.00 direction=random seed=46
+2026-05-11 04:29:56,539 [INFO] __main__: Running layer=24 target=3 alpha=2.00 direction=random seed=46
+2026-05-11 04:30:33,224 [INFO] __main__: Running layer=24 target=0 alpha=1.00 direction=orthogonal seed=42
+2026-05-11 04:31:09,478 [INFO] __main__: Running layer=24 target=0 alpha=2.00 direction=orthogonal seed=42
+2026-05-11 04:31:45,726 [INFO] __main__: Running layer=24 target=1 alpha=1.00 direction=orthogonal seed=42
+2026-05-11 04:32:22,410 [INFO] __main__: Running layer=24 target=1 alpha=2.00 direction=orthogonal seed=42
+2026-05-11 04:32:58,655 [INFO] __main__: Running layer=24 target=3 alpha=1.00 direction=orthogonal seed=42
+2026-05-11 04:33:35,336 [INFO] __main__: Running layer=24 target=3 alpha=2.00 direction=orthogonal seed=42
+2026-05-11 04:34:12,842 [INFO] __main__: Running layer=24 target=0 alpha=1.00 direction=orthogonal seed=43
+2026-05-11 04:34:49,525 [INFO] __main__: Running layer=24 target=0 alpha=2.00 direction=orthogonal seed=43
+2026-05-11 04:35:26,207 [INFO] __main__: Running layer=24 target=1 alpha=1.00 direction=orthogonal seed=43
+2026-05-11 04:36:02,891 [INFO] __main__: Running layer=24 target=1 alpha=2.00 direction=orthogonal seed=43
+2026-05-11 04:36:39,577 [INFO] __main__: Running layer=24 target=3 alpha=1.00 direction=orthogonal seed=43
+2026-05-11 04:37:16,262 [INFO] __main__: Running layer=24 target=3 alpha=2.00 direction=orthogonal seed=43
+2026-05-11 04:37:52,052 [INFO] __main__: Running layer=24 target=0 alpha=1.00 direction=orthogonal seed=44
+2026-05-11 04:38:28,735 [INFO] __main__: Running layer=24 target=0 alpha=2.00 direction=orthogonal seed=44
+2026-05-11 04:39:05,419 [INFO] __main__: Running layer=24 target=1 alpha=1.00 direction=orthogonal seed=44
+2026-05-11 04:39:42,108 [INFO] __main__: Running layer=24 target=1 alpha=2.00 direction=orthogonal seed=44
+2026-05-11 04:40:18,830 [INFO] __main__: Running layer=24 target=3 alpha=1.00 direction=orthogonal seed=44
+2026-05-11 04:40:55,525 [INFO] __main__: Running layer=24 target=3 alpha=2.00 direction=orthogonal seed=44
+2026-05-11 04:41:32,212 [INFO] __main__: Running layer=24 target=0 alpha=1.00 direction=orthogonal seed=45
+2026-05-11 04:42:08,897 [INFO] __main__: Running layer=24 target=0 alpha=2.00 direction=orthogonal seed=45
+2026-05-11 04:42:45,585 [INFO] __main__: Running layer=24 target=1 alpha=1.00 direction=orthogonal seed=45
+2026-05-11 04:43:22,273 [INFO] __main__: Running layer=24 target=1 alpha=2.00 direction=orthogonal seed=45
+2026-05-11 04:43:58,961 [INFO] __main__: Running layer=24 target=3 alpha=1.00 direction=orthogonal seed=45
+2026-05-11 04:44:35,646 [INFO] __main__: Running layer=24 target=3 alpha=2.00 direction=orthogonal seed=45
+2026-05-11 04:45:12,335 [INFO] __main__: Running layer=24 target=0 alpha=1.00 direction=orthogonal seed=46
+2026-05-11 04:45:49,044 [INFO] __main__: Running layer=24 target=0 alpha=2.00 direction=orthogonal seed=46
+2026-05-11 04:46:25,735 [INFO] __main__: Running layer=24 target=1 alpha=1.00 direction=orthogonal seed=46
+2026-05-11 04:47:01,995 [INFO] __main__: Running layer=24 target=1 alpha=2.00 direction=orthogonal seed=46
+2026-05-11 04:47:38,689 [INFO] __main__: Running layer=24 target=3 alpha=1.00 direction=orthogonal seed=46
+2026-05-11 04:48:14,063 [INFO] __main__: Running layer=24 target=3 alpha=2.00 direction=orthogonal seed=46
+2026-05-11 04:48:50,753 [INFO] __main__: Running layer=27 target=0 alpha=1.00 direction=refusal seed=42
+2026-05-11 04:49:27,446 [INFO] __main__: Running layer=27 target=0 alpha=2.00 direction=refusal seed=42
+2026-05-11 04:50:04,134 [INFO] __main__: Running layer=27 target=1 alpha=1.00 direction=refusal seed=42
+2026-05-11 04:50:40,822 [INFO] __main__: Running layer=27 target=1 alpha=2.00 direction=refusal seed=42
+2026-05-11 04:51:17,510 [INFO] __main__: Running layer=27 target=3 alpha=1.00 direction=refusal seed=42
+2026-05-11 04:51:54,202 [INFO] __main__: Running layer=27 target=3 alpha=2.00 direction=refusal seed=42
+2026-05-11 04:52:30,893 [INFO] __main__: Running layer=27 target=0 alpha=1.00 direction=random seed=42
+2026-05-11 04:53:07,582 [INFO] __main__: Running layer=27 target=0 alpha=2.00 direction=random seed=42
+2026-05-11 04:53:44,272 [INFO] __main__: Running layer=27 target=1 alpha=1.00 direction=random seed=42
+2026-05-11 04:54:20,964 [INFO] __main__: Running layer=27 target=1 alpha=2.00 direction=random seed=42
+2026-05-11 04:54:57,655 [INFO] __main__: Running layer=27 target=3 alpha=1.00 direction=random seed=42
+2026-05-11 04:55:33,908 [INFO] __main__: Running layer=27 target=3 alpha=2.00 direction=random seed=42
+2026-05-11 04:56:09,706 [INFO] __main__: Running layer=27 target=0 alpha=1.00 direction=random seed=43
+2026-05-11 04:56:46,396 [INFO] __main__: Running layer=27 target=0 alpha=2.00 direction=random seed=43
+2026-05-11 04:57:23,087 [INFO] __main__: Running layer=27 target=1 alpha=1.00 direction=random seed=43
+2026-05-11 04:57:59,779 [INFO] __main__: Running layer=27 target=1 alpha=2.00 direction=random seed=43
+2026-05-11 04:58:36,470 [INFO] __main__: Running layer=27 target=3 alpha=1.00 direction=random seed=43
+2026-05-11 04:59:13,158 [INFO] __main__: Running layer=27 target=3 alpha=2.00 direction=random seed=43
+2026-05-11 04:59:49,849 [INFO] __main__: Running layer=27 target=0 alpha=1.00 direction=random seed=44
+2026-05-11 05:00:26,107 [INFO] __main__: Running layer=27 target=0 alpha=2.00 direction=random seed=44
+2026-05-11 05:01:01,905 [INFO] __main__: Running layer=27 target=1 alpha=1.00 direction=random seed=44
+2026-05-11 05:01:38,594 [INFO] __main__: Running layer=27 target=1 alpha=2.00 direction=random seed=44
+2026-05-11 05:02:14,850 [INFO] __main__: Running layer=27 target=3 alpha=1.00 direction=random seed=44
+2026-05-11 05:02:50,648 [INFO] __main__: Running layer=27 target=3 alpha=2.00 direction=random seed=44
+2026-05-11 05:03:26,449 [INFO] __main__: Running layer=27 target=0 alpha=1.00 direction=random seed=45
+2026-05-11 05:04:03,141 [INFO] __main__: Running layer=27 target=0 alpha=2.00 direction=random seed=45
+2026-05-11 05:04:39,833 [INFO] __main__: Running layer=27 target=1 alpha=1.00 direction=random seed=45
+2026-05-11 05:05:16,519 [INFO] __main__: Running layer=27 target=1 alpha=2.00 direction=random seed=45
+2026-05-11 05:05:53,211 [INFO] __main__: Running layer=27 target=3 alpha=1.00 direction=random seed=45
+2026-05-11 05:06:29,889 [INFO] __main__: Running layer=27 target=3 alpha=2.00 direction=random seed=45
+2026-05-11 05:07:06,560 [INFO] __main__: Running layer=27 target=0 alpha=1.00 direction=random seed=46
+2026-05-11 05:07:43,229 [INFO] __main__: Running layer=27 target=0 alpha=2.00 direction=random seed=46
+2026-05-11 05:08:19,898 [INFO] __main__: Running layer=27 target=1 alpha=1.00 direction=random seed=46
+2026-05-11 05:08:55,683 [INFO] __main__: Running layer=27 target=1 alpha=2.00 direction=random seed=46
+2026-05-11 05:09:32,363 [INFO] __main__: Running layer=27 target=3 alpha=1.00 direction=random seed=46
+2026-05-11 05:10:09,043 [INFO] __main__: Running layer=27 target=3 alpha=2.00 direction=random seed=46
+2026-05-11 05:10:45,721 [INFO] __main__: Running layer=27 target=0 alpha=1.00 direction=orthogonal seed=42
+2026-05-11 05:11:22,397 [INFO] __main__: Running layer=27 target=0 alpha=2.00 direction=orthogonal seed=42
+2026-05-11 05:11:59,078 [INFO] __main__: Running layer=27 target=1 alpha=1.00 direction=orthogonal seed=42
+2026-05-11 05:12:35,759 [INFO] __main__: Running layer=27 target=1 alpha=2.00 direction=orthogonal seed=42
+2026-05-11 05:13:12,436 [INFO] __main__: Running layer=27 target=3 alpha=1.00 direction=orthogonal seed=42
+2026-05-11 05:13:49,113 [INFO] __main__: Running layer=27 target=3 alpha=2.00 direction=orthogonal seed=42
+2026-05-11 05:14:24,900 [INFO] __main__: Running layer=27 target=0 alpha=1.00 direction=orthogonal seed=43
+2026-05-11 05:15:01,579 [INFO] __main__: Running layer=27 target=0 alpha=2.00 direction=orthogonal seed=43
+2026-05-11 05:15:38,258 [INFO] __main__: Running layer=27 target=1 alpha=1.00 direction=orthogonal seed=43
+2026-05-11 05:16:14,938 [INFO] __main__: Running layer=27 target=1 alpha=2.00 direction=orthogonal seed=43
+2026-05-11 05:16:51,614 [INFO] __main__: Running layer=27 target=3 alpha=1.00 direction=orthogonal seed=43
+2026-05-11 05:17:28,291 [INFO] __main__: Running layer=27 target=3 alpha=2.00 direction=orthogonal seed=43
+2026-05-11 05:18:04,080 [INFO] __main__: Running layer=27 target=0 alpha=1.00 direction=orthogonal seed=44
+2026-05-11 05:18:40,756 [INFO] __main__: Running layer=27 target=0 alpha=2.00 direction=orthogonal seed=44
+2026-05-11 05:19:17,431 [INFO] __main__: Running layer=27 target=1 alpha=1.00 direction=orthogonal seed=44
+2026-05-11 05:19:54,109 [INFO] __main__: Running layer=27 target=1 alpha=2.00 direction=orthogonal seed=44
+2026-05-11 05:20:30,787 [INFO] __main__: Running layer=27 target=3 alpha=1.00 direction=orthogonal seed=44
+2026-05-11 05:21:07,465 [INFO] __main__: Running layer=27 target=3 alpha=2.00 direction=orthogonal seed=44
+2026-05-11 05:21:44,133 [INFO] __main__: Running layer=27 target=0 alpha=1.00 direction=orthogonal seed=45
+2026-05-11 05:22:20,808 [INFO] __main__: Running layer=27 target=0 alpha=2.00 direction=orthogonal seed=45
+2026-05-11 05:22:57,485 [INFO] __main__: Running layer=27 target=1 alpha=1.00 direction=orthogonal seed=45
+2026-05-11 05:23:34,163 [INFO] __main__: Running layer=27 target=1 alpha=2.00 direction=orthogonal seed=45
+2026-05-11 05:24:10,843 [INFO] __main__: Running layer=27 target=3 alpha=1.00 direction=orthogonal seed=45
+2026-05-11 05:24:47,520 [INFO] __main__: Running layer=27 target=3 alpha=2.00 direction=orthogonal seed=45
+2026-05-11 05:25:23,305 [INFO] __main__: Running layer=27 target=0 alpha=1.00 direction=orthogonal seed=46
+2026-05-11 05:25:59,983 [INFO] __main__: Running layer=27 target=0 alpha=2.00 direction=orthogonal seed=46
+2026-05-11 05:26:36,228 [INFO] __main__: Running layer=27 target=1 alpha=1.00 direction=orthogonal seed=46
+2026-05-11 05:27:12,903 [INFO] __main__: Running layer=27 target=1 alpha=2.00 direction=orthogonal seed=46
+2026-05-11 05:27:49,579 [INFO] __main__: Running layer=27 target=3 alpha=1.00 direction=orthogonal seed=46
+2026-05-11 05:28:26,257 [INFO] __main__: Running layer=27 target=3 alpha=2.00 direction=orthogonal seed=46
+2026-05-11 05:29:02,982 [INFO] __main__: Saved additive intervention results to outputs/report7/interventions/additive_direction_results.csv
+2026-05-11 05:29:02,983 [INFO] __main__: Saved additive intervention summary to outputs/report7/interventions/additive_direction_summary.csv
+2026-05-11 05:29:02,983 [INFO] __main__: Saved seed-aggregated summary to outputs/report7/interventions/additive_direction_seed_aggregated.csv
+outputs/report7/interventions/additive_direction_results.csv
+outputs/report7/interventions/additive_direction_summary.csv
+outputs/report7/interventions/additive_direction_seed_aggregated.csv
+2026-05-11 05:29:13,976 [INFO] __main__: Dataset: benign
+2026-05-11 05:29:13,977 [INFO] __main__: Condition: benign_k00
+2026-05-11 05:29:13,977 [INFO] __main__: Layers: [16, 24, 27]
+2026-05-11 05:29:13,977 [INFO] __main__: Target positions: [0, 1, 3]
+2026-05-11 05:29:13,977 [INFO] __main__: Alphas: [1.0, 2.0]
+2026-05-11 05:29:13,977 [INFO] __main__: Direction types: ['refusal', 'random', 'orthogonal']
+2026-05-11 05:29:13,977 [INFO] __main__: Seeds: [42, 43, 44, 45, 46]
+2026-05-11 05:29:13,980 [INFO] src.data.loader: Loaded 25 benign prompts from data/processed/report7_traced_benign.jsonl
+2026-05-11 05:29:13,986 [INFO] src.probing.direction: Loaded refusal directions for layers: [16, 20, 24, 27]
+2026-05-11 05:29:13,986 [INFO] src.generation.generator: Loading tokenizer from meta-llama/Llama-3.1-8B-Instruct
+2026-05-11 05:29:14,052 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-11 05:29:14,123 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-11 05:29:14,180 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-11 05:29:14,234 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-11 05:29:15,088 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct "HTTP/1.1 200 OK"
+2026-05-11 05:29:15,108 [INFO] src.generation.generator: Loading model from meta-llama/Llama-3.1-8B-Instruct (dtype=bfloat16)
+2026-05-11 05:29:15,152 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-11 05:29:21,404 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/generation_config.json "HTTP/1.1 200 OK"
+2026-05-11 05:29:21,458 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+2026-05-11 05:29:21,465 [INFO] src.generation.generator: Model loaded. Device map: single device
+2026-05-11 05:29:21,466 [INFO] src.generation.generator: Running CUDA preflight on NVIDIA L40S (cuda:0, sm_89)
+2026-05-11 05:29:21,517 [INFO] __main__: Running layer=16 target=0 alpha=1.00 direction=refusal seed=42
+2026-05-11 05:30:25,131 [INFO] __main__: Running layer=16 target=0 alpha=2.00 direction=refusal seed=42
+2026-05-11 05:30:56,650 [INFO] __main__: Running layer=16 target=1 alpha=1.00 direction=refusal seed=42
+2026-05-11 05:31:28,289 [INFO] __main__: Running layer=16 target=1 alpha=2.00 direction=refusal seed=42
+2026-05-11 05:31:59,850 [INFO] __main__: Running layer=16 target=3 alpha=1.00 direction=refusal seed=42
+2026-05-11 05:32:31,482 [INFO] __main__: Running layer=16 target=3 alpha=2.00 direction=refusal seed=42
+2026-05-11 05:33:03,116 [INFO] __main__: Running layer=16 target=0 alpha=1.00 direction=random seed=42
+2026-05-11 05:33:34,534 [INFO] __main__: Running layer=16 target=0 alpha=2.00 direction=random seed=42
+2026-05-11 05:34:05,545 [INFO] __main__: Running layer=16 target=1 alpha=1.00 direction=random seed=42
+2026-05-11 05:34:37,183 [INFO] __main__: Running layer=16 target=1 alpha=2.00 direction=random seed=42
+2026-05-11 05:35:08,851 [INFO] __main__: Running layer=16 target=3 alpha=1.00 direction=random seed=42
+2026-05-11 05:35:40,492 [INFO] __main__: Running layer=16 target=3 alpha=2.00 direction=random seed=42
+2026-05-11 05:36:12,138 [INFO] __main__: Running layer=16 target=0 alpha=1.00 direction=random seed=43
+2026-05-11 05:36:43,780 [INFO] __main__: Running layer=16 target=0 alpha=2.00 direction=random seed=43
+2026-05-11 05:37:15,423 [INFO] __main__: Running layer=16 target=1 alpha=1.00 direction=random seed=43
+2026-05-11 05:37:46,850 [INFO] __main__: Running layer=16 target=1 alpha=2.00 direction=random seed=43
+2026-05-11 05:38:18,374 [INFO] __main__: Running layer=16 target=3 alpha=1.00 direction=random seed=43
+2026-05-11 05:38:49,799 [INFO] __main__: Running layer=16 target=3 alpha=2.00 direction=random seed=43
+2026-05-11 05:39:21,444 [INFO] __main__: Running layer=16 target=0 alpha=1.00 direction=random seed=44
+2026-05-11 05:39:53,088 [INFO] __main__: Running layer=16 target=0 alpha=2.00 direction=random seed=44
+2026-05-11 05:40:24,732 [INFO] __main__: Running layer=16 target=1 alpha=1.00 direction=random seed=44
+2026-05-11 05:40:56,254 [INFO] __main__: Running layer=16 target=1 alpha=2.00 direction=random seed=44
+2026-05-11 05:41:27,898 [INFO] __main__: Running layer=16 target=3 alpha=1.00 direction=random seed=44
+2026-05-11 05:41:59,540 [INFO] __main__: Running layer=16 target=3 alpha=2.00 direction=random seed=44
+2026-05-11 05:42:31,184 [INFO] __main__: Running layer=16 target=0 alpha=1.00 direction=random seed=45
+2026-05-11 05:43:02,825 [INFO] __main__: Running layer=16 target=0 alpha=2.00 direction=random seed=45
+2026-05-11 05:43:34,469 [INFO] __main__: Running layer=16 target=1 alpha=1.00 direction=random seed=45
+2026-05-11 05:44:06,112 [INFO] __main__: Running layer=16 target=1 alpha=2.00 direction=random seed=45
+2026-05-11 05:44:37,538 [INFO] __main__: Running layer=16 target=3 alpha=1.00 direction=random seed=45
+2026-05-11 05:45:09,178 [INFO] __main__: Running layer=16 target=3 alpha=2.00 direction=random seed=45
+2026-05-11 05:45:40,824 [INFO] __main__: Running layer=16 target=0 alpha=1.00 direction=random seed=46
+2026-05-11 05:46:12,465 [INFO] __main__: Running layer=16 target=0 alpha=2.00 direction=random seed=46
+2026-05-11 05:46:44,111 [INFO] __main__: Running layer=16 target=1 alpha=1.00 direction=random seed=46
+2026-05-11 05:47:15,538 [INFO] __main__: Running layer=16 target=1 alpha=2.00 direction=random seed=46
+2026-05-11 05:47:47,044 [INFO] __main__: Running layer=16 target=3 alpha=1.00 direction=random seed=46
+2026-05-11 05:48:18,585 [INFO] __main__: Running layer=16 target=3 alpha=2.00 direction=random seed=46
+2026-05-11 05:48:50,225 [INFO] __main__: Running layer=16 target=0 alpha=1.00 direction=orthogonal seed=42
+2026-05-11 05:49:21,867 [INFO] __main__: Running layer=16 target=0 alpha=2.00 direction=orthogonal seed=42
+2026-05-11 05:49:53,512 [INFO] __main__: Running layer=16 target=1 alpha=1.00 direction=orthogonal seed=42
+2026-05-11 05:50:25,157 [INFO] __main__: Running layer=16 target=1 alpha=2.00 direction=orthogonal seed=42
+2026-05-11 05:50:56,825 [INFO] __main__: Running layer=16 target=3 alpha=1.00 direction=orthogonal seed=42
+2026-05-11 05:51:28,470 [INFO] __main__: Running layer=16 target=3 alpha=2.00 direction=orthogonal seed=42
+2026-05-11 05:52:00,114 [INFO] __main__: Running layer=16 target=0 alpha=1.00 direction=orthogonal seed=43
+2026-05-11 05:52:31,756 [INFO] __main__: Running layer=16 target=0 alpha=2.00 direction=orthogonal seed=43
+2026-05-11 05:53:03,398 [INFO] __main__: Running layer=16 target=1 alpha=1.00 direction=orthogonal seed=43
+2026-05-11 05:53:35,039 [INFO] __main__: Running layer=16 target=1 alpha=2.00 direction=orthogonal seed=43
+2026-05-11 05:54:06,465 [INFO] __main__: Running layer=16 target=3 alpha=1.00 direction=orthogonal seed=43
+2026-05-11 05:54:38,108 [INFO] __main__: Running layer=16 target=3 alpha=2.00 direction=orthogonal seed=43
+2026-05-11 05:55:09,751 [INFO] __main__: Running layer=16 target=0 alpha=1.00 direction=orthogonal seed=44
+2026-05-11 05:55:41,178 [INFO] __main__: Running layer=16 target=0 alpha=2.00 direction=orthogonal seed=44
+2026-05-11 05:56:12,604 [INFO] __main__: Running layer=16 target=1 alpha=1.00 direction=orthogonal seed=44
+2026-05-11 05:56:44,028 [INFO] __main__: Running layer=16 target=1 alpha=2.00 direction=orthogonal seed=44
+2026-05-11 05:57:15,695 [INFO] __main__: Running layer=16 target=3 alpha=1.00 direction=orthogonal seed=44
+2026-05-11 05:57:47,122 [INFO] __main__: Running layer=16 target=3 alpha=2.00 direction=orthogonal seed=44
+2026-05-11 05:58:18,764 [INFO] __main__: Running layer=16 target=0 alpha=1.00 direction=orthogonal seed=45
+2026-05-11 05:58:50,400 [INFO] __main__: Running layer=16 target=0 alpha=2.00 direction=orthogonal seed=45
+2026-05-11 05:59:22,035 [INFO] __main__: Running layer=16 target=1 alpha=1.00 direction=orthogonal seed=45
+2026-05-11 05:59:53,669 [INFO] __main__: Running layer=16 target=1 alpha=2.00 direction=orthogonal seed=45
+2026-05-11 06:00:25,138 [INFO] __main__: Running layer=16 target=3 alpha=1.00 direction=orthogonal seed=45
+2026-05-11 06:00:56,773 [INFO] __main__: Running layer=16 target=3 alpha=2.00 direction=orthogonal seed=45
+2026-05-11 06:01:28,408 [INFO] __main__: Running layer=16 target=0 alpha=1.00 direction=orthogonal seed=46
+2026-05-11 06:01:59,831 [INFO] __main__: Running layer=16 target=0 alpha=2.00 direction=orthogonal seed=46
+2026-05-11 06:02:31,259 [INFO] __main__: Running layer=16 target=1 alpha=1.00 direction=orthogonal seed=46
+2026-05-11 06:03:02,903 [INFO] __main__: Running layer=16 target=1 alpha=2.00 direction=orthogonal seed=46
+2026-05-11 06:03:34,475 [INFO] __main__: Running layer=16 target=3 alpha=1.00 direction=orthogonal seed=46
+2026-05-11 06:04:06,118 [INFO] __main__: Running layer=16 target=3 alpha=2.00 direction=orthogonal seed=46
+2026-05-11 06:04:37,640 [INFO] __main__: Running layer=24 target=0 alpha=1.00 direction=refusal seed=42
+2026-05-11 06:05:09,283 [INFO] __main__: Running layer=24 target=0 alpha=2.00 direction=refusal seed=42
+2026-05-11 06:05:40,926 [INFO] __main__: Running layer=24 target=1 alpha=1.00 direction=refusal seed=42
+2026-05-11 06:06:12,567 [INFO] __main__: Running layer=24 target=1 alpha=2.00 direction=refusal seed=42
+2026-05-11 06:06:44,137 [INFO] __main__: Running layer=24 target=3 alpha=1.00 direction=refusal seed=42
+2026-05-11 06:07:15,775 [INFO] __main__: Running layer=24 target=3 alpha=2.00 direction=refusal seed=42
+2026-05-11 06:07:47,416 [INFO] __main__: Running layer=24 target=0 alpha=1.00 direction=random seed=42
+2026-05-11 06:08:19,056 [INFO] __main__: Running layer=24 target=0 alpha=2.00 direction=random seed=42
+2026-05-11 06:08:50,696 [INFO] __main__: Running layer=24 target=1 alpha=1.00 direction=random seed=42
+2026-05-11 06:09:22,334 [INFO] __main__: Running layer=24 target=1 alpha=2.00 direction=random seed=42
+2026-05-11 06:09:53,758 [INFO] __main__: Running layer=24 target=3 alpha=1.00 direction=random seed=42
+2026-05-11 06:10:25,276 [INFO] __main__: Running layer=24 target=3 alpha=2.00 direction=random seed=42
+2026-05-11 06:10:56,797 [INFO] __main__: Running layer=24 target=0 alpha=1.00 direction=random seed=43
+2026-05-11 06:11:28,434 [INFO] __main__: Running layer=24 target=0 alpha=2.00 direction=random seed=43
+2026-05-11 06:12:00,068 [INFO] __main__: Running layer=24 target=1 alpha=1.00 direction=random seed=43
+2026-05-11 06:12:31,702 [INFO] __main__: Running layer=24 target=1 alpha=2.00 direction=random seed=43
+2026-05-11 06:13:03,123 [INFO] __main__: Running layer=24 target=3 alpha=1.00 direction=random seed=43
+2026-05-11 06:13:34,765 [INFO] __main__: Running layer=24 target=3 alpha=2.00 direction=random seed=43
+2026-05-11 06:14:06,287 [INFO] __main__: Running layer=24 target=0 alpha=1.00 direction=random seed=44
+2026-05-11 06:14:37,928 [INFO] __main__: Running layer=24 target=0 alpha=2.00 direction=random seed=44
+2026-05-11 06:15:09,569 [INFO] __main__: Running layer=24 target=1 alpha=1.00 direction=random seed=44
+2026-05-11 06:15:41,210 [INFO] __main__: Running layer=24 target=1 alpha=2.00 direction=random seed=44
+2026-05-11 06:16:12,851 [INFO] __main__: Running layer=24 target=3 alpha=1.00 direction=random seed=44
+2026-05-11 06:16:44,488 [INFO] __main__: Running layer=24 target=3 alpha=2.00 direction=random seed=44
+2026-05-11 06:17:16,131 [INFO] __main__: Running layer=24 target=0 alpha=1.00 direction=random seed=45
+2026-05-11 06:17:47,772 [INFO] __main__: Running layer=24 target=0 alpha=2.00 direction=random seed=45
+2026-05-11 06:18:19,417 [INFO] __main__: Running layer=24 target=1 alpha=1.00 direction=random seed=45
+2026-05-11 06:18:50,843 [INFO] __main__: Running layer=24 target=1 alpha=2.00 direction=random seed=45
+2026-05-11 06:19:22,486 [INFO] __main__: Running layer=24 target=3 alpha=1.00 direction=random seed=45
+2026-05-11 06:19:54,124 [INFO] __main__: Running layer=24 target=3 alpha=2.00 direction=random seed=45
+2026-05-11 06:20:25,764 [INFO] __main__: Running layer=24 target=0 alpha=1.00 direction=random seed=46
+2026-05-11 06:20:57,282 [INFO] __main__: Running layer=24 target=0 alpha=2.00 direction=random seed=46
+2026-05-11 06:21:29,619 [INFO] __main__: Running layer=24 target=1 alpha=1.00 direction=random seed=46
+2026-05-11 06:22:01,257 [INFO] __main__: Running layer=24 target=1 alpha=2.00 direction=random seed=46
+2026-05-11 06:22:32,895 [INFO] __main__: Running layer=24 target=3 alpha=1.00 direction=random seed=46
+2026-05-11 06:23:04,534 [INFO] __main__: Running layer=24 target=3 alpha=2.00 direction=random seed=46
+2026-05-11 06:23:36,172 [INFO] __main__: Running layer=24 target=0 alpha=1.00 direction=orthogonal seed=42
+2026-05-11 06:24:07,690 [INFO] __main__: Running layer=24 target=0 alpha=2.00 direction=orthogonal seed=42
+2026-05-11 06:24:39,331 [INFO] __main__: Running layer=24 target=1 alpha=1.00 direction=orthogonal seed=42
+2026-05-11 06:25:10,973 [INFO] __main__: Running layer=24 target=1 alpha=2.00 direction=orthogonal seed=42
+2026-05-11 06:25:42,615 [INFO] __main__: Running layer=24 target=3 alpha=1.00 direction=orthogonal seed=42
+2026-05-11 06:26:14,257 [INFO] __main__: Running layer=24 target=3 alpha=2.00 direction=orthogonal seed=42
+2026-05-11 06:26:45,777 [INFO] __main__: Running layer=24 target=0 alpha=1.00 direction=orthogonal seed=43
+2026-05-11 06:27:17,418 [INFO] __main__: Running layer=24 target=0 alpha=2.00 direction=orthogonal seed=43
+2026-05-11 06:27:49,060 [INFO] __main__: Running layer=24 target=1 alpha=1.00 direction=orthogonal seed=43
+2026-05-11 06:28:20,701 [INFO] __main__: Running layer=24 target=1 alpha=2.00 direction=orthogonal seed=43
+2026-05-11 06:28:52,341 [INFO] __main__: Running layer=24 target=3 alpha=1.00 direction=orthogonal seed=43
+2026-05-11 06:29:23,860 [INFO] __main__: Running layer=24 target=3 alpha=2.00 direction=orthogonal seed=43
+2026-05-11 06:29:55,382 [INFO] __main__: Running layer=24 target=0 alpha=1.00 direction=orthogonal seed=44
+2026-05-11 06:30:27,024 [INFO] __main__: Running layer=24 target=0 alpha=2.00 direction=orthogonal seed=44
+2026-05-11 06:30:58,665 [INFO] __main__: Running layer=24 target=1 alpha=1.00 direction=orthogonal seed=44
+2026-05-11 06:31:30,091 [INFO] __main__: Running layer=24 target=1 alpha=2.00 direction=orthogonal seed=44
+2026-05-11 06:32:01,756 [INFO] __main__: Running layer=24 target=3 alpha=1.00 direction=orthogonal seed=44
+2026-05-11 06:32:33,397 [INFO] __main__: Running layer=24 target=3 alpha=2.00 direction=orthogonal seed=44
+2026-05-11 06:33:05,039 [INFO] __main__: Running layer=24 target=0 alpha=1.00 direction=orthogonal seed=45
+2026-05-11 06:33:36,677 [INFO] __main__: Running layer=24 target=0 alpha=2.00 direction=orthogonal seed=45
+2026-05-11 06:34:08,318 [INFO] __main__: Running layer=24 target=1 alpha=1.00 direction=orthogonal seed=45
+2026-05-11 06:34:39,959 [INFO] __main__: Running layer=24 target=1 alpha=2.00 direction=orthogonal seed=45
+2026-05-11 06:35:11,601 [INFO] __main__: Running layer=24 target=3 alpha=1.00 direction=orthogonal seed=45
+2026-05-11 06:35:43,241 [INFO] __main__: Running layer=24 target=3 alpha=2.00 direction=orthogonal seed=45
+2026-05-11 06:36:14,883 [INFO] __main__: Running layer=24 target=0 alpha=1.00 direction=orthogonal seed=46
+2026-05-11 06:36:46,523 [INFO] __main__: Running layer=24 target=0 alpha=2.00 direction=orthogonal seed=46
+2026-05-11 06:37:18,044 [INFO] __main__: Running layer=24 target=1 alpha=1.00 direction=orthogonal seed=46
+2026-05-11 06:37:49,685 [INFO] __main__: Running layer=24 target=1 alpha=2.00 direction=orthogonal seed=46
+2026-05-11 06:38:21,326 [INFO] __main__: Running layer=24 target=3 alpha=1.00 direction=orthogonal seed=46
+2026-05-11 06:38:52,848 [INFO] __main__: Running layer=24 target=3 alpha=2.00 direction=orthogonal seed=46
+2026-05-11 06:39:24,489 [INFO] __main__: Running layer=27 target=0 alpha=1.00 direction=refusal seed=42
+2026-05-11 06:39:56,128 [INFO] __main__: Running layer=27 target=0 alpha=2.00 direction=refusal seed=42
+2026-05-11 06:40:27,770 [INFO] __main__: Running layer=27 target=1 alpha=1.00 direction=refusal seed=42
+2026-05-11 06:40:59,411 [INFO] __main__: Running layer=27 target=1 alpha=2.00 direction=refusal seed=42
+2026-05-11 06:41:30,981 [INFO] __main__: Running layer=27 target=3 alpha=1.00 direction=refusal seed=42
+2026-05-11 06:42:02,621 [INFO] __main__: Running layer=27 target=3 alpha=2.00 direction=refusal seed=42
+2026-05-11 06:42:34,142 [INFO] __main__: Running layer=27 target=0 alpha=1.00 direction=random seed=42
+2026-05-11 06:43:05,781 [INFO] __main__: Running layer=27 target=0 alpha=2.00 direction=random seed=42
+2026-05-11 06:43:37,418 [INFO] __main__: Running layer=27 target=1 alpha=1.00 direction=random seed=42
+2026-05-11 06:44:08,839 [INFO] __main__: Running layer=27 target=1 alpha=2.00 direction=random seed=42
+2026-05-11 06:44:40,260 [INFO] __main__: Running layer=27 target=3 alpha=1.00 direction=random seed=42
+2026-05-11 06:45:11,901 [INFO] __main__: Running layer=27 target=3 alpha=2.00 direction=random seed=42
+2026-05-11 06:45:43,544 [INFO] __main__: Running layer=27 target=0 alpha=1.00 direction=random seed=43
+2026-05-11 06:46:15,184 [INFO] __main__: Running layer=27 target=0 alpha=2.00 direction=random seed=43
+2026-05-11 06:46:46,704 [INFO] __main__: Running layer=27 target=1 alpha=1.00 direction=random seed=43
+2026-05-11 06:47:18,343 [INFO] __main__: Running layer=27 target=1 alpha=2.00 direction=random seed=43
+2026-05-11 06:47:49,982 [INFO] __main__: Running layer=27 target=3 alpha=1.00 direction=random seed=43
+2026-05-11 06:48:21,500 [INFO] __main__: Running layer=27 target=3 alpha=2.00 direction=random seed=43
+2026-05-11 06:48:53,138 [INFO] __main__: Running layer=27 target=0 alpha=1.00 direction=random seed=44
+2026-05-11 06:49:24,776 [INFO] __main__: Running layer=27 target=0 alpha=2.00 direction=random seed=44
+2026-05-11 06:49:56,415 [INFO] __main__: Running layer=27 target=1 alpha=1.00 direction=random seed=44
+2026-05-11 06:50:28,054 [INFO] __main__: Running layer=27 target=1 alpha=2.00 direction=random seed=44
+2026-05-11 06:50:59,695 [INFO] __main__: Running layer=27 target=3 alpha=1.00 direction=random seed=44
+2026-05-11 06:51:31,337 [INFO] __main__: Running layer=27 target=3 alpha=2.00 direction=random seed=44
+2026-05-11 06:52:02,975 [INFO] __main__: Running layer=27 target=0 alpha=1.00 direction=random seed=45
+2026-05-11 06:52:34,611 [INFO] __main__: Running layer=27 target=0 alpha=2.00 direction=random seed=45
+2026-05-11 06:53:06,252 [INFO] __main__: Running layer=27 target=1 alpha=1.00 direction=random seed=45
+2026-05-11 06:53:37,889 [INFO] __main__: Running layer=27 target=1 alpha=2.00 direction=random seed=45
+2026-05-11 06:54:09,311 [INFO] __main__: Running layer=27 target=3 alpha=1.00 direction=random seed=45
+2026-05-11 06:54:40,945 [INFO] __main__: Running layer=27 target=3 alpha=2.00 direction=random seed=45
+2026-05-11 06:55:12,585 [INFO] __main__: Running layer=27 target=0 alpha=1.00 direction=random seed=46
+2026-05-11 06:55:44,219 [INFO] __main__: Running layer=27 target=0 alpha=2.00 direction=random seed=46
+2026-05-11 06:56:15,854 [INFO] __main__: Running layer=27 target=1 alpha=1.00 direction=random seed=46
+2026-05-11 06:56:47,496 [INFO] __main__: Running layer=27 target=1 alpha=2.00 direction=random seed=46
+2026-05-11 06:57:19,014 [INFO] __main__: Running layer=27 target=3 alpha=1.00 direction=random seed=46
+2026-05-11 06:57:50,651 [INFO] __main__: Running layer=27 target=3 alpha=2.00 direction=random seed=46
+2026-05-11 06:58:22,288 [INFO] __main__: Running layer=27 target=0 alpha=1.00 direction=orthogonal seed=42
+2026-05-11 06:58:53,802 [INFO] __main__: Running layer=27 target=0 alpha=2.00 direction=orthogonal seed=42
+2026-05-11 06:59:25,443 [INFO] __main__: Running layer=27 target=1 alpha=1.00 direction=orthogonal seed=42
+2026-05-11 06:59:57,077 [INFO] __main__: Running layer=27 target=1 alpha=2.00 direction=orthogonal seed=42
+2026-05-11 07:00:28,714 [INFO] __main__: Running layer=27 target=3 alpha=1.00 direction=orthogonal seed=42
+2026-05-11 07:01:00,347 [INFO] __main__: Running layer=27 target=3 alpha=2.00 direction=orthogonal seed=42
+2026-05-11 07:01:31,982 [INFO] __main__: Running layer=27 target=0 alpha=1.00 direction=orthogonal seed=43
+2026-05-11 07:02:03,619 [INFO] __main__: Running layer=27 target=0 alpha=2.00 direction=orthogonal seed=43
+2026-05-11 07:02:35,256 [INFO] __main__: Running layer=27 target=1 alpha=1.00 direction=orthogonal seed=43
+2026-05-11 07:03:06,892 [INFO] __main__: Running layer=27 target=1 alpha=2.00 direction=orthogonal seed=43
+2026-05-11 07:03:38,535 [INFO] __main__: Running layer=27 target=3 alpha=1.00 direction=orthogonal seed=43
+2026-05-11 07:04:09,956 [INFO] __main__: Running layer=27 target=3 alpha=2.00 direction=orthogonal seed=43
+2026-05-11 07:04:41,593 [INFO] __main__: Running layer=27 target=0 alpha=1.00 direction=orthogonal seed=44
+2026-05-11 07:05:13,228 [INFO] __main__: Running layer=27 target=0 alpha=2.00 direction=orthogonal seed=44
+2026-05-11 07:05:44,863 [INFO] __main__: Running layer=27 target=1 alpha=1.00 direction=orthogonal seed=44
+2026-05-11 07:06:16,499 [INFO] __main__: Running layer=27 target=1 alpha=2.00 direction=orthogonal seed=44
+2026-05-11 07:06:48,132 [INFO] __main__: Running layer=27 target=3 alpha=1.00 direction=orthogonal seed=44
+2026-05-11 07:07:19,766 [INFO] __main__: Running layer=27 target=3 alpha=2.00 direction=orthogonal seed=44
+2026-05-11 07:07:51,400 [INFO] __main__: Running layer=27 target=0 alpha=1.00 direction=orthogonal seed=45
+2026-05-11 07:08:23,035 [INFO] __main__: Running layer=27 target=0 alpha=2.00 direction=orthogonal seed=45
+2026-05-11 07:08:54,670 [INFO] __main__: Running layer=27 target=1 alpha=1.00 direction=orthogonal seed=45
+2026-05-11 07:09:26,306 [INFO] __main__: Running layer=27 target=1 alpha=2.00 direction=orthogonal seed=45
+2026-05-11 07:09:57,945 [INFO] __main__: Running layer=27 target=3 alpha=1.00 direction=orthogonal seed=45
+2026-05-11 07:10:29,581 [INFO] __main__: Running layer=27 target=3 alpha=2.00 direction=orthogonal seed=45
+2026-05-11 07:11:01,363 [INFO] __main__: Running layer=27 target=0 alpha=1.00 direction=orthogonal seed=46
+2026-05-11 07:11:33,001 [INFO] __main__: Running layer=27 target=0 alpha=2.00 direction=orthogonal seed=46
+2026-05-11 07:12:04,637 [INFO] __main__: Running layer=27 target=1 alpha=1.00 direction=orthogonal seed=46
+2026-05-11 07:12:36,271 [INFO] __main__: Running layer=27 target=1 alpha=2.00 direction=orthogonal seed=46
+2026-05-11 07:13:07,905 [INFO] __main__: Running layer=27 target=3 alpha=1.00 direction=orthogonal seed=46
+2026-05-11 07:13:39,544 [INFO] __main__: Running layer=27 target=3 alpha=2.00 direction=orthogonal seed=46
+2026-05-11 07:14:11,310 [INFO] __main__: Saved additive intervention results to outputs/report7/interventions_benign_control/additive_direction_results_benign.csv
+2026-05-11 07:14:11,310 [INFO] __main__: Saved additive intervention summary to outputs/report7/interventions_benign_control/additive_direction_summary_benign.csv
+2026-05-11 07:14:11,310 [INFO] __main__: Saved seed-aggregated summary to outputs/report7/interventions_benign_control/additive_direction_seed_aggregated_benign.csv
+outputs/report7/interventions_benign_control/additive_direction_results_benign.csv
+outputs/report7/interventions_benign_control/additive_direction_summary_benign.csv
+outputs/report7/interventions_benign_control/additive_direction_seed_aggregated_benign.csv
+outputs/report7/summaries/cross_condition_patching_stats.csv
+outputs/report7/summaries/additive_direction_stats.csv
+outputs/report7/summaries/additive_direction_stats_seed_aggregated.csv
+outputs/report7/summaries/additive_direction_stats_benign_control.csv
+outputs/report7/summaries/additive_direction_stats_seed_aggregated_benign_control.csv
+outputs/report7/summaries/report7_intervention_stats_combined.csv
+outputs/report7/summaries/report6_vs_report7_intervention_comparison.csv
+outputs/report7/plots/report7_refusal_rate_by_condition.png
+outputs/report7/plots/report7_generated_mean_projection_by_layer.png
+outputs/report7/plots/report7_layer27_projection_trajectory.png
+outputs/report7/plots/report7_layer24_projection_trajectory.png
+outputs/report7/plots/report7_layer27_projection_by_label.png
+outputs/report7/plots/report7_cross_condition_patching_recovery.png
+outputs/report7/plots/report7_additive_direction_recovery_by_alpha.png
+outputs/report7/plots/report7_report6_vs_report7_intervention_comparison.png
+COMPLETE
+- Behavioral: harmful_k00: 25 rows, 0 errors
+- Behavioral: harmful_k03: 25 rows, 0 errors
+- Behavioral: benign_k00: 25 rows, 0 errors
+- Tracing: Tracing summary covers layers 16/20/24/27 and harmful_k00/harmful_k03.
+- Prompt-Level Association: Prompt association includes layers 24/27 and both label groups.
+- Cross-Condition Patching: Cross-condition patching valid rows=300, layers=[16, 24, 27], targets=[0, 1, 3, 5]
+- Additive Intervention: Additive intervention valid rows=4950, alphas=[1.0, 2.0], directions=['orthogonal', 'random', 'refusal']
+MISSING
+SUSPICIOUS
+READY TO WRITE REPORT 7? YES
+RUN THESE NEXT
+- Report 7 outputs are ready for writeup.
+Wrote 32 items to /work/pi_compsci602_umass_edu/devaanand_umass_edu/refusal-decay/outputs/report7/classifier_spot_check/spot_check.yaml
+Edit the file, then re-run `python scripts/run_classifier_spot_check.py score`.
+Mon May 11 07:14:20 AM UTC 2026
+Report 7 pipeline complete. See VERIFY_REPORT7.md for status.
+Manual step: edit outputs/report7/classifier_spot_check/spot_check.yaml,
+  then run: python scripts/run_classifier_spot_check.py score

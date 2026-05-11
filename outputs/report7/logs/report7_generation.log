@@ -33,3 +33,12 @@
 2026-05-11 02:28:56,441 [INFO] __main__: Loading cached classified outputs for harmful_k10
 2026-05-11 02:28:56,745 [INFO] __main__: Saved combined generation outputs to outputs/report7/generations/report7_generation_combined.jsonl
 2026-05-11 02:28:56,746 [INFO] __main__: Saved generation summary to outputs/report7/generations/report7_generation_summary.csv
+2026-05-11 03:26:05,876 [INFO] __main__: Starting Report 7 generation verification.
+2026-05-11 03:26:05,876 [INFO] __main__: Model: meta-llama/Llama-3.1-8B-Instruct
+2026-05-11 03:26:05,876 [INFO] __main__: Conditions: ['harmful_k00', 'harmful_k03', 'benign_k00', 'harmful_k10']
+2026-05-11 03:26:05,912 [INFO] __main__: Loading cached classified outputs for harmful_k00
+2026-05-11 03:26:05,940 [INFO] __main__: Loading cached classified outputs for harmful_k03
+2026-05-11 03:26:05,962 [INFO] __main__: Loading cached classified outputs for benign_k00
+2026-05-11 03:26:05,982 [INFO] __main__: Loading cached classified outputs for harmful_k10
+2026-05-11 03:26:06,397 [INFO] __main__: Saved combined generation outputs to outputs/report7/generations/report7_generation_combined.jsonl
+2026-05-11 03:26:06,398 [INFO] __main__: Saved generation summary to outputs/report7/generations/report7_generation_summary.csv
