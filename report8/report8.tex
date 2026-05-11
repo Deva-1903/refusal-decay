@@ -210,8 +210,8 @@ attacks, and under what intervention conditions does manipulating that
 signal restore refusal behavior?}
 
 This is a \emph{causal} question whose answer informs a mechanistic
-account; following coursework feedback on the distinction, it is not
-framed as a fully mechanistic question on its own. Observational tracing
+account, rather than a fully mechanistic question on its own.
+Observational tracing
 localizes a candidate internal change; targeted interventions test
 whether manipulating that change affects behavior. The combination
 constrains possible mechanisms without committing to a single complete
@@ -300,8 +300,8 @@ McNemar is reported as unable to fire rather than as a null result.
 \paragraph{H1: behavioral attack effect.}
 Prefilling at $k=3$ reduces refusal from $0.92$ to $0.32$
 (Table~\ref{tab:behavior}, Figure~\ref{fig:refusal-rate}). $k=10$ closes
-at $0.36$, consistent with the plateau between $k=3$ and $k=10$ reported
-in earlier exploratory work. Benign prompts produce zero refusals,
+at $0.36$, suggesting that most of the behavioral attack effect occurs
+by $k=3$ in this sample. Benign prompts produce zero refusals,
 ruling out a generic refusal tendency.
 
 \begin{table}[h]
@@ -599,12 +599,12 @@ H6 & Supported in the negative direction & Refusal vs.\ controls indistinguishab
 \end{table}
 
 \paragraph{Interpretation.}
-The Report~5 design treated information loss and active suppression as
-two competing mechanistic accounts of the attack. The discriminator was:
+The study design treats information loss and active suppression as
+two competing mechanistic accounts of the attack. The discriminator is:
 if a clean intervention restores refusal, the information-loss account
 is supported; if it does not, then the late-layer signal is more likely
 to be a downstream readout or to be overridden by other computations.
-Two cleaner interventions with controls both fail at the late layers,
+The two interventions with controls both fail at the late layers,
 even though the observational signal at those same layers is unambiguous:
 the refusal direction is robust under a held-out extraction set (H2),
 tracks prompt-level behavior under attack (H3), and additive injection
@@ -654,8 +654,7 @@ causal knob.
 \item \emph{Direction extraction.} The refusal direction is computed
   via difference-in-means on a held-out 50+50 prompt set disjoint from
   the 25 traced prompts. The direction is therefore not fit on the
-  prompts it is evaluated on, which addresses an overfitting concern
-  raised in earlier work.
+  prompts it is evaluated on.
 \item \emph{Layer-magnitude comparability.} Mean projections at
   different layers live on different scales, so cross-layer numeric
   comparisons describe direction and ordering, not raw magnitude.
