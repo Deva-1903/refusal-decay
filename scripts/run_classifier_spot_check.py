@@ -253,7 +253,13 @@ def cmd_score(args: argparse.Namespace) -> int:
     )
     per_cond["agreement_rate"] = per_cond["n_agreement"] / per_cond["n"]
     per_cond["flip_rate"] = per_cond["n_flipped"] / per_cond["n"]
-    lines.append(per_cond.to_markdown(index=False, floatfmt=".2f"))
+    try:
+        lines.append(per_cond.to_markdown(index=False, floatfmt=".2f"))
+    except ImportError:
+        # Fallback when `tabulate` is not installed.
+        lines.append("```")
+        lines.append(per_cond.to_string(index=False, float_format=lambda x: f"{x:.2f}"))
+        lines.append("```")
 
     flips = df[df["flipped"]]
     if not flips.empty:
