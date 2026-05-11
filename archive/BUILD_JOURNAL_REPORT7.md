@@ -95,3 +95,7 @@ Still to produce on Unity:
 - Layer `20` intervention grid.
 - Target position `7`.
 - Orthogonal direction control if random control is insufficient.
+
+## Cleanup Note
+
+Cleaned stale locally generated Report 7 outputs before running real Unity GPU experiments.

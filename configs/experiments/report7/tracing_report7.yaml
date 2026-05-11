@@ -5,6 +5,10 @@ report7:
   source_report6_trace_dir: outputs/report6/traces
 
 data:
+  # Same 25 prompts as patching/intervention so per-prompt outcomes can be
+  # joined across analyses. Disjoint from data/processed/report7_direction_*.
+  harmful_prompts: data/processed/report7_traced_harmful.jsonl
+  benign_prompts: data/processed/report7_traced_benign.jsonl
   max_prompts: 25
 
 generation:

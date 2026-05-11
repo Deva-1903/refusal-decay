@@ -6,7 +6,10 @@ report7:
   output_root: outputs/report7
 
 data:
-  max_prompts: 10
+  # Use the same 25 traced prompts as tracing/intervention so per-prompt outcomes
+  # can be tied back to per-prompt H3 projection.
+  harmful_prompts: data/processed/report7_traced_harmful.jsonl
+  max_prompts: 25
 
 generation:
   max_new_tokens: 64

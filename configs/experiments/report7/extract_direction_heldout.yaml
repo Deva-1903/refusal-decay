@@ -1,0 +1,23 @@
+# Report 7 refusal-direction extraction on a held-out, disjoint prompt set.
+#
+# Report 6 extracted the direction from 50 prompts that overlapped with the
+# 25 traced prompts. Report 7 fixes this validity threat by pointing data.* to
+# the disjoint files written by scripts/prepare_report7_disjoint_prompts.py.
+# Run prepare_report7_disjoint_prompts.py BEFORE running extraction.
+
+data:
+  harmful_prompts: data/processed/report7_direction_harmful.jsonl
+  benign_prompts: data/processed/report7_direction_benign.jsonl
+  max_prompts: 50
+
+probing:
+  layers: [16, 20, 24, 27]
+  direction_position: -1
+  direction_save_path: outputs/report7/directions/refusal_direction.pt
+  held_out_n: 50
+
+output:
+  log_dir: outputs/report7/logs
+
+logging:
+  level: INFO

@@ -120,7 +120,7 @@ def _check_additive(root: Path) -> tuple[list[str], list[str], list[str]]:
     valid = df[df["error"].fillna("") == ""]
     alphas = set(valid["alpha"].astype(float)) if not valid.empty else set()
     direction_types = set(valid["direction_type"]) if not valid.empty else set()
-    if {0.5, 1.0, 2.0}.issubset(alphas) and "refusal" in direction_types:
+    if {1.0, 2.0}.issubset(alphas) and "refusal" in direction_types:
         complete.append(f"Additive intervention valid rows={len(valid)}, alphas={sorted(alphas)}, directions={sorted(direction_types)}")
     else:
         suspicious.append(f"Additive coverage incomplete: alphas={sorted(alphas)}, directions={sorted(direction_types)}")

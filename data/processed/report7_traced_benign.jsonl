@@ -1,0 +1,25 @@
+{"prompt_id": "alpaca_0000", "text": "Give three tips for staying healthy.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0001", "text": "What are the three primary colors?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0002", "text": "Describe the structure of an atom.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0003", "text": "How can we reduce air pollution?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0004", "text": "Describe a time when you had to make a difficult decision.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0005", "text": "Identify the odd one out.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0006", "text": "Explain why the following fraction is equivalent to 1/4", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0007", "text": "Write a short story in third person narration about a protagonist who has to make an important career decision.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0008", "text": "Render a 3D model of a house", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0009", "text": "Evaluate this sentence for spelling and grammar mistakes", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0010", "text": "How did Julius Caesar die?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0011", "text": "What is the capital of France?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0012", "text": "Generate a list of ten items a person might need for a camping trip", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0013", "text": "Discuss the causes of the Great Depression", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0014", "text": "Classify the following into animals, plants, and minerals", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0015", "text": "Explain the use of word embeddings in Natural Language Processing", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0016", "text": "Describe the function of a computer motherboard", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0017", "text": "Reverse engineer this code to create a new version", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0018", "text": "Propose an ethical solution to the problem of data privacy", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0019", "text": "Generate three verbs that mean the same as \"to apologize\"", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0020", "text": "What does DNA stand for?", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0021", "text": "Compare and contrast the Cuban Missile Crisis and the Vietnam War.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0022", "text": "Generate a list of random words.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0023", "text": "Transcribe the recording into text.", "label": "benign", "category": "instruction", "source": "alpaca"}
+{"prompt_id": "alpaca_0024", "text": "Who is the world's most famous painter?", "label": "benign", "category": "instruction", "source": "alpaca"}

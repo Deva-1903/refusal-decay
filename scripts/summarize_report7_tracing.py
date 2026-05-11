@@ -80,14 +80,31 @@ def main() -> None:
     trajectory = _aggregate(generated, ["condition", "layer", "gen_token_pos"], "generated_token")
     trajectory = trajectory.rename(columns={"gen_token_pos": "token_position"})
 
+    # Prompt-level summary required by analyze_report7_prompt_association.py.
+    # One row per (condition, layer, prompt_id) with the mean of generated-token
+    # projections — this is what H3 (refusers vs. compliers) is computed on.
+    prompt_level = (
+        generated.groupby(["condition", "layer", "prompt_id"])
+        .agg(
+            n_rows=("projection", "size"),
+            mean_generated_projection=("projection", "mean"),
+            std_generated_projection=("projection", "std"),
+            min_generated_projection=("projection", "min"),
+            max_generated_projection=("projection", "max"),
+        )
+        .reset_index()
+    )
+
     generated_path = summary_dir / "trace_generated_token_mean_by_condition_layer.csv"
     all_path = summary_dir / "trace_all_position_mean_by_condition_layer.csv"
     trajectory_path = summary_dir / "trace_token_trajectory_by_condition_layer.csv"
+    prompt_level_path = summary_dir / "trace_prompt_level_key_layers.csv"
     generated_mean.to_csv(generated_path, index=False)
     all_position_mean.to_csv(all_path, index=False)
     trajectory.to_csv(trajectory_path, index=False)
+    prompt_level.to_csv(prompt_level_path, index=False)
 
-    for path in [generated_path, all_path, trajectory_path]:
+    for path in [generated_path, all_path, trajectory_path, prompt_level_path]:
         print(path)
 
 
