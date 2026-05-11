@@ -1,0 +1,43 @@
+# Report 7 benign positive-control for the additive refusal-direction intervention.
+#
+# Purpose: specificity test. Add the refusal direction to *benign* prompts
+# at k=0 (no attack). If the model now refuses, the direction is causally
+# active but over-broad. If it doesn't, the direction is harmful-specific
+# under this intervention setting.
+#
+# Measured the same way as the harmful run:
+#   - "restored_refusal" here means "model started refusing" (false-refusal).
+#   - That metric should be LOW for the refusal direction relative to controls.
+
+report7:
+  condition: benign_k00
+  dataset: benign
+  output_root: outputs/report7
+
+data:
+  benign_prompts: data/processed/report7_traced_benign.jsonl
+  max_prompts: 25
+
+generation:
+  max_new_tokens: 64
+
+prefilling:
+  # Benign baseline: no attack, no prefill tokens.
+  k_values: [0]
+
+probing:
+  direction_save_path: outputs/report7/directions/refusal_direction.pt
+
+intervention:
+  layers: [16, 24, 27]
+  target_positions: [0, 1, 3]
+  alphas: [1.0, 2.0]
+  direction_types: [refusal, random, orthogonal]
+  output_dir: outputs/report7/interventions_benign_control
+  seeds: [42, 43, 44, 45, 46]
+
+output:
+  log_dir: outputs/report7/logs
+
+logging:
+  level: INFO

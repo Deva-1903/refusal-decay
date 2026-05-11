@@ -37,13 +37,22 @@ from src.utils.io_utils import ensure_dir
 
 
 CROSS_GROUP_COLS = ["source_condition", "target_condition", "layer", "source_position", "target_position", "mode"]
-ADDITIVE_GROUP_COLS = ["condition", "layer", "target_position", "alpha", "direction_type"]
+# Additive groups by `seed` so each (cell, seed) gets its own CIs/McNemar.
+# Aggregation across seeds for the random/orthogonal controls is in the
+# `additive_direction_seed_aggregated*.csv` file produced by the run script.
+ADDITIVE_GROUP_COLS = ["dataset", "condition", "layer", "target_position", "alpha", "direction_type", "seed"]
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Bootstrap + McNemar stats for R7 interventions.")
     parser.add_argument("--cross-results", type=str, default="outputs/report7/patching/cross_condition_patching_results.csv")
     parser.add_argument("--additive-results", type=str, default="outputs/report7/interventions/additive_direction_results.csv")
+    parser.add_argument(
+        "--additive-benign-results",
+        type=str,
+        default="outputs/report7/interventions_benign_control/additive_direction_results_benign.csv",
+        help="Benign positive-control additive results; processed in addition to harmful.",
+    )
     parser.add_argument("--summary-dir", type=str, default="outputs/report7/summaries")
     parser.add_argument("--n-boot", type=int, default=2000)
     parser.add_argument("--ci", type=float, default=0.95)
@@ -140,14 +149,44 @@ def _compute_stats(df: pd.DataFrame, group_cols: list[str], baseline_col: str, i
     valid = df[df["error"].fillna("") == ""].copy()
     if valid.empty:
         return pd.DataFrame()
+    # Drop group cols that are missing from this dataframe (older CSVs may
+    # predate the dataset/seed columns added in the multi-seed upgrade).
+    available = [col for col in group_cols if col in valid.columns]
     rows: list[dict] = []
-    for keys, group in valid.groupby(group_cols):
+    for keys, group in valid.groupby(available):
         if not isinstance(keys, tuple):
             keys = (keys,)
-        cell = dict(zip(group_cols, keys))
+        cell = dict(zip(available, keys))
         cell.update(_compute_cell_stats(group, n_boot, ci, rng, baseline_col, intervened_col, min_discordant))
         rows.append(cell)
     return pd.DataFrame(rows)
+
+
+def _aggregate_additive_seed_stats(stats: pd.DataFrame) -> pd.DataFrame:
+    """Aggregate per-seed cell stats into a per-cell mean +/- std table.
+
+    Useful for random/orthogonal controls where the cell exists at multiple
+    seeds. `refusal` direction-type cells with a single seed pass through
+    with std = 0 / NaN.
+    """
+    if stats.empty or "seed" not in stats.columns:
+        return pd.DataFrame()
+    cell_cols = [col for col in ["dataset", "condition", "layer", "target_position", "alpha", "direction_type"] if col in stats.columns]
+    aggregated = (
+        stats.groupby(cell_cols)
+        .agg(
+            n_seeds=("seed", "nunique"),
+            mean_restoration_rate=("restoration_rate", "mean"),
+            std_restoration_rate=("restoration_rate", "std"),
+            min_restoration_rate=("restoration_rate", "min"),
+            max_restoration_rate=("restoration_rate", "max"),
+            mean_loss_rate=("loss_rate", "mean"),
+            mean_ci_lo=("restoration_ci_lo", "mean"),
+            mean_ci_hi=("restoration_ci_hi", "mean"),
+        )
+        .reset_index()
+    )
+    return aggregated
 
 
 def main() -> None:
@@ -190,10 +229,42 @@ def main() -> None:
         additive_out = summary_dir / "additive_direction_stats.csv"
         additive_stats.to_csv(additive_out, index=False)
         print(additive_out)
+
+        # Aggregate across seeds (random/orthogonal mean +/- std).
+        additive_seed_agg = _aggregate_additive_seed_stats(additive_stats)
+        if not additive_seed_agg.empty:
+            additive_seed_agg_out = summary_dir / "additive_direction_stats_seed_aggregated.csv"
+            additive_seed_agg.to_csv(additive_seed_agg_out, index=False)
+            print(additive_seed_agg_out)
     else:
         print(f"WARN: missing {additive_path} — skipping additive stats")
 
-    combined = pd.concat([cross_stats, additive_stats], ignore_index=True, sort=False)
+    benign_path = Path(args.additive_benign_results)
+    benign_stats = pd.DataFrame()
+    if benign_path.exists():
+        benign_df = pd.read_csv(benign_path)
+        benign_stats = _compute_stats(
+            benign_df, ADDITIVE_GROUP_COLS,
+            baseline_col="baseline_attacked_label",
+            intervened_col="intervened_label",
+            n_boot=args.n_boot, ci=args.ci, rng=rng, min_discordant=args.mcnemar_min_discordant,
+        )
+        if not benign_stats.empty:
+            benign_stats["method"] = benign_stats.apply(
+                lambda r: f"report7_additive_benign_{r['direction_type']}_alpha_{float(r['alpha']):g}", axis=1,
+            )
+            benign_out = summary_dir / "additive_direction_stats_benign_control.csv"
+            benign_stats.to_csv(benign_out, index=False)
+            print(benign_out)
+            benign_seed_agg = _aggregate_additive_seed_stats(benign_stats)
+            if not benign_seed_agg.empty:
+                benign_seed_agg_out = summary_dir / "additive_direction_stats_seed_aggregated_benign_control.csv"
+                benign_seed_agg.to_csv(benign_seed_agg_out, index=False)
+                print(benign_seed_agg_out)
+    else:
+        print(f"INFO: no benign positive-control results at {benign_path} (run additive_intervention_benign_control_report7.yaml to populate)")
+
+    combined = pd.concat([cross_stats, additive_stats, benign_stats], ignore_index=True, sort=False)
     if not combined.empty:
         combined_out = summary_dir / "report7_intervention_stats_combined.csv"
         combined.to_csv(combined_out, index=False)

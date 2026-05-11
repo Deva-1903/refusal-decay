@@ -2,6 +2,7 @@
 
 report7:
   condition: harmful_k03
+  dataset: harmful
   output_root: outputs/report7
 
 data:
@@ -29,7 +30,10 @@ intervention:
   # refusal = primary; random + orthogonal = direction-specificity controls.
   direction_types: [refusal, random, orthogonal]
   output_dir: outputs/report7/interventions
-  seed: 42
+  # Multi-seed control: random and orthogonal directions are run for every seed
+  # so the noise floor across random vectors can be reported (mean +/- std).
+  # `refusal` is deterministic and only uses the first seed.
+  seeds: [42, 43, 44, 45, 46]
 
 output:
   log_dir: outputs/report7/logs

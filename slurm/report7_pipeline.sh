@@ -90,23 +90,40 @@ python scripts/run_report7_cross_condition_patching.py \
     --direction-path outputs/report7/directions/refusal_direction.pt
 
 # ---------------------------------------------------------------------------
-# 7. Additive refusal-direction intervention (refusal + random + orthogonal)
+# 7. Additive refusal-direction intervention on harmful_k03
+#    (refusal + 5-seed random + 5-seed orthogonal controls)
 # ---------------------------------------------------------------------------
 python scripts/run_report7_additive_direction_intervention.py \
     --config configs/experiments/report7/additive_intervention_report7.yaml \
     --direction-path outputs/report7/directions/refusal_direction.pt
 
 # ---------------------------------------------------------------------------
+# 7b. Benign positive-control: same intervention on benign prompts at k=0.
+#     If refusal direction causes refusal here, it is over-broad (specificity
+#     fail). If it doesn't, the direction is harmful-context-specific.
+# ---------------------------------------------------------------------------
+python scripts/run_report7_additive_direction_intervention.py \
+    --config configs/experiments/report7/additive_intervention_benign_control_report7.yaml \
+    --direction-path outputs/report7/directions/refusal_direction.pt
+
+# ---------------------------------------------------------------------------
 # 8. Bootstrap CIs + McNemar on per-prompt cell outcomes
+#    (also aggregates random/orthogonal controls across seeds)
 # ---------------------------------------------------------------------------
 python scripts/run_report7_stats.py
 
 # ---------------------------------------------------------------------------
-# 9. Cross-report comparison, plots, verification
+# 9. Cross-report comparison, plots, verification, classifier spot-check seed
 # ---------------------------------------------------------------------------
 python scripts/compare_report6_report7_patching.py
 python scripts/plot_report7_results.py
 python scripts/verify_report7_outputs.py || true
 
+# Generates the YAML template you'll fill in manually after pulling the run.
+# Scoring (`score`) happens locally after you label the outputs.
+python scripts/run_classifier_spot_check.py generate || true
+
 date
 echo "Report 7 pipeline complete. See VERIFY_REPORT7.md for status."
+echo "Manual step: edit outputs/report7/classifier_spot_check/spot_check.yaml,"
+echo "  then run: python scripts/run_classifier_spot_check.py score"
