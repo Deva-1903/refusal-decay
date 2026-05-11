@@ -88,10 +88,15 @@ python scripts/analyze_report7_prompt_association.py \
 
 # ---------------------------------------------------------------------------
 # 6. Cross-condition patching (k=0 source -> k=3 target)
+#    Skip if a valid results file already exists (resume-safe).
 # ---------------------------------------------------------------------------
-python scripts/run_report7_cross_condition_patching.py \
-    --config configs/experiments/report7/patching_report7.yaml \
-    --direction-path outputs/report7/directions/refusal_direction.pt
+if [ -s outputs/report7/patching/cross_condition_patching_results.csv ]; then
+    echo "Skipping cross-condition patching: results already exist"
+else
+    python scripts/run_report7_cross_condition_patching.py \
+        --config configs/experiments/report7/patching_report7.yaml \
+        --direction-path outputs/report7/directions/refusal_direction.pt
+fi
 
 # ---------------------------------------------------------------------------
 # 7. Additive refusal-direction intervention on harmful_k03

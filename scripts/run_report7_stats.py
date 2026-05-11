@@ -223,19 +223,21 @@ def main() -> None:
             intervened_col="intervened_label",
             n_boot=args.n_boot, ci=args.ci, rng=rng, min_discordant=args.mcnemar_min_discordant,
         )
-        additive_stats["method"] = additive_stats.apply(
-            lambda r: f"report7_additive_{r['direction_type']}_alpha_{float(r['alpha']):g}", axis=1,
-        )
-        additive_out = summary_dir / "additive_direction_stats.csv"
-        additive_stats.to_csv(additive_out, index=False)
-        print(additive_out)
+        if not additive_stats.empty:
+            additive_stats["method"] = additive_stats.apply(
+                lambda r: f"report7_additive_{r['direction_type']}_alpha_{float(r['alpha']):g}", axis=1,
+            )
+            additive_out = summary_dir / "additive_direction_stats.csv"
+            additive_stats.to_csv(additive_out, index=False)
+            print(additive_out)
 
-        # Aggregate across seeds (random/orthogonal mean +/- std).
-        additive_seed_agg = _aggregate_additive_seed_stats(additive_stats)
-        if not additive_seed_agg.empty:
-            additive_seed_agg_out = summary_dir / "additive_direction_stats_seed_aggregated.csv"
-            additive_seed_agg.to_csv(additive_seed_agg_out, index=False)
-            print(additive_seed_agg_out)
+            additive_seed_agg = _aggregate_additive_seed_stats(additive_stats)
+            if not additive_seed_agg.empty:
+                additive_seed_agg_out = summary_dir / "additive_direction_stats_seed_aggregated.csv"
+                additive_seed_agg.to_csv(additive_seed_agg_out, index=False)
+                print(additive_seed_agg_out)
+        else:
+            print(f"WARN: {additive_path} has no non-error rows; additive cells all failed — check the dtype/run-script setup")
     else:
         print(f"WARN: missing {additive_path} — skipping additive stats")
 
@@ -261,6 +263,8 @@ def main() -> None:
                 benign_seed_agg_out = summary_dir / "additive_direction_stats_seed_aggregated_benign_control.csv"
                 benign_seed_agg.to_csv(benign_seed_agg_out, index=False)
                 print(benign_seed_agg_out)
+        else:
+            print(f"WARN: {benign_path} has no non-error rows; benign control cells all failed")
     else:
         print(f"INFO: no benign positive-control results at {benign_path} (run additive_intervention_benign_control_report7.yaml to populate)")
 

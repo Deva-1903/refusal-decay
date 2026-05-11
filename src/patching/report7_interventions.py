@@ -87,7 +87,7 @@ def extract_direction_component(
     def hook_fn(module, input, output):
         hidden = output[0] if isinstance(output, tuple) else output
         act = hidden[0, position, :].detach()
-        layer_direction = direction.to(act.device)
+        layer_direction = direction.to(act.device, dtype=act.dtype)
         projection = torch.dot(act, layer_direction)
         captured[0] = (projection.item(), (projection * layer_direction).detach().cpu())
 
@@ -151,7 +151,8 @@ def _run_generation_with_step_intervention(
 
         if current_step == target_position and not applied[0]:
             hidden = hidden.clone()
-            layer_direction = direction.to(hidden.device)
+            # Match dtype as well — bf16 models would otherwise fail in torch.dot.
+            layer_direction = direction.to(hidden.device, dtype=hidden.dtype)
             projection_before[0] = torch.dot(hidden[0, 0, :], layer_direction).item()
             hidden = edit_fn(hidden, layer_direction)
             projection_after[0] = torch.dot(hidden[0, 0, :], layer_direction).item()
@@ -231,20 +232,24 @@ def make_direction_for_type(
     seed: int,
     layer: int,
 ) -> torch.Tensor:
+    # Compute internally in float32 (needed for stable orthogonalization),
+    # but return in the input's original dtype so downstream hooks on a
+    # bfloat16 model don't hit dtype-mismatch errors in torch.dot.
+    target_dtype = base_direction.dtype
     base = F.normalize(base_direction.float().cpu(), dim=0)
     if direction_type == "refusal":
-        return base
+        return base.to(target_dtype)
     if direction_type == "random":
         generator = torch.Generator(device="cpu")
         generator.manual_seed(seed + layer * 1009)
         random_vec = torch.randn(base.shape, generator=generator)
-        return F.normalize(random_vec, dim=0)
+        return F.normalize(random_vec, dim=0).to(target_dtype)
     if direction_type == "orthogonal":
         generator = torch.Generator(device="cpu")
         generator.manual_seed(seed + layer * 1009 + 17)
         random_vec = torch.randn(base.shape, generator=generator)
         random_vec = random_vec - torch.dot(random_vec, base) * base
-        return F.normalize(random_vec, dim=0)
+        return F.normalize(random_vec, dim=0).to(target_dtype)
     raise ValueError(f"Unsupported direction_type: {direction_type}")
 
 
