@@ -24,3 +24,12 @@
 2026-05-11 01:56:22,792 [INFO] src.classification.refusal_classifier: Classified 25 responses: 9 phrase-refusals, 16 phrase-compliances (guard labels: not run)
 2026-05-11 01:56:23,056 [INFO] __main__: Saved combined generation outputs to outputs/report7/generations/report7_generation_combined.jsonl
 2026-05-11 01:56:23,057 [INFO] __main__: Saved generation summary to outputs/report7/generations/report7_generation_summary.csv
+2026-05-11 02:28:56,389 [INFO] __main__: Starting Report 7 generation verification.
+2026-05-11 02:28:56,389 [INFO] __main__: Model: meta-llama/Llama-3.1-8B-Instruct
+2026-05-11 02:28:56,389 [INFO] __main__: Conditions: ['harmful_k00', 'harmful_k03', 'benign_k00', 'harmful_k10']
+2026-05-11 02:28:56,407 [INFO] __main__: Loading cached classified outputs for harmful_k00
+2026-05-11 02:28:56,419 [INFO] __main__: Loading cached classified outputs for harmful_k03
+2026-05-11 02:28:56,430 [INFO] __main__: Loading cached classified outputs for benign_k00
+2026-05-11 02:28:56,441 [INFO] __main__: Loading cached classified outputs for harmful_k10
+2026-05-11 02:28:56,745 [INFO] __main__: Saved combined generation outputs to outputs/report7/generations/report7_generation_combined.jsonl
+2026-05-11 02:28:56,746 [INFO] __main__: Saved generation summary to outputs/report7/generations/report7_generation_summary.csv

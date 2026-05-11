@@ -1,0 +1,32 @@
+2026-05-11 02:29:53,847 [INFO] __main__: Source condition: harmful_k00
+2026-05-11 02:29:53,847 [INFO] __main__: Target condition: harmful_k03
+2026-05-11 02:29:53,847 [INFO] __main__: Layers: [16, 24, 27]
+2026-05-11 02:29:53,847 [INFO] __main__: Target positions: [0, 1, 3, 5]
+2026-05-11 02:29:53,848 [INFO] src.data.loader: Loaded 25 harmful prompts from data/processed/report7_traced_harmful.jsonl
+2026-05-11 02:29:53,855 [INFO] src.probing.direction: Loaded refusal directions for layers: [16, 20, 24, 27]
+2026-05-11 02:29:53,855 [INFO] src.generation.generator: Loading tokenizer from meta-llama/Llama-3.1-8B-Instruct
+2026-05-11 02:29:53,917 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-11 02:29:53,992 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-11 02:29:54,055 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-11 02:29:54,109 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-11 02:29:54,956 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct "HTTP/1.1 200 OK"
+2026-05-11 02:29:54,973 [INFO] src.generation.generator: Loading model from meta-llama/Llama-3.1-8B-Instruct (dtype=bfloat16)
+2026-05-11 02:29:55,025 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-11 02:30:00,604 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/generation_config.json "HTTP/1.1 200 OK"
+2026-05-11 02:30:00,657 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+2026-05-11 02:30:00,668 [INFO] src.generation.generator: Model loaded. Device map: single device
+2026-05-11 02:30:00,668 [INFO] src.generation.generator: Running CUDA preflight on NVIDIA L40S (cuda:0, sm_89)
+2026-05-11 02:30:00,700 [INFO] __main__: Running layer=16 target_position=0 over 25 prompts
+2026-05-11 02:31:17,459 [INFO] __main__: Running layer=16 target_position=1 over 25 prompts
+2026-05-11 02:31:55,320 [INFO] __main__: Running layer=16 target_position=3 over 25 prompts
+2026-05-11 02:32:31,781 [INFO] __main__: Running layer=16 target_position=5 over 25 prompts
+2026-05-11 02:33:09,012 [INFO] __main__: Running layer=24 target_position=0 over 25 prompts
+2026-05-11 02:33:47,571 [INFO] __main__: Running layer=24 target_position=1 over 25 prompts
+2026-05-11 02:34:24,970 [INFO] __main__: Running layer=24 target_position=3 over 25 prompts
+2026-05-11 02:35:01,552 [INFO] __main__: Running layer=24 target_position=5 over 25 prompts
+2026-05-11 02:35:38,326 [INFO] __main__: Running layer=27 target_position=0 over 25 prompts
+2026-05-11 02:36:15,539 [INFO] __main__: Running layer=27 target_position=1 over 25 prompts
+2026-05-11 02:36:53,224 [INFO] __main__: Running layer=27 target_position=3 over 25 prompts
+2026-05-11 02:37:29,805 [INFO] __main__: Running layer=27 target_position=5 over 25 prompts
+2026-05-11 02:38:06,641 [INFO] __main__: Saved cross-condition patching results to outputs/report7/patching/cross_condition_patching_results.csv
+2026-05-11 02:38:06,641 [INFO] __main__: Saved cross-condition patching summary to outputs/report7/patching/cross_condition_patching_summary.csv

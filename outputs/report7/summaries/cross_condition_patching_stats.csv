@@ -1,0 +1,13 @@
+source_condition,target_condition,layer,source_position,target_position,mode,n_prompts,restored,lost,unchanged,restoration_rate,restoration_ci_lo,restoration_ci_hi,loss_rate,loss_ci_lo,loss_ci_hi,mcnemar_n_pairs,mcnemar_b_restored,mcnemar_c_lost,mcnemar_discordant,mcnemar_p_value,mcnemar_skipped_reason,method
+harmful_k00,harmful_k03,16,-1,0,replace,25,1,0,24,0.04,0.0,0.12,0.0,0.0,0.0,25,1,0,1,,discordant<5,report7_baseline_source_cross_condition
+harmful_k00,harmful_k03,16,-1,1,replace,25,0,2,23,0.0,0.0,0.0,0.08,0.0,0.2,25,0,2,2,,discordant<5,report7_baseline_source_cross_condition
+harmful_k00,harmful_k03,16,-1,3,replace,25,1,0,24,0.04,0.0,0.12,0.0,0.0,0.0,25,1,0,1,,discordant<5,report7_baseline_source_cross_condition
+harmful_k00,harmful_k03,16,-1,5,replace,25,0,0,25,0.0,0.0,0.0,0.0,0.0,0.0,25,0,0,0,,discordant<5,report7_baseline_source_cross_condition
+harmful_k00,harmful_k03,24,-1,0,replace,25,2,2,21,0.08,0.0,0.2,0.08,0.0,0.2,25,2,2,4,,discordant<5,report7_baseline_source_cross_condition
+harmful_k00,harmful_k03,24,-1,1,replace,25,0,4,21,0.0,0.0,0.0,0.16,0.04,0.32,25,0,4,4,,discordant<5,report7_baseline_source_cross_condition
+harmful_k00,harmful_k03,24,-1,3,replace,25,0,1,24,0.0,0.0,0.0,0.04,0.0,0.12,25,0,1,1,,discordant<5,report7_baseline_source_cross_condition
+harmful_k00,harmful_k03,24,-1,5,replace,25,1,0,24,0.04,0.0,0.12,0.0,0.0,0.0,25,1,0,1,,discordant<5,report7_baseline_source_cross_condition
+harmful_k00,harmful_k03,27,-1,0,replace,25,0,0,25,0.0,0.0,0.0,0.0,0.0,0.0,25,0,0,0,,discordant<5,report7_baseline_source_cross_condition
+harmful_k00,harmful_k03,27,-1,1,replace,25,1,2,22,0.04,0.0,0.12,0.08,0.0,0.2,25,1,2,3,,discordant<5,report7_baseline_source_cross_condition
+harmful_k00,harmful_k03,27,-1,3,replace,25,1,0,24,0.04,0.0,0.12,0.0,0.0,0.0,25,1,0,1,,discordant<5,report7_baseline_source_cross_condition
+harmful_k00,harmful_k03,27,-1,5,replace,25,1,0,24,0.04,0.0,0.12,0.0,0.0,0.0,25,1,0,1,,discordant<5,report7_baseline_source_cross_condition
