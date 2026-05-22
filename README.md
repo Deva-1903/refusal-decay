@@ -17,17 +17,17 @@ The full write-up lives in [`reports/`](reports/). Start with the final paper:
 
 | Report | What it covers |
 |--------|----------------|
-| **[08 — Final Paper](reports/08-final-paper.pdf)** | **Complete research-paper synthesis. Read this one.** |
-| [07 — Revised Results](reports/07-revised-results.pdf) | Held-out direction, cross-condition patching, additive intervention, controls |
-| [06 — Initial Results](reports/06-initial-results.pdf) | First execution of the research design |
-| [05 — Research Design](reports/05-research-design.pdf) | Experimental plan, hypotheses, analysis methods |
-| [03 — Exploratory Results](reports/03-exploratory-results.pdf) | First contact with the system; the surprising late-layer finding |
+| **[08: Final Paper](reports/08-final-paper.pdf)** | **Complete research-paper synthesis. Read this one.** |
+| [07: Revised Results](reports/07-revised-results.pdf) | Held-out direction, cross-condition patching, additive intervention, controls |
+| [06: Initial Results](reports/06-initial-results.pdf) | First execution of the research design |
+| [05: Research Design](reports/05-research-design.pdf) | Experimental plan, hypotheses, analysis methods |
+| [03: Exploratory Results](reports/03-exploratory-results.pdf) | First contact with the system; the surprising late-layer finding |
 
 LaTeX sources for the later reports are under [`reports/latex/`](reports/latex/).
 
 ---
 
-## TL;DR — what we found
+## TL;DR: what we found
 
 A **prefilling attack** forces a chat model to begin its reply with a compliant
 prefix (e.g. *"Sure, here is how you can do that:"*). This reliably breaks
@@ -40,14 +40,14 @@ refusal. We measured what happens inside the model using the difference-in-means
   negative** under attack, with a **monotone-by-depth gradient**
   (Δ = 0.76, 1.63, 3.23, 4.08 at layers 16/20/24/27).
 - Within an attacked batch, prompts that *still refuse* have less-negative
-  late-layer projection than prompts that comply — the same depth signature at
+  late-layer projection than prompts that comply; the same depth signature at
   the prompt level.
 
 **Causal findings (the twist):**
 - Patching a clean `k=0` refusal-direction component into the attacked forward
   pass **does not restore refusal** (every cell ≤ 0.08, 95% CIs include zero).
 - Directly adding a scaled refusal-direction vector restores refusal in
-  **zero of 300** late-layer prompts — statistically indistinguishable from
+  **zero of 300** late-layer prompts, statistically indistinguishable from
   random and orthogonal control vectors (5 seeds each).
 - A **benign positive control** produces zero false-refusals, ruling out a
   "the direction is a free knob" explanation.
@@ -56,17 +56,17 @@ refusal. We measured what happens inside the model using the difference-in-means
 prompt-level-predictive readout* of the attacked state, but at the intervention
 granularity tested it is **not the causal lever** for refusal. The attack
 appears to lock in compliance earlier (during the prefill) or via downstream
-computation that single-position residual edits cannot overturn — a conclusion
-bounded explicitly to the interventions tested.
+computation that single-position residual edits cannot overturn. This conclusion
+is bounded explicitly to the interventions tested.
 
 ---
 
 ## STEP framing
 
-- **System** — Llama-3.1-8B-Instruct (32 layers, hidden 4096), bfloat16.
-- **Task** — safety-constrained generation: refuse harmful prompts, comply with benign ones.
-- **Environment** — prefilling attacks with `k ∈ {0, 3, 10}` forced compliant tokens.
-- **Phenomenon** — joint behavioral refusal failure + late-layer refusal-direction shift.
+- **System**: Llama-3.1-8B-Instruct (32 layers, hidden 4096), bfloat16.
+- **Task**: safety-constrained generation: refuse harmful prompts, comply with benign ones.
+- **Environment**: prefilling attacks with `k ∈ {0, 3, 10}` forced compliant tokens.
+- **Phenomenon**: joint behavioral refusal failure + late-layer refusal-direction shift.
 
 Harmful prompts from [AdvBench](https://arxiv.org/abs/2307.15043); benign
 controls from [Alpaca](https://github.com/tatsu-lab/stanford_alpaca).
