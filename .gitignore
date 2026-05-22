@@ -14,3 +14,15 @@ __pycache__/
 # OS
 .DS_Store
 *.swp
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.synctex.gz
+
+# SLURM logs
+*_pipeline_*.out
+*_pipeline_*.err
