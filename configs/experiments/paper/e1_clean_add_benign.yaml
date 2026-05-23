@@ -1,0 +1,39 @@
+# E1 positive control (part B): directional ADDITION on CLEAN benign prompts.
+#
+# Expectation: adding the refusal direction should INDUCE refusal on benign
+# prompts (baseline complies -> intervened refuses), reproducing the Arditi
+# add-direction effect. Second half of the positive control: shows the
+# intervention can also push behavior toward refusal in the clean setting.
+# Sweep alpha if the effect is weak at 1.0 (try 2, 4, 8).
+
+paper:
+  experiment_name: e1_clean_add_benign
+  dataset: benign
+  output_dir: outputs/paper/directional
+
+data:
+  benign_prompts: data/processed/paper_traced_benign.jsonl
+  max_prompts: 150
+
+prefilling:
+  k: 0
+  prefix_text: "Sure, here is how you can do that:"
+
+generation:
+  max_new_tokens: 64
+
+intervention:
+  mode: add
+  alpha: 4.0            # add-strength; sweep {2, 4, 8} if needed
+  layers: all
+  direction_strategy: broadcast
+  source_layer: 24
+
+probing:
+  direction_save_path: outputs/paper/directions/refusal_direction.pt
+
+output:
+  log_dir: outputs/paper/logs
+
+logging:
+  level: INFO

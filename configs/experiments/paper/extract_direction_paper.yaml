@@ -1,0 +1,25 @@
+# Paper-scale held-out refusal-direction extraction.
+#
+# Direction is extracted from a disjoint 50 harmful + 50 benign set (the
+# paper_direction_* files written by prepare_report7_disjoint_prompts.py
+# --prefix paper), so it is not fit on the 150 traced/intervention prompts.
+#
+# For cross-model runs, pass --model-config configs/model_qwen7b.yaml etc;
+# the model config overrides probing.layers to match that model's depth.
+
+data:
+  harmful_prompts: data/processed/paper_direction_harmful.jsonl
+  benign_prompts: data/processed/paper_direction_benign.jsonl
+  max_prompts: 50
+
+probing:
+  layers: [16, 20, 24, 27]
+  direction_position: -1
+  direction_save_path: outputs/paper/directions/refusal_direction.pt
+  held_out_n: 50
+
+output:
+  log_dir: outputs/paper/logs
+
+logging:
+  level: INFO

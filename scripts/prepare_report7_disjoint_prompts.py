@@ -36,6 +36,8 @@ def parse_args() -> argparse.Namespace:
                         help="Number of prompts in the traced/intervention set (must match the rest of R7).")
     parser.add_argument("--direction-n", type=int, default=50,
                         help="Number of prompts in the held-out direction-extraction set.")
+    parser.add_argument("--prefix", type=str, default="report7",
+                        help="Output filename prefix, e.g. 'report7' or 'paper'.")
     return parser.parse_args()
 
 
@@ -56,7 +58,7 @@ def _write_jsonl(records: list[dict], path: Path) -> None:
             f.write(json.dumps(record) + "\n")
 
 
-def _split_and_write(src: Path, out_dir: Path, name: str, traced_n: int, direction_n: int) -> dict:
+def _split_and_write(src: Path, out_dir: Path, name: str, traced_n: int, direction_n: int, prefix: str = "report7") -> dict:
     records = _read_jsonl(src)
     if len(records) < traced_n + direction_n:
         raise ValueError(
@@ -66,8 +68,8 @@ def _split_and_write(src: Path, out_dir: Path, name: str, traced_n: int, directi
     traced = records[:traced_n]
     direction = records[traced_n : traced_n + direction_n]
 
-    traced_path = out_dir / f"report7_traced_{name}.jsonl"
-    direction_path = out_dir / f"report7_direction_{name}.jsonl"
+    traced_path = out_dir / f"{prefix}_traced_{name}.jsonl"
+    direction_path = out_dir / f"{prefix}_direction_{name}.jsonl"
     _write_jsonl(traced, traced_path)
     _write_jsonl(direction, direction_path)
 
@@ -91,8 +93,8 @@ def main() -> None:
     out_dir = Path(args.out_dir)
 
     summaries = [
-        _split_and_write(Path(args.harmful), out_dir, "harmful", args.traced_n, args.direction_n),
-        _split_and_write(Path(args.benign), out_dir, "benign", args.traced_n, args.direction_n),
+        _split_and_write(Path(args.harmful), out_dir, "harmful", args.traced_n, args.direction_n, args.prefix),
+        _split_and_write(Path(args.benign), out_dir, "benign", args.traced_n, args.direction_n, args.prefix),
     ]
     for entry in summaries:
         print(

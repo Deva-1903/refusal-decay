@@ -1,0 +1,39 @@
+# E1 positive control (part A): directional ABLATION on CLEAN harmful prompts.
+#
+# Expectation: ablating the refusal direction at every layer/position should
+# DROP refusal (baseline refuses -> intervened complies). This proves the
+# intervention can move behavior and is the control the course project lacked.
+# This is the GATE: if ablation does not break refusal here, fix the
+# intervention before running anything else.
+
+paper:
+  experiment_name: e1_clean_ablate_harmful
+  dataset: harmful
+  output_dir: outputs/paper/directional
+
+data:
+  harmful_prompts: data/processed/paper_traced_harmful.jsonl
+  max_prompts: 150
+
+prefilling:
+  k: 0
+  prefix_text: "Sure, here is how you can do that:"
+
+generation:
+  max_new_tokens: 64
+
+intervention:
+  mode: ablate
+  alpha: 1.0            # unused for ablate
+  layers: all           # ablate across every layer (Arditi-style)
+  direction_strategy: broadcast
+  source_layer: 24      # late-layer direction broadcast to all layers
+
+probing:
+  direction_save_path: outputs/paper/directions/refusal_direction.pt
+
+output:
+  log_dir: outputs/paper/logs
+
+logging:
+  level: INFO

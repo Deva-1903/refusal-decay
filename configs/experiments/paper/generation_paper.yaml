@@ -1,0 +1,55 @@
+# Paper-scale behavioral generation (run via scripts/run_report7_generation.py).
+# Section is named `report7` for runner compatibility; paths point to outputs/paper.
+
+report7:
+  name: paper
+  output_root: outputs/paper
+  summaries_dir: outputs/paper/summaries
+  directions_dir: outputs/paper/directions
+  report6_root: outputs/paper/_unused   # reuse disabled via --no-reuse-report6
+  key_layers: [24, 27]
+  comparison_layers: [16, 20]
+  attacked_k: 3
+  optional_k: 10
+  generation_conditions:
+    - name: harmful_k00
+      dataset: harmful
+      k: 0
+      max_prompts: 150
+    - name: harmful_k03
+      dataset: harmful
+      k: 3
+      max_prompts: 150
+    - name: harmful_k10
+      dataset: harmful
+      k: 10
+      max_prompts: 150
+    - name: benign_k00
+      dataset: benign
+      k: 0
+      max_prompts: 150
+
+data:
+  harmful_prompts: data/processed/paper_traced_harmful.jsonl
+  benign_prompts: data/processed/paper_traced_benign.jsonl
+
+generation:
+  max_new_tokens: 64
+
+probing:
+  layers: [16, 20, 24, 27]
+  direction_position: -1
+  direction_save_path: outputs/paper/directions/refusal_direction.pt
+
+tracing:
+  output_dir: outputs/paper/traces
+  save_format: parquet
+
+output:
+  base_dir: outputs/paper
+  generations_dir: outputs/paper/generations
+  plots_dir: outputs/paper/plots
+  log_dir: outputs/paper/logs
+
+logging:
+  level: INFO

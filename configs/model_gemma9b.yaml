@@ -1,0 +1,16 @@
+# Cross-family generality model: Gemma-2-9B-Instruct (42 layers, indices 0-41).
+#
+# Optional second cross-family model for E4 (cross-model) in the paper plan.
+#
+# Usage (any script):
+#   python scripts/run_directional_intervention.py --model-config configs/model_gemma9b.yaml ...
+
+model:
+  name: google/gemma-2-9b-it
+  dtype: bfloat16
+  device_map: auto
+
+probing:
+  # Gemma-2-9B has 42 layers; sample a comparison + late band.
+  layers: [21, 28, 33, 38]
+  direction_position: -1

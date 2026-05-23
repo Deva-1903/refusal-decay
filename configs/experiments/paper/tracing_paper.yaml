@@ -1,0 +1,33 @@
+# Paper-scale tracing (run via scripts/run_report7_tracing.py).
+# Section named `report7` for runner compatibility; paths point to outputs/paper.
+
+report7:
+  trace_dataset: harmful
+  summaries_dir: outputs/paper/summaries
+  source_report6_trace_dir: outputs/paper/traces
+
+data:
+  harmful_prompts: data/processed/paper_traced_harmful.jsonl
+  benign_prompts: data/processed/paper_traced_benign.jsonl
+  max_prompts: 150
+
+generation:
+  max_new_tokens: 48
+
+prefilling:
+  k_values: [0, 3, 10]
+
+probing:
+  layers: [16, 20, 24, 27]
+  direction_position: -1
+  direction_save_path: outputs/paper/directions/refusal_direction.pt
+
+tracing:
+  output_dir: outputs/paper/traces
+  save_format: parquet
+
+output:
+  log_dir: outputs/paper/logs
+
+logging:
+  level: INFO

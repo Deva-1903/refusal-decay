@@ -1,0 +1,18 @@
+# Cross-family generality model: Qwen2.5-7B-Instruct (28 layers, indices 0-27).
+#
+# Used for E4 (cross-model) in the paper plan. Tests whether the late-layer
+# refusal-direction gradient and the clean-vs-attacked intervention contrast
+# are Llama-specific or hold across families.
+#
+# Usage (any script):
+#   python scripts/run_directional_intervention.py --model-config configs/model_qwen7b.yaml ...
+
+model:
+  name: Qwen/Qwen2.5-7B-Instruct
+  dtype: bfloat16
+  device_map: auto
+
+probing:
+  # Qwen2.5-7B has 28 layers; mirror the Llama late-layer band proportionally.
+  layers: [14, 18, 21, 24]
+  direction_position: -1

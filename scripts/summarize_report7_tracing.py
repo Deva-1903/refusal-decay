@@ -69,7 +69,9 @@ def main() -> None:
     cfg = load_config(args.config)
     setup_logging(level=getattr(cfg.logging, "level", "INFO"), log_file=Path(cfg.output.log_dir) / "report7_tracing_summary.log")
 
-    summary_dir = ensure_dir("outputs/report7/summaries")
+    # Honor a config-provided summaries dir (paper runs write to outputs/paper);
+    # default to the Report 7 location for backward compatibility.
+    summary_dir = ensure_dir(getattr(getattr(cfg, "report7", object()), "summaries_dir", "outputs/report7/summaries"))
     df = _attach_condition(_load_trace_df(cfg))
     df["layer"] = df["layer"].astype(int)
 
